@@ -17,7 +17,6 @@ class Log {
     map['type'] = type;
     return map;
   }
-
   factory Log.fromMap(Map<String, dynamic> map) {
     return Log.withId(
         id: map['id'],

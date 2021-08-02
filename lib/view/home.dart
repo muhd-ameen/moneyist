@@ -3,7 +3,6 @@ import 'package:moneyist/widget//title_head.dart';
 import 'package:share/share.dart';
 
 class Home extends StatefulWidget {
-
   @override
   _HomeState createState() => _HomeState();
 }
@@ -78,117 +77,66 @@ class _HomeState extends State<Home> {
           )
         ],
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 10, vertical: 15),
-          child: Expanded(
-            child: Column(
-              children: [
-                Container(
-                  padding: EdgeInsets.symmetric(vertical: 30, horizontal: 25),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(14.0),
-                    color: Color(0xFF1A2E35),
-                  ),
-                  child: Column(
+      body: ListView.builder(
+        padding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
+        itemCount: 2,
+        itemBuilder: (BuildContext context, int index) {
+          if (index == 0) {
+            return Container(
+              padding: EdgeInsets.symmetric(vertical: 30, horizontal: 25),
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(14.0),
+                color: Color(0xFF1A2E35),
+              ),
+              child: Column(
+                children: [
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          TitleHead(
-                            Title: 'Income',
-                            money: 15000,
-                          ),
-                          SizedBox(
-                            child: Container(
-                              color: Colors.white,
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 25, horizontal: 1),
-                            ),
-                          ),
-                          TitleHead(
-                            Title: 'Expenses',
-                            money: 5000,
-                          ),
-                          SizedBox(
-                            child: Container(
-                              color: Colors.white,
-                              padding: EdgeInsets.symmetric(
-                                  vertical: 25, horizontal: 1),
-                            ),
-                          ),
-                          TitleHead(
-                            Title: 'Balance',
-                            money: 10000,
-                          ),
-                        ],
+                      TitleHead(
+                        Title: 'Income',
+                        money: 15000,
                       ),
                       SizedBox(
-                        height: 25,
+                        child: Container(
+                          color: Colors.white,
+                          padding:
+                              EdgeInsets.symmetric(vertical: 25, horizontal: 1),
+                        ),
                       ),
-                      Text(
-                        '27-07-2021 Sunday',
-                        style: TextStyle(
-                            fontSize: 14,
-                            fontWeight: FontWeight.w700,
-                            color: Colors.white),
-                      )
+                      TitleHead(
+                        Title: 'Expenses',
+                        money: 5000,
+                      ),
+                      SizedBox(
+                        child: Container(
+                          color: Colors.white,
+                          padding:
+                              EdgeInsets.symmetric(vertical: 25, horizontal: 1),
+                        ),
+                      ),
+                      TitleHead(
+                        Title: 'Balance',
+                        money: 10000,
+                      ),
                     ],
                   ),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Text(
-                  'Recent',
-                  style: TextStyle(
-                      fontWeight: FontWeight.w800,
-                      color: Color(0xFF777777),
-                      fontSize: 17),
-                ),
-                SizedBox(
-                  height: 10,
-                ),
-                Column(
-                  children: [
-                    SizedBox(
-                      height: 10,
-                    ),
-                    EventCard(),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    EventCard(),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    EventCard(),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    EventCard(),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    EventCard(),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    EventCard(),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    EventCard(),
-                    SizedBox(
-                      height: 10,
-                    ),
-                    EventCard(),
-                  ],
-                )
-              ],
-            ),
-          ),
-        ),
+                  SizedBox(
+                    height: 25,
+                  ),
+                  Text(
+                    '27-07-2021 Sunday',
+                    style: TextStyle(
+                        fontSize: 14,
+                        fontWeight: FontWeight.w700,
+                        color: Colors.white),
+                  )
+                ],
+              ),
+            );
+          }
+          return EventCard();
+        },
       ),
       drawer: Drawer(
         child: ListView(
@@ -245,7 +193,8 @@ class _HomeState extends State<Home> {
                   color: Colors.blueAccent),
               title: Text('Share App'),
               onTap: () {
-                Share.share('check out The Moneyist website https://example.com',
+                Share.share(
+                    'check out The Moneyist website https://example.com',
                     subject: 'Look what I made!');
               },
             ),
@@ -276,8 +225,6 @@ class _HomeState extends State<Home> {
 }
 
 class EventCard extends StatelessWidget {
-
-
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
@@ -285,7 +232,8 @@ class EventCard extends StatelessWidget {
         Navigator.pushNamed(context, '/EditTransaction');
       },
       child: Container(
-        padding: EdgeInsets.symmetric(vertical: 15),
+        margin: EdgeInsets.symmetric(vertical: 8),
+        padding: EdgeInsets.symmetric(vertical: 16),
         decoration: BoxDecoration(
           borderRadius: BorderRadius.circular(16.0),
           color: Color(0xFFF5F5F5),
