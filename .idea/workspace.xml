@@ -22,27 +22,15 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8c4899-9484-4229-99a2-a60c5510f080" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
+    <list default="true" id="7f8c4899-9484-4229-99a2-a60c5510f080" name="Default Changelist" comment="add transaction page completed">
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/NOTICES.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/NOTICES.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/NOTICES" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/NOTICES" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_build.d" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_build.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/debug-mergeJavaRes/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/debug-mergeJavaRes/merge-state" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/debug-mergeJavaRes/zip-cache/CIcMpkjHEJgf3_6MuMfuOS0dgNA=" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/debug-mergeJavaRes/zip-cache/CIcMpkjHEJgf3_6MuMfuOS0dgNA=" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/debug-mergeNativeLibs/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/debug-mergeNativeLibs/merge-state" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/debug-mergeNativeLibs/zip-cache/CIcMpkjHEJgf3_6MuMfuOS0dgNA=" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/debug-mergeNativeLibs/zip-cache/CIcMpkjHEJgf3_6MuMfuOS0dgNA=" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/NOTICES" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/NOTICES" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/kotlin/compileDebugKotlin/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/kotlin/compileDebugKotlin/build-history.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build/app/kotlin/compileDebugKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/kotlin/compileDebugKotlin/last-build.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" afterDir="false" />
@@ -50,8 +38,7 @@
       <change beforePath="$PROJECT_DIR$/lib/models/log_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/log_model.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/view/add_transaction.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/add_transaction.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/view/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/home.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/widget/title_head.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/title_head.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -106,6 +93,14 @@
       <option name="presentableId" value="Default" />
       <updated>1627410699932</updated>
     </task>
+    <task id="LOCAL-00001" summary="add transaction page completed">
+      <created>1627925529233</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1627925529233</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -120,31 +115,47 @@
     </option>
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="add transaction page completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="add transaction page completed" />
+  </component>
   <component name="WindowStateProjectService">
+    <state x="734" y="392" width="432" height="257" key="#Updates" timestamp="1627987795756">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="734" y="392" width="432" height="257" key="#Updates/0.0.1920.1080@0.0.1920.1080" timestamp="1627987795756" />
+    <state x="643" y="263" width="624" height="519" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog" timestamp="1627987821267">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="643" y="263" width="624" height="519" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1627987821267" />
     <state x="738" y="267" width="424" height="508" key="FileChooserDialogImpl" timestamp="1627630372093">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="738" y="267" width="424" height="508" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1627630372093" />
-    <state width="1876" height="214" key="GridCell.Tab.0.bottom" timestamp="1627923815715">
+    <state width="1876" height="340" key="GridCell.Tab.0.bottom" timestamp="1627987750931">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1876" height="214" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1627923815715" />
-    <state width="1876" height="214" key="GridCell.Tab.0.center" timestamp="1627923815714">
+    <state width="1876" height="340" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1627987750931" />
+    <state width="1876" height="340" key="GridCell.Tab.0.center" timestamp="1627987750930">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1876" height="214" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1627923815714" />
-    <state width="1876" height="214" key="GridCell.Tab.0.left" timestamp="1627923815713">
+    <state width="1876" height="340" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1627987750930" />
+    <state width="1876" height="340" key="GridCell.Tab.0.left" timestamp="1627987750930">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1876" height="214" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1627923815713" />
-    <state width="1876" height="214" key="GridCell.Tab.0.right" timestamp="1627923815715">
+    <state width="1876" height="340" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1627987750930" />
+    <state width="1876" height="340" key="GridCell.Tab.0.right" timestamp="1627987750931">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1876" height="214" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1627923815715" />
+    <state width="1876" height="340" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1627987750931" />
     <state x="0" y="90" key="SettingsEditor" timestamp="1627923047775">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="0" y="90" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1627923047775" />
+    <state x="555" y="260" width="800" height="525" key="Vcs.Push.Dialog.v2" timestamp="1627925538785">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="555" y="260" width="800" height="525" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1627925538785" />
     <state x="100" y="100" width="1720" height="848" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1627922392205">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

@@ -1,4 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
+import 'package:moneyist/helpers/database_helper.dart';
+import 'package:moneyist/models/log_model.dart';
+import 'package:moneyist/view/add_transaction.dart';
 import 'package:moneyist/widget//title_head.dart';
 import 'package:share/share.dart';
 
@@ -11,6 +15,76 @@ class _HomeState extends State<Home> {
   GlobalKey<ScaffoldState> _scaffoldKey = GlobalKey<ScaffoldState>();
   String dropdownValue = 'Jan';
 
+  Future<List<Log>> _logList;
+  final DateFormat _dateFormatter = DateFormat('MMM dd, yyyy');
+  DateTime _date = DateTime.now();
+
+  @override
+  void initState() {
+    _updateLogList();
+    super.initState();
+    isSelected = [true, false];
+  }
+
+  _updateLogList() {
+    setState(() {
+      _logList = DatabaseHelper.instance.getLogList();
+    });
+  }
+
+  Widget _logCard(Log log) {
+    return GestureDetector(
+      onTap: () {
+        Navigator.push(
+            context,
+            MaterialPageRoute(
+                builder: (_) =>
+                    AddTransaction(updateLogList: _updateLogList(), log: log)));
+      },
+      child: Container(
+        margin: EdgeInsets.symmetric(vertical: 8),
+        padding: EdgeInsets.symmetric(vertical: 16),
+        decoration: BoxDecoration(
+          borderRadius: BorderRadius.circular(16.0),
+          color: Color(0xFFF5F5F5),
+        ),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+          children: [
+            CircleAvatar(
+              child: Image.asset('assets/images/expense.png'),
+            ),
+            Column(
+              children: [
+                Text(
+                  log.title,
+                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
+                ),
+                Text(
+                  '${_dateFormatter.format(log.date)} • ${log.type}',
+                  style: TextStyle(
+                      fontSize: 11,
+                      color: Color(0xFF868686),
+                      fontWeight: FontWeight.w800),
+                ),
+              ],
+            ),
+            Text(
+              '₹${log.amount}',
+              style: TextStyle(
+                  color: Colors.redAccent,
+                  fontSize: 16,
+                  fontWeight: FontWeight.w800),
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  List<bool> isSelected;
+  String _chosenValue;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -18,7 +92,15 @@ class _HomeState extends State<Home> {
       floatingActionButton: FloatingActionButton(
         child: const Icon(Icons.add),
         onPressed: () {
-          Navigator.pushNamed(context, '/AddTransaction');
+          // Navigator.pushNamed(context, '/AddTransaction');
+          Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (_) => AddTransaction(
+                updateLogList: _updateLogList(),
+              ),
+            ),
+          );
         },
         backgroundColor: Color(0xFFFF4F5A),
       ),
@@ -77,65 +159,122 @@ class _HomeState extends State<Home> {
           )
         ],
       ),
-      body: ListView.builder(
-        padding: EdgeInsets.symmetric(vertical: 10,horizontal: 10),
-        itemCount: 2,
-        itemBuilder: (BuildContext context, int index) {
-          if (index == 0) {
-            return Container(
-              padding: EdgeInsets.symmetric(vertical: 30, horizontal: 25),
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(14.0),
-                color: Color(0xFF1A2E35),
-              ),
-              child: Column(
-                children: [
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: [
-                      TitleHead(
-                        Title: 'Income',
-                        money: 15000,
-                      ),
-                      SizedBox(
-                        child: Container(
-                          color: Colors.white,
-                          padding:
-                              EdgeInsets.symmetric(vertical: 25, horizontal: 1),
-                        ),
-                      ),
-                      TitleHead(
-                        Title: 'Expenses',
-                        money: 5000,
-                      ),
-                      SizedBox(
-                        child: Container(
-                          color: Colors.white,
-                          padding:
-                              EdgeInsets.symmetric(vertical: 25, horizontal: 1),
-                        ),
-                      ),
-                      TitleHead(
-                        Title: 'Balance',
-                        money: 10000,
-                      ),
-                    ],
-                  ),
-                  SizedBox(
-                    height: 25,
-                  ),
-                  Text(
-                    '27-07-2021 Sunday',
-                    style: TextStyle(
-                        fontSize: 14,
-                        fontWeight: FontWeight.w700,
-                        color: Colors.white),
-                  )
-                ],
-              ),
+      body: FutureBuilder(
+        future: _logList,
+        builder: (context, snapshot) {
+          if (!snapshot.hasData) {
+            return Center(
+              child: CircularProgressIndicator(),
             );
           }
-          return EventCard();
+          return ListView.builder(
+            padding: EdgeInsets.symmetric(vertical: 10, horizontal: 10),
+            itemCount: 1 + snapshot.data.length,
+            itemBuilder: (BuildContext context, int index) {
+              if (index == 0) {
+                return Column(
+                  children: [
+                    Container(
+                      padding:
+                          EdgeInsets.symmetric(vertical: 30, horizontal: 25),
+                      decoration: BoxDecoration(
+                        borderRadius: BorderRadius.circular(14.0),
+                        color: Color(0xFF1A2E35),
+                      ),
+                      child: Column(
+                        children: [
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              TitleHead(
+                                Title: 'Income',
+                                money: income,
+                              ),
+                              SizedBox(
+                                child: Container(
+                                  color: Colors.white,
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 25, horizontal: 1),
+                                ),
+                              ),
+                              TitleHead(
+                                Title: 'Expenses',
+                                money: expense,
+                              ),
+                              SizedBox(
+                                child: Container(
+                                  color: Colors.white,
+                                  padding: EdgeInsets.symmetric(
+                                      vertical: 25, horizontal: 1),
+                                ),
+                              ),
+                              TitleHead(
+                                Title: 'Balance',
+                                money: balance,
+                              ),
+                            ],
+                          ),
+                          SizedBox(
+                            height: 25,
+                          ),
+                          Text(
+                            '${_dateFormatter.format(_date)}',
+                            style: TextStyle(
+                                fontSize: 14,
+                                fontWeight: FontWeight.w700,
+                                color: Colors.white),
+                          )
+                        ],
+                      ),
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                    ToggleButtons(
+                      borderColor: Colors.grey,
+                      fillColor: Colors.blueAccent,
+                      borderWidth: 0,
+                      selectedBorderColor: Colors.black,
+                      selectedColor: Colors.white,
+                      borderRadius: BorderRadius.circular(8),
+                      children: const <Widget>[
+                        Padding(
+                          padding:
+                              EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+                          child: Text(
+                            'Income',
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                        Padding(
+                          padding:
+                              EdgeInsets.symmetric(vertical: 5, horizontal: 30),
+                          child: Text(
+                            'Expense',
+                            style: TextStyle(
+                                fontSize: 16, fontWeight: FontWeight.bold),
+                          ),
+                        ),
+                      ],
+                      onPressed: (int index) {
+                        setState(() {
+                          for (int i = 0; i < isSelected.length; i++) {
+                            isSelected[i] = i == index;
+                          }
+                        });
+                      },
+                      isSelected: isSelected,
+                    ),
+                    SizedBox(
+                      height: 15,
+                    ),
+                  ],
+                );
+              }
+              return _logCard(snapshot.data[index - 1]);
+            },
+          );
         },
       ),
       drawer: Drawer(
@@ -216,55 +355,6 @@ class _HomeState extends State<Home> {
                   onPressed: () {},
                 ),
               ],
-            ),
-          ],
-        ),
-      ),
-    );
-  }
-}
-
-class EventCard extends StatelessWidget {
-  @override
-  Widget build(BuildContext context) {
-    return GestureDetector(
-      onTap: () {
-        Navigator.pushNamed(context, '/EditTransaction');
-      },
-      child: Container(
-        margin: EdgeInsets.symmetric(vertical: 8),
-        padding: EdgeInsets.symmetric(vertical: 16),
-        decoration: BoxDecoration(
-          borderRadius: BorderRadius.circular(16.0),
-          color: Color(0xFFF5F5F5),
-        ),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            CircleAvatar(
-              child: Image.asset('assets/images/welcome.png'),
-            ),
-            Column(
-              children: [
-                Text(
-                  'Netflix Upgradation',
-                  style: TextStyle(fontSize: 15, fontWeight: FontWeight.w800),
-                ),
-                Text(
-                  '27-07-2022  05:30 PM',
-                  style: TextStyle(
-                      fontSize: 11,
-                      color: Color(0xFF868686),
-                      fontWeight: FontWeight.w800),
-                ),
-              ],
-            ),
-            Text(
-              '₹ 849',
-              style: TextStyle(
-                  color: Colors.redAccent,
-                  fontSize: 16,
-                  fontWeight: FontWeight.w800),
             ),
           ],
         ),

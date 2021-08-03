@@ -1,11 +1,20 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:moneyist/Consanants/consanants.dart';
+import 'package:moneyist/helpers/database_helper.dart';
+import 'package:moneyist/models/log_model.dart';
 
 class AddTransaction extends StatefulWidget {
+  final Log log;
+  final Function updateLogList;
+
+  const AddTransaction({this.log, this.updateLogList});
   @override
   _AddTransactionState createState() => _AddTransactionState();
 }
+
+int income = 0;
+int expense = 0;
+int balance = 0;
 
 class _AddTransactionState extends State<AddTransaction> {
   final _formKey = GlobalKey<FormState>();
@@ -17,12 +26,40 @@ class _AddTransactionState extends State<AddTransaction> {
   final DateFormat _dateFormatter = DateFormat('MMM dd,yyyy');
 
   final List<String> _types = ['Income', 'Expense'];
+  final List<String> _categories = ['Rental', 'Salary'];
+
+  @override
+  void initState() {
+    super.initState();
+    // isSelected = [true, false];
+    if (widget.log != null) {
+      _title = widget.log.title;
+      _amount = widget.log.amount;
+      _date = widget.log.date;
+      _type = widget.log.type;
+    }
+    _dateController.text = _dateFormatter.format(_date);
+  }
+
+  @override
+  void dispose() {
+    _dateController.dispose();
+    super.dispose();
+  }
 
   _submit() {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
       print('$_title ${_dateFormatter.format(_date)} $_type $_amount');
-      Navigator.pushNamed(context, '/home');
+
+      Log log = Log(title: _title, amount: _amount, date: _date, type: _type);
+      if (widget.log == null) {
+        DatabaseHelper.instance.insertLog(log);
+      } else {
+        DatabaseHelper.instance.updateLog(log);
+      }
+      widget.updateLogList();
+      Navigator.pop(context);
     }
   }
 
@@ -43,13 +80,6 @@ class _AddTransactionState extends State<AddTransaction> {
 
   // List<bool> isSelected;
   // String _chosenValue;
-
-  @override
-  void initState() {
-    // isSelected = [true, false];
-    super.initState();
-    print('${DateTime.now()}');
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -112,8 +142,8 @@ class _AddTransactionState extends State<AddTransaction> {
                             borderRadius: BorderRadius.circular(10.0),
                           ),
                         ),
-                        validator: (input) =>
-                            _amount == null ? 'Please Enter a amount' : null,
+                        // validator: (input) =>
+                        //     _amount == null ? 'Please Enter a amount' : null,
                         onSaved: (input) => _amount = input,
                       ),
                       SizedBox(
@@ -171,6 +201,43 @@ class _AddTransactionState extends State<AddTransaction> {
                           });
                         },
                         value: _type,
+                      ),
+                      SizedBox(
+                        height: 25,
+                      ),
+                      DropdownButtonFormField(
+                        isDense: true,
+                        icon: Icon(Icons.arrow_drop_down_circle),
+                        iconSize: 22,
+                        iconEnabledColor: Colors.redAccent,
+                        items: _categories.map((String type) {
+                          return DropdownMenuItem(
+                            value: type,
+                            child: Text(
+                              type,
+                              style: TextStyle(
+                                color: Colors.black,
+                                fontSize: 18,
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                        style: TextStyle(fontSize: 18),
+                        decoration: InputDecoration(
+                          labelText: 'Categories',
+                          labelStyle: TextStyle(fontSize: 18.0),
+                          border: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(10.0),
+                          ),
+                        ),
+                        validator: (input) =>
+                        _categories == null ? 'Please Select a Category Type' : null,
+                        onChanged: (value) {
+                          // setState(() {
+                          //   _categories = value;
+                          // });
+                        },
+                        // value: _categories,
                       ),
                     ],
                   ),

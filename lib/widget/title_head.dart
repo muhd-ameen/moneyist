@@ -1,8 +1,11 @@
 import 'package:flutter/material.dart';
 
 class TitleHead extends StatelessWidget {
-  const TitleHead({this.Title, this.money,});
-  final String Title;
+  const TitleHead({
+    this.Title,
+    this.money,
+  });
+  final Title;
   final int money;
   @override
   Widget build(BuildContext context) {
