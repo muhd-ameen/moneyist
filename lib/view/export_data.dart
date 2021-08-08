@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:moneyist/screens/home_screen.dart';
 
 class ExportData extends StatefulWidget {
   @override
@@ -32,7 +33,10 @@ class _ExportDataState extends State<ExportData> {
             Icons.arrow_back,
             color: Colors.black,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => HomeScreen()));
+          },
         ),
         centerTitle: true,
         title: Text(

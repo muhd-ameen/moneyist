@@ -24,19 +24,19 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: HomeScreen(),
-      // routes: <String, WidgetBuilder>{
-      //   // '/': (BuildContext ctx) => SplashScreen(),
-      //   '/welcome': (BuildContext ctx) => Welcome(),
-      //   '/home': (BuildContext ctx) => Home(),
-      //   '/setting': (BuildContext ctx) => Settings(),
-      //   '/AddTransaction': (BuildContext ctx) => AddTransaction(),
-      //   '/AddCategory': (BuildContext ctx) => AddCategory(),
-      //   '/ExportData': (BuildContext ctx) => ExportData(),
-      //   '/Support': (BuildContext ctx) => Support(),
-      //   '/EditTransaction': (BuildContext ctx) => EditTransaction(),
-      //   '/Rating': (BuildContext ctx) => Rating(),
-      // },
+      home: SplashScreen(),
+      routes: <String, WidgetBuilder>{
+        // '/': (BuildContext ctx) => SplashScreen(),
+        '/welcome': (BuildContext ctx) => Welcome(),
+        '/home': (BuildContext ctx) => HomeScreen(),
+        '/setting': (BuildContext ctx) => Settings(),
+        // '/AddTransaction': (BuildContext ctx) => AddTransaction(),
+        '/AddCategory': (BuildContext ctx) => AddCategory(),
+        '/ExportData': (BuildContext ctx) => ExportData(),
+        '/Support': (BuildContext ctx) => Support(),
+        '/EditTransaction': (BuildContext ctx) => EditTransaction(),
+        '/Rating': (BuildContext ctx) => Rating(),
+      },
     );
   }
 }

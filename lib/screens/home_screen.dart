@@ -16,7 +16,7 @@ class HomeScreen extends StatefulWidget {
 class _HomeScreenState extends State<HomeScreen> {
   TodoService _todoService;
   List<Transaction> _todoList = List<Transaction>();
-  DateTime _date = DateTime.now();
+  var model = Repository();
 
   @override
   initState() {
@@ -106,16 +106,24 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
-  var model = Repository();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
-        title: Text('MONEYIST'),
+        elevation: 0,
+        backgroundColor: Colors.white,
+        title: Text(
+          'MONEYIST',
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
       ),
       drawer: DrawerNavigaton(),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {Navigator.of(context)
+        onPressed: () {
+          Navigator.of(context)
               .push(MaterialPageRoute(builder: (context) => TodoScreen()));
         },
         child: Icon(Icons.add),

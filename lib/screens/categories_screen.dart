@@ -202,16 +202,16 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
     return Scaffold(
       key: _globalKey,
       appBar: AppBar(
-        leading: RaisedButton(
-          onPressed: () => Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => HomeScreen())),
-          elevation: 0.0,
-          child: Icon(
-            Icons.arrow_back,
-            color: Colors.white,
-          ),
-          color: Colors.blue,
-        ),
+        // leading: RaisedButton(
+        //   onPressed: () => Navigator.of(context)
+        //       .push(MaterialPageRoute(builder: (context) => HomeScreen())),
+        //   elevation: 0.0,
+        //   child: Icon(
+        //     Icons.arrow_back,
+        //     color: Colors.black,
+        //   ),
+        //   // color: Colors.blue,
+        // ),
         title: Text('Categories'),
       ),
       body: ListView.builder(

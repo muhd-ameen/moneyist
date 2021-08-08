@@ -104,23 +104,33 @@
 70                android:resource="@xml/flutter_image_picker_file_paths" />
 70-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:15:17-72
 71        </provider>
-72        <provider
-72-->[:share] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-16:20
-73            android:name="io.flutter.plugins.share.ShareFileProvider"
-73-->[:share] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-70
-74            android:authorities="com.example.moneyist.flutter.share_provider"
-74-->[:share] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:10:13-74
+72
+73        <activity
+73-->[:url_launcher] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-11:74
+74            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
+74-->[:url_launcher] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-74
 75            android:exported="false"
-75-->[:share] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-37
-76            android:grantUriPermissions="true" >
-76-->[:share] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-47
-77            <meta-data
-77-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-15:75
-78                android:name="android.support.FILE_PROVIDER_PATHS"
-78-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:14:17-67
-79                android:resource="@xml/flutter_share_file_paths" />
-79-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:15:17-72
-80        </provider>
-81    </application>
-82
-83</manifest>
+75-->[:url_launcher] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:10:13-37
+76            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
+76-->[:url_launcher] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-71
+77
+78        <provider
+78-->[:share] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-16:20
+79            android:name="io.flutter.plugins.share.ShareFileProvider"
+79-->[:share] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-70
+80            android:authorities="com.example.moneyist.flutter.share_provider"
+80-->[:share] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:10:13-74
+81            android:exported="false"
+81-->[:share] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-37
+82            android:grantUriPermissions="true" >
+82-->[:share] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-47
+83            <meta-data
+83-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-15:75
+84                android:name="android.support.FILE_PROVIDER_PATHS"
+84-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:14:17-67
+85                android:resource="@xml/flutter_share_file_paths" />
+85-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:15:17-72
+86        </provider>
+87    </application>
+88
+89</manifest>

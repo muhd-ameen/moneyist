@@ -28,8 +28,8 @@ class _TodosByCategoryState extends State<TodosByCategory> {
         var model = Transaction();
         model.title = todo['title'];
         model.amount = todo['amount'];
+        model.category = todo['category'];
         model.transactionDate = todo['transactionDate'];
-
         _todoList.add(model);
       });
     });
@@ -58,7 +58,9 @@ class _TodosByCategoryState extends State<TodosByCategory> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             CircleAvatar(
-                              child: Image.asset('assets/images/expense.png'),
+                              child: _todoList[index].category == 'Income'
+                                  ? Image.asset('assets/images/income.png')
+                                  : Image.asset('assets/images/expense.png'),
                             ),
                             Column(
                               children: [

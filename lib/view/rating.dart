@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:moneyist/screens/home_screen.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Rating extends StatefulWidget {
   @override
@@ -7,7 +9,7 @@ class Rating extends StatefulWidget {
 }
 
 class _RatingState extends State<Rating> {
-   double _rating;
+  double _rating;
 
   int _ratingBarMode = 1;
   double _initialRating = 3.0;
@@ -36,7 +38,10 @@ class _RatingState extends State<Rating> {
             Icons.arrow_back,
             color: Colors.black,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => HomeScreen()));
+          },
         ),
       ),
       body: Directionality(
@@ -52,7 +57,7 @@ class _RatingState extends State<Rating> {
                     SizedBox(
                       height: 40.0,
                     ),
-                    _heading('Rating Bar'),
+                    _heading('Enjoying the App?'),
                     _ratingBar(_ratingBarMode),
                     SizedBox(height: 20.0),
                     Text(
@@ -60,13 +65,21 @@ class _RatingState extends State<Rating> {
                       style: TextStyle(fontWeight: FontWeight.bold),
                     ),
                     SizedBox(height: 20),
-
                     RaisedButton.icon(
-                      onPressed: () {},
+                      onPressed: () async {
+                        const url =
+                            'https://play.google.com/store/apps/developer?id=Codeslayers+team';
+                        if (await canLaunch(url)) {
+                          await launch(url);
+                        } else {
+                          throw 'Could not launch $url';
+                        }
+                      },
                       color: Color(0xFF3C354C),
                       shape: RoundedRectangleBorder(
                           borderRadius: BorderRadius.circular(10)),
-                      padding: EdgeInsets.symmetric(horizontal: 60, vertical: 10),
+                      padding:
+                          EdgeInsets.symmetric(horizontal: 60, vertical: 10),
                       label: Text(
                         'Rate Us Now',
                         style: TextStyle(
@@ -82,7 +95,6 @@ class _RatingState extends State<Rating> {
                   ],
                 ),
               ),
-
               SizedBox(height: 60),
               Image.asset('assets/images/rate-us.png'),
             ],
