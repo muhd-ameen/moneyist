@@ -22,23 +22,501 @@
     <select />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="7f8c4899-9484-4229-99a2-a60c5510f080" name="Default Changelist" comment="add transaction page completed">
+    <list default="true" id="7f8c4899-9484-4229-99a2-a60c5510f080" name="Default Changelist" comment="+ transaction db setup completed&#10;+ create,delete,edit,read category completed&#10;+ income expense color change valuated&#10;+ create transaction page validated&#10;+ drawer completed">
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/.filecache" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/app.dill" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/debug_android_application.stamp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/flutter_assets.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/gen_localizations.stamp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/kernel_snapshot.d" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/kernel_snapshot.stamp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/outputs.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/Dart_SDK.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/modules.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/moneyist.iml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/runConfigurations.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/assets/images/income.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/assets/images/income.png.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/assets/images/income.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/debug-mergeJavaRes/zip-cache/DvUk1bCLJWGmAvCS_uhum7Er0WU=" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/debug-mergeJavaRes/zip-cache/pPuSQbokfe1wQNvghEMjkI9g7XA=" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/debug-mergeNativeLibs/zip-cache/DvUk1bCLJWGmAvCS_uhum7Er0WU=" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/debug-mergeNativeLibs/zip-cache/pPuSQbokfe1wQNvghEMjkI9g7XA=" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/assets/images/income.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/project_dex_archive/debug/out/f28a16c26cb585a0b60235272a94d587d44b8ae4e6c734cc4ccabe20b8038214_0.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/project_dex_archive/debug/out/f28a16c26cb585a0b60235272a94d587d44b8ae4e6c734cc4ccabe20b8038214_1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/project_dex_archive/debug/out/f28a16c26cb585a0b60235272a94d587d44b8ae4e6c734cc4ccabe20b8038214_2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/app/intermediates/project_dex_archive/debug/out/f28a16c26cb585a0b60235272a94d587d44b8ae4e6c734cc4ccabe20b8038214_3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/.transforms/6c93a12ce3287344b1fad183a3f4aba8.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/.transforms/6c93a12ce3287344b1fad183a3f4aba8/classes/classes.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/generated/source/buildConfig/debug/io/flutter/plugins/flutter_plugin_android_lifecycle/BuildConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/aapt_friendly_merged_manifests/debug/aapt/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/aapt_friendly_merged_manifests/debug/aapt/output-metadata.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/aar_main_jar/debug/classes.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/aar_metadata/debug/aar-metadata.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/annotation_processor_list/debug/annotationProcessors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/annotations_typedef_file/debug/typedefs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/compile_library_classes_jar/debug/classes.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/compile_r_class_jar/debug/R.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/compile_symbol_list/debug/R.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/incremental/debug-mergeJavaRes/merge-state" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/incremental/mergeDebugShaders/merger.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/incremental/packageDebugAssets/merger.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/incremental/packageDebugResources/merger.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/javac/debug/classes/io/flutter/embedding/engine/plugins/lifecycle/FlutterLifecycleAdapter.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/javac/debug/classes/io/flutter/plugins/flutter_plugin_android_lifecycle/BuildConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/javac/debug/classes/io/flutter/plugins/flutter_plugin_android_lifecycle/FlutterAndroidLifecyclePlugin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/library_manifest/debug/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/local_only_symbol_list/debug/R-def.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/merged_consumer_proguard_file/debug/proguard.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/merged_java_res/debug/out.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/navigation_json/debug/navigation.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/packaged_manifests/debug/output-metadata.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/runtime_library_classes_jar/debug/classes.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/outputs/aar/flutter_plugin_android_lifecycle-debug.aar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/flutter_plugin_android_lifecycle/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/.transforms/bb01fa8c3316de9ebb142a20a33dbd0c.bin" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/.transforms/bb01fa8c3316de9ebb142a20a33dbd0c/classes/classes.dex" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/generated/source/buildConfig/debug/io/flutter/plugins/imagepicker/BuildConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/aapt_friendly_merged_manifests/debug/aapt/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/aapt_friendly_merged_manifests/debug/aapt/output-metadata.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/aar_main_jar/debug/classes.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/aar_metadata/debug/aar-metadata.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/annotation_processor_list/debug/annotationProcessors.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/annotations_typedef_file/debug/typedefs.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/compile_library_classes_jar/debug/classes.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/compile_r_class_jar/debug/R.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/compile_symbol_list/debug/R.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/compiled_local_resources/debug/out/xml_flutter_image_picker_file_paths.xml.flat" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/debug-mergeJavaRes/merge-state" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugJniLibFolders/merger.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-af/values-af.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-am/values-am.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-ar/values-ar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-as/values-as.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-az/values-az.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-b+sr+Latn/values-b+sr+Latn.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-be/values-be.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-bg/values-bg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-bn/values-bn.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-bs/values-bs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-ca/values-ca.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-cs/values-cs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-da/values-da.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-de/values-de.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-el/values-el.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rAU/values-en-rAU.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rCA/values-en-rCA.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rGB/values-en-rGB.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rIN/values-en-rIN.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rXC/values-en-rXC.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-es-rUS/values-es-rUS.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-es/values-es.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-et/values-et.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-eu/values-eu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-fa/values-fa.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-fi/values-fi.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-fr-rCA/values-fr-rCA.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-fr/values-fr.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-gl/values-gl.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-gu/values-gu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-hi/values-hi.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-hr/values-hr.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-hu/values-hu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-hy/values-hy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-in/values-in.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-is/values-is.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-it/values-it.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-iw/values-iw.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-ja/values-ja.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-ka/values-ka.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-kk/values-kk.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-km/values-km.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-kn/values-kn.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-ko/values-ko.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-ky/values-ky.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-lo/values-lo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-lt/values-lt.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-lv/values-lv.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-mk/values-mk.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-ml/values-ml.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-mn/values-mn.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-mr/values-mr.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-ms/values-ms.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-my/values-my.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-nb/values-nb.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-ne/values-ne.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-nl/values-nl.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-or/values-or.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-pa/values-pa.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-pl/values-pl.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-pt-rBR/values-pt-rBR.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-pt-rPT/values-pt-rPT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-pt/values-pt.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-ro/values-ro.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-ru/values-ru.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-si/values-si.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-sk/values-sk.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-sl/values-sl.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-sq/values-sq.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-sr/values-sr.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-sv/values-sv.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-sw/values-sw.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-ta/values-ta.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-te/values-te.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-th/values-th.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-tl/values-tl.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-tr/values-tr.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-uk/values-uk.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-ur/values-ur.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-uz/values-uz.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-v16/values-v16.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-v21/values-v21.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-vi/values-vi.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rCN/values-zh-rCN.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rHK/values-zh-rHK.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rTW/values-zh-rTW.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values-zu/values-zu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugResources/merger.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/mergeDebugShaders/merger.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/packageDebugAssets/merger.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/packageDebugResources/compile-file-map.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/incremental/packageDebugResources/merger.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/BuildConfig.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/CameraDevice.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ExifDataCopier.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/FileUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerCache.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$3$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$4.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$5.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$FileUriResolver.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$IntentResolver.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$OnPathReadyListener.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$PermissionManager.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerFileProvider.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerPlugin$LifeCycleObserver.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerPlugin$MethodResultWrapper$1.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerPlugin$MethodResultWrapper$2.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerPlugin$MethodResultWrapper$3.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerPlugin$MethodResultWrapper.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerPlugin.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerUtils.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImageResizer.class" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/local_only_symbol_list/debug/R-def.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_java_res/debug/out.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-af.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-am.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-ar.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-as.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-az.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-b+sr+Latn.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-be.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-bg.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-bn.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-bs.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-ca.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-cs.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-da.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-de.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-el.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-en-rAU.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-en-rCA.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-en-rGB.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-en-rIN.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-en-rXC.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-es-rUS.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-es.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-et.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-eu.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-fa.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-fi.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-fr-rCA.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-fr.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-gl.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-gu.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-hi.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-hr.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-hu.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-hy.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-in.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-is.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-it.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-iw.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-ja.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-ka.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-kk.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-km.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-kn.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-ko.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-ky.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-lo.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-lt.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-lv.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-mk.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-ml.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-mn.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-mr.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-ms.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-my.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-nb.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-ne.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-nl.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-or.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-pa.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-pl.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-pt-rBR.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-pt-rPT.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-pt.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-ro.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-ru.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-si.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-sk.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-sl.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-sq.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-sr.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-sv.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-sw.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-ta.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-te.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-th.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-tl.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-tr.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-uk.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-ur.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-uz.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-v16.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-v21.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-vi.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-zh-rCN.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-zh-rHK.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-zh-rTW.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values-zu.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/multi-v2/values.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/single/drawable-hdpi-v4.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/single/drawable-mdpi-v4.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/single/drawable-v21.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/single/drawable-xhdpi-v4.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/single/drawable.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/single/layout-v16.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/single/layout-v21.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/single/layout.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/merged_res_blame_folder/debug/out/single/xml.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/navigation_json/debug/navigation.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/packaged_manifests/debug/output-metadata.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/packaged_res/debug/xml/flutter_image_picker_file_paths.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/drawable-hdpi-v4/notification_bg_low_normal.9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/drawable-hdpi-v4/notification_bg_low_pressed.9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/drawable-hdpi-v4/notification_bg_normal.9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/drawable-hdpi-v4/notification_bg_normal_pressed.9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/drawable-hdpi-v4/notify_panel_notification_icon_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/drawable-mdpi-v4/notification_bg_low_normal.9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/drawable-mdpi-v4/notification_bg_low_pressed.9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/drawable-mdpi-v4/notification_bg_normal.9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/drawable-mdpi-v4/notification_bg_normal_pressed.9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/drawable-mdpi-v4/notify_panel_notification_icon_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/drawable-v21/notification_action_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/drawable-xhdpi-v4/notification_bg_low_normal.9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/drawable-xhdpi-v4/notification_bg_low_pressed.9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/drawable-xhdpi-v4/notification_bg_normal.9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/drawable-xhdpi-v4/notification_bg_normal_pressed.9.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/drawable-xhdpi-v4/notify_panel_notification_icon_bg.png" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/drawable/notification_bg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/drawable/notification_bg_low.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/drawable/notification_icon_background.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/drawable/notification_tile_bg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/layout-v16/notification_template_custom_big.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/layout-v21/notification_action.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/layout-v21/notification_action_tombstone.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/layout-v21/notification_template_custom_big.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/layout-v21/notification_template_icon_group.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/layout/custom_dialog.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/layout/notification_action.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/layout/notification_action_tombstone.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/layout/notification_template_icon_group.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/layout/notification_template_part_chronometer.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/layout/notification_template_part_time.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-af/values-af.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-am/values-am.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-ar/values-ar.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-as/values-as.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-az/values-az.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-b+sr+Latn/values-b+sr+Latn.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-be/values-be.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-bg/values-bg.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-bn/values-bn.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-bs/values-bs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-ca/values-ca.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-cs/values-cs.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-da/values-da.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-de/values-de.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-el/values-el.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-en-rAU/values-en-rAU.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-en-rCA/values-en-rCA.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-en-rGB/values-en-rGB.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-en-rIN/values-en-rIN.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-en-rXC/values-en-rXC.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-es-rUS/values-es-rUS.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-es/values-es.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-et/values-et.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-eu/values-eu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-fa/values-fa.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-fi/values-fi.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-fr-rCA/values-fr-rCA.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-fr/values-fr.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-gl/values-gl.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-gu/values-gu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-hi/values-hi.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-hr/values-hr.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-hu/values-hu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-hy/values-hy.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-in/values-in.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-is/values-is.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-it/values-it.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-iw/values-iw.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-ja/values-ja.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-ka/values-ka.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-kk/values-kk.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-km/values-km.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-kn/values-kn.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-ko/values-ko.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-ky/values-ky.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-lo/values-lo.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-lt/values-lt.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-lv/values-lv.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-mk/values-mk.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-ml/values-ml.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-mn/values-mn.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-mr/values-mr.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-ms/values-ms.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-my/values-my.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-nb/values-nb.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-ne/values-ne.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-nl/values-nl.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-or/values-or.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-pa/values-pa.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-pl/values-pl.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-pt-rBR/values-pt-rBR.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-pt-rPT/values-pt-rPT.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-pt/values-pt.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-ro/values-ro.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-ru/values-ru.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-si/values-si.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-sk/values-sk.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-sl/values-sl.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-sq/values-sq.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-sr/values-sr.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-sv/values-sv.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-sw/values-sw.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-ta/values-ta.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-te/values-te.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-th/values-th.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-tl/values-tl.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-tr/values-tr.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-uk/values-uk.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-ur/values-ur.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-uz/values-uz.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-v16/values-v16.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-v21/values-v21.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-vi/values-vi.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-zh-rCN/values-zh-rCN.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-zh-rHK/values-zh-rHK.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-zh-rTW/values-zh-rTW.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values-zu/values-zu.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/values/values.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/res/merged/debug/xml/flutter_image_picker_file_paths.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/runtime_library_classes_jar/debug/classes.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/outputs/aar/image_picker-debug.aar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/build/image_picker/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/generated_plugin_registrant.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/helpers/drawer_navigation.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/category.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/models/transaction.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/repositories/database_connection.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/repositories/repository.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/categories_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/home_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/todo_screen.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/screens/todos_by_category.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/services/category_service.dart" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/services/transaction_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compile_and_runtime_not_namespaced_r_class_jar/debug/R.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/AssetManifest.json.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/AssetManifest.json.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/NOTICES.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/NOTICES.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/dex_archive_input_jar_hashes/debug/out" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/dex_archive_input_jar_hashes/debug/out" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/external_libs_dex/debug/mergeExtDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/external_libs_dex/debug/mergeExtDexDebug/classes.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/AssetManifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/AssetManifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/NOTICES" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/NOTICES" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_build.d" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_build.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/debug-mergeJavaRes/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/debug-mergeJavaRes/merge-state" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/debug-mergeNativeLibs/merge-state" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/debug-mergeNativeLibs/merge-state" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/mergeDebugAssets/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/mergeDebugAssets/merger.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/mergeDebugResources/compile-file-map.properties" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/mergeDebugResources/merger.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/mergeDebugResources/merger.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/zip-cache/androidResources" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/zip-cache/javaResources0" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/zip-cache/javaResources0" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/javac/debug/classes/io/flutter/plugins/GeneratedPluginRegistrant.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/javac/debug/classes/io/flutter/plugins/GeneratedPluginRegistrant.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/manifest_merge_blame_file/debug/manifest-merger-blame-debug-report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/AssetManifest.json" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/AssetManifest.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/NOTICES" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/NOTICES" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_java_res/debug/out.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_java_res/debug/out.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_manifest/debug/out/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_manifest/debug/out/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_manifests/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_manifests/debug/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/packaged_manifests/debug/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/packaged_manifests/debug/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/processed_res/debug/out/resources-debug.ap_" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/processed_res/debug/out/resources-debug.ap_" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/project_dex_archive/debug/out/d3300a523c096bb12ef81e18a771b4d9d6e3f9938ad1811f1e2e39a9c9cf841e_0.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/project_dex_archive/debug/out/d3300a523c096bb12ef81e18a771b4d9d6e3f9938ad1811f1e2e39a9c9cf841e_1.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/project_dex_archive/debug/out/d3300a523c096bb12ef81e18a771b4d9d6e3f9938ad1811f1e2e39a9c9cf841e_2.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/project_dex_archive/debug/out/d3300a523c096bb12ef81e18a771b4d9d6e3f9938ad1811f1e2e39a9c9cf841e_3.jar" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/project_dex_archive/debug/out/io/flutter/plugins/GeneratedPluginRegistrant.dex" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/project_dex_archive/debug/out/io/flutter/plugins/GeneratedPluginRegistrant.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/runtime_symbol_list/debug/R.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/runtime_symbol_list/debug/R.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/symbol_list_with_package_name/debug/package-aware-r.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/kotlin/compileDebugKotlin/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/kotlin/compileDebugKotlin/build-history.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/kotlin/compileDebugKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/kotlin/compileDebugKotlin/last-build.bin" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/log_model.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/log_model.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/outputs/logs/manifest-merger-debug-report.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/logs/manifest-merger-debug-report.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/log_model.dart" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/view/add_transaction.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/add_transaction.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view/export_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/export_data.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/view/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/home.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view/settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/settings.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/widget/title_head.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/widget/title_head.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,13 +543,14 @@
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/images" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/assets/images" />
+      <recent name="$PROJECT_DIR$/lib" />
       <recent name="$PROJECT_DIR$/lib/view" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
@@ -100,7 +579,14 @@
       <option name="project" value="LOCAL" />
       <updated>1627925529233</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="* Ui completed&#10;* Log Db completed&#10;* log setup completed">
+      <created>1627987923805</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1627987923805</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -117,9 +603,19 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="add transaction page completed" />
-    <option name="LAST_COMMIT_MESSAGE" value="add transaction page completed" />
+    <MESSAGE value="* Ui completed&#10;* Log Db completed&#10;* log setup completed" />
+    <MESSAGE value="+ transaction db setup completed&#10;+ create,delete,edit,read category completed&#10;+ income expense color change valuated&#10;+ create transaction page validated&#10;+ drawer completed" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ transaction db setup completed&#10;+ create,delete,edit,read category completed&#10;+ income expense color change valuated&#10;+ create transaction page validated&#10;+ drawer completed" />
   </component>
   <component name="WindowStateProjectService">
+    <state x="679" y="359" width="552" height="326" key="#Notifications" timestamp="1627987921983">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="679" y="359" width="552" height="326" key="#Notifications/0.0.1920.1080@0.0.1920.1080" timestamp="1627987921983" />
+    <state x="555" y="168" width="800" height="709" key="#Plugins" timestamp="1627988037946">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="555" y="168" width="800" height="709" key="#Plugins/0.0.1920.1080@0.0.1920.1080" timestamp="1627988037946" />
     <state x="734" y="392" width="432" height="257" key="#Updates" timestamp="1627987795756">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
@@ -128,38 +624,46 @@
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="643" y="263" width="624" height="519" key="#com.intellij.openapi.updateSettings.impl.PluginUpdateInfoDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1627987821267" />
-    <state x="738" y="267" width="424" height="508" key="FileChooserDialogImpl" timestamp="1627630372093">
+    <state x="738" y="267" width="424" height="508" key="FileChooserDialogImpl" timestamp="1628321402724">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="738" y="267" width="424" height="508" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1627630372093" />
-    <state width="1876" height="340" key="GridCell.Tab.0.bottom" timestamp="1627987750931">
+    <state x="738" y="267" width="424" height="508" key="FileChooserDialogImpl/0.0.1920.1080@0.0.1920.1080" timestamp="1628321402724" />
+    <state width="1876" height="256" key="GridCell.Tab.0.bottom" timestamp="1628344404600">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1876" height="340" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1627987750931" />
-    <state width="1876" height="340" key="GridCell.Tab.0.center" timestamp="1627987750930">
+    <state width="1876" height="256" key="GridCell.Tab.0.bottom/0.0.1920.1080@0.0.1920.1080" timestamp="1628344404600" />
+    <state width="1876" height="256" key="GridCell.Tab.0.center" timestamp="1628344404599">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1876" height="340" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1627987750930" />
-    <state width="1876" height="340" key="GridCell.Tab.0.left" timestamp="1627987750930">
+    <state width="1876" height="256" key="GridCell.Tab.0.center/0.0.1920.1080@0.0.1920.1080" timestamp="1628344404599" />
+    <state width="1876" height="256" key="GridCell.Tab.0.left" timestamp="1628344404599">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1876" height="340" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1627987750930" />
-    <state width="1876" height="340" key="GridCell.Tab.0.right" timestamp="1627987750931">
+    <state width="1876" height="256" key="GridCell.Tab.0.left/0.0.1920.1080@0.0.1920.1080" timestamp="1628344404599" />
+    <state width="1876" height="256" key="GridCell.Tab.0.right" timestamp="1628344404600">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state width="1876" height="340" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1627987750931" />
+    <state width="1876" height="256" key="GridCell.Tab.0.right/0.0.1920.1080@0.0.1920.1080" timestamp="1628344404600" />
+    <state x="673" y="230" width="563" height="585" key="RollbackChangesDialog" timestamp="1627988063348">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="673" y="230" width="563" height="585" key="RollbackChangesDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1627988063348" />
     <state x="0" y="90" key="SettingsEditor" timestamp="1627923047775">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="0" y="90" key="SettingsEditor/0.0.1920.1080@0.0.1920.1080" timestamp="1627923047775" />
-    <state x="555" y="260" width="800" height="525" key="Vcs.Push.Dialog.v2" timestamp="1627925538785">
+    <state x="555" y="260" width="800" height="525" key="Vcs.Push.Dialog.v2" timestamp="1627987971065">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
-    <state x="555" y="260" width="800" height="525" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1627925538785" />
+    <state x="555" y="260" width="800" height="525" key="Vcs.Push.Dialog.v2/0.0.1920.1080@0.0.1920.1080" timestamp="1627987971065" />
     <state x="100" y="100" width="1720" height="848" key="com.intellij.history.integration.ui.views.FileHistoryDialog" timestamp="1627922392205">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>
     <state x="100" y="100" width="1720" height="848" key="com.intellij.history.integration.ui.views.FileHistoryDialog/0.0.1920.1080@0.0.1920.1080" timestamp="1627922392205" />
+    <state x="223" y="41" width="1608" height="1007" key="dock-window-1" timestamp="1628232785383">
+      <screen x="0" y="0" width="1920" height="1080" />
+    </state>
+    <state x="223" y="41" width="1608" height="1007" key="dock-window-1/0.0.1920.1080@0.0.1920.1080" timestamp="1628232785383" />
     <state x="468" y="251" width="974" height="638" key="new project wizard" timestamp="1627714386195">
       <screen x="0" y="0" width="1920" height="1080" />
     </state>

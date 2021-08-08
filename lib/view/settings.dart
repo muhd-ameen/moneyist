@@ -1,13 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:moneyist/repositories/repository.dart';
+import 'package:moneyist/screens/home_screen.dart';
 
 class Settings extends StatefulWidget {
-
   @override
   _SettingsState createState() => _SettingsState();
 }
 
 class _SettingsState extends State<Settings> {
+  var model = Repository();
+
   bool notification = true;
   @override
   Widget build(BuildContext context) {
@@ -20,7 +24,9 @@ class _SettingsState extends State<Settings> {
             Icons.arrow_back,
             color: Colors.black,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         centerTitle: true,
         title: Text(
@@ -71,7 +77,10 @@ class _SettingsState extends State<Settings> {
                       fontSize: 18),
                 ),
                 IconButton(
-                  onPressed: () {},
+                  onPressed: () async {
+                    // await model.deleteDb('transactions');
+                    SystemNavigator.pop();
+                  },
                   icon: Icon(
                     Icons.restart_alt,
                     size: 30,
