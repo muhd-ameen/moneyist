@@ -181,7 +181,7 @@
 //                             children: [
 //                               TitleHead(
 //                                 Title: 'Income',
-//                                 money: income,
+//                                 money: 'income',
 //                               ),
 //                               SizedBox(
 //                                 child: Container(
@@ -192,7 +192,7 @@
 //                               ),
 //                               TitleHead(
 //                                 Title: 'Expenses',
-//                                 money: expense,
+//                                 money: 'expense',
 //                               ),
 //                               SizedBox(
 //                                 child: Container(
@@ -203,7 +203,7 @@
 //                               ),
 //                               TitleHead(
 //                                 Title: 'Balance',
-//                                 money: balance,
+//                                 money: 'balance',
 //                               ),
 //                             ],
 //                           ),

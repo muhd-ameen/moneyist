@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:moneyist/models/category.dart';
 import 'package:moneyist/screens/home_screen.dart';
+import 'package:moneyist/screens/nav/Home.dart';
 import 'package:moneyist/services/category_service.dart';
 
 class CategoriesScreen extends StatefulWidget {
@@ -78,9 +79,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     print(result);
                     getAllCategories();
                     // Navigator.pop(context);
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => CategoriesScreen()));
-
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => CategoriesScreen()));
                   }
                 },
                 child: Text('Save'),
@@ -200,19 +200,19 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       key: _globalKey,
       appBar: AppBar(
-        // leading: RaisedButton(
-        //   onPressed: () => Navigator.of(context)
-        //       .push(MaterialPageRoute(builder: (context) => HomeScreen())),
-        //   elevation: 0.0,
-        //   child: Icon(
-        //     Icons.arrow_back,
-        //     color: Colors.black,
-        //   ),
-        //   // color: Colors.blue,
-        // ),
-        title: Text('Categories'),
+        iconTheme: IconThemeData(color: Colors.black),
+
+        elevation: 0,
+        backgroundColor: Colors.white,
+        title: Text(
+          'Categories',
+          style: TextStyle(
+            color: Colors.black,
+          ),
+        ),
       ),
       body: ListView.builder(
           itemCount: _categoryList.length,

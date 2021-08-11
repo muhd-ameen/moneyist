@@ -7,9 +7,12 @@ class ExportData extends StatefulWidget {
 }
 
 class _ExportDataState extends State<ExportData> {
-  DateTime currentDate = DateTime.now();
+  final _scaffoldKey = GlobalKey<ScaffoldState>();
 
-  Future<void> _selectDate(BuildContext context) async {
+  DateTime currentDate = DateTime.now();
+  DateTime currentDate1 = DateTime.now();
+
+  Future<void> _startDate(BuildContext context) async {
     final DateTime pickedDate = await showDatePicker(
         context: context,
         initialDate: currentDate,
@@ -21,9 +24,22 @@ class _ExportDataState extends State<ExportData> {
       });
   }
 
+  Future<void> _endDate(BuildContext context) async {
+    final DateTime pickedDate = await showDatePicker(
+        context: context,
+        initialDate: currentDate1,
+        firstDate: DateTime(2021),
+        lastDate: DateTime(2022));
+    if (pickedDate != null && pickedDate != currentDate1)
+      setState(() {
+        currentDate1 = pickedDate;
+      });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      key: _scaffoldKey,
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
@@ -64,7 +80,7 @@ class _ExportDataState extends State<ExportData> {
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: [
                   RaisedButton.icon(
-                    onPressed: () => _selectDate(context),
+                    onPressed: () => _startDate(context),
                     color: Color(0xFF3C354C),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
@@ -82,7 +98,7 @@ class _ExportDataState extends State<ExportData> {
                     ),
                   ),
                   RaisedButton.icon(
-                    onPressed: () => _selectDate(context),
+                    onPressed: () => _endDate(context),
                     color: Color(0xFF3C354C),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),
@@ -106,7 +122,17 @@ class _ExportDataState extends State<ExportData> {
               ),
               Center(
                 child: RaisedButton.icon(
-                  onPressed: () {},
+                  onPressed: () {
+                    _scaffoldKey.currentState.showSnackBar(
+                      new SnackBar(
+                        duration: Duration(seconds: 2),
+                        content: new Text(
+                          'Downloaded Successfully',
+                          style: TextStyle(fontWeight: FontWeight.w800),
+                        ),
+                      ),
+                    );
+                  },
                   color: Color(0xFFFF4F5A),
                   shape: RoundedRectangleBorder(
                       borderRadius: BorderRadius.circular(10)),

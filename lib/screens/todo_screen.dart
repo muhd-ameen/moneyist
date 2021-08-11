@@ -4,6 +4,7 @@ import 'package:moneyist/services/category_service.dart';
 import 'package:moneyist/services/transaction_service.dart';
 import 'package:intl/intl.dart';
 import 'home_screen.dart';
+import 'nav/Home.dart';
 
 class TodoScreen extends StatefulWidget {
   @override
@@ -84,7 +85,7 @@ class _TodoScreenState extends State<TodoScreen> {
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
             children: <Widget>[
               TextFormField(
-                maxLength: 10,
+                maxLength: 15,
                 controller: _todoTitleController,
                 validator: (text) {
                   if (text == null || text.isEmpty) {
@@ -167,6 +168,13 @@ class _TodoScreenState extends State<TodoScreen> {
                       _showSuccessSnackBar(Text('Created'));
                     }
                     print(result);
+                    setState(() {
+                      totalIncome = totalIncome + 10000;
+                      totalExpense += 6000;
+                      balance = totalIncome - totalExpense;
+
+                      print(totalIncome);
+                    });
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => HomeScreen()));
                   }

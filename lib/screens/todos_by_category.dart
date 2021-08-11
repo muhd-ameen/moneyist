@@ -57,10 +57,20 @@ class _TodosByCategoryState extends State<TodosByCategory> {
                         child: Row(
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
-                            CircleAvatar(
+                            ClipOval(
                               child: _todoList[index].category == 'Income'
-                                  ? Image.asset('assets/images/income.png')
-                                  : Image.asset('assets/images/expense.png'),
+                                  ? Image.asset(
+                                'assets/icons/money.png',
+                                width: 50,
+                                height: 50,
+                                fit: BoxFit.cover,
+                              )
+                                  : Image.asset(
+                                'assets/icons/expense.png',
+                                width: 40,
+                                height: 40,
+                                fit: BoxFit.cover,
+                              ),
                             ),
                             Column(
                               children: [

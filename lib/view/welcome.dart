@@ -1,6 +1,17 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
-class Welcome extends StatelessWidget {
+class Welcome extends StatefulWidget {
+  @override
+  _WelcomeState createState() => _WelcomeState();
+}
+
+
+class _WelcomeState extends State<Welcome> {
+  isLogged() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('boolValue', true);
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -44,6 +55,7 @@ class Welcome extends StatelessWidget {
               child: MaterialButton(
                 padding: EdgeInsets.symmetric(vertical: 15, horizontal: 35),
                 onPressed: () {
+                  isLogged();
                   Navigator.pushNamed(context, '/home');
                 },
                 shape: RoundedRectangleBorder(

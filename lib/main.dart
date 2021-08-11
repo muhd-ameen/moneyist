@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:moneyist/screens/home_screen.dart';
 import 'package:moneyist/view/add_category.dart';
 import 'package:moneyist/view/support.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'view/add_transaction.dart';
 import 'view/edit_transaction.dart';
@@ -12,7 +13,7 @@ import 'view/settings.dart';
 import 'view/splash_screen.dart';
 import 'view/welcome.dart';
 
-void main()  {
+Future<void> main() async {
   runApp(MyApp());
 }
 
@@ -24,9 +25,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      home: SplashScreen(),
+      initialRoute: '/',
       routes: <String, WidgetBuilder>{
-        // '/': (BuildContext ctx) => SplashScreen(),
+        '/': (BuildContext ctx) => SplashScreen(),
         '/welcome': (BuildContext ctx) => Welcome(),
         '/home': (BuildContext ctx) => HomeScreen(),
         '/setting': (BuildContext ctx) => Settings(),

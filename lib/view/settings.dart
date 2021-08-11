@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:moneyist/repositories/repository.dart';
 import 'package:moneyist/screens/home_screen.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -11,6 +12,11 @@ class Settings extends StatefulWidget {
 
 class _SettingsState extends State<Settings> {
   var model = Repository();
+
+  removePreferenceValues() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('boolValue', false);
+  }
 
   bool notification = true;
   @override
@@ -77,9 +83,10 @@ class _SettingsState extends State<Settings> {
                       fontSize: 18),
                 ),
                 IconButton(
-                  onPressed: () async {
+                  onPressed: () {
+                    removePreferenceValues();
                     // await model.deleteDb('transactions');
-                    SystemNavigator.pop();
+                    // SystemNavigator.pop();
                   },
                   icon: Icon(
                     Icons.restart_alt,

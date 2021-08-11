@@ -1,5 +1,6 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -7,7 +8,6 @@ class SplashScreen extends StatefulWidget {
 }
 
 class _SplashScreenState extends State<SplashScreen> {
-
   bool loaded = false;
 
   @override
@@ -16,11 +16,13 @@ class _SplashScreenState extends State<SplashScreen> {
     startTime();
   }
 
+  bool isLoggedIn;
+
   @override
   Widget build(BuildContext context) {
-    return Scaffold(backgroundColor: Color(0xFFFFFFFF),
-        body:
-        Stack(
+    return Scaffold(
+        backgroundColor: Color(0xFFFFFFFF),
+        body: Stack(
           children: [
             // Positioned.fill(child: Image.asset('assets/images/unsplash.png',fit: BoxFit.fill,)),
             Column(
@@ -28,33 +30,47 @@ class _SplashScreenState extends State<SplashScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 Expanded(
-                  flex: 5
-                  ,child: Container(),),
-                Image.asset('assets/images/splash.png',height: 250,),
-                Image.asset('assets/images/m-text.png',height: 60,),
+                  flex: 5,
+                  child: Container(),
+                ),
+                Image.asset(
+                  'assets/images/splash.png',
+                  height: 250,
+                ),
+                Image.asset(
+                  'assets/images/m-text.png',
+                  height: 60,
+                ),
 
                 Expanded(
-                  flex:5,child: Container(),),
+                  flex: 5,
+                  child: Container(),
+                ),
                 // Image.asset('assets/images/m-text.png',height: 60,),
                 Expanded(
-                  flex: 1,child: Container(),),
-
+                  flex: 1,
+                  child: Container(),
+                ),
               ],
             )
           ],
-        )
-    );
+        ));
+  }
+
+  checkLoggedIn() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    isLoggedIn = prefs.getBool('boolValue');
+    isLoggedIn == false ? navigationPage('/welcome') : navigationPage('/home');
   }
 
   startTime() async {
-    var _duration = new Duration(seconds: 1);
+    var _duration = new Duration(seconds: 2);
     return new Timer(_duration, () {
-      navigationPage('/welcome');
+      checkLoggedIn();
     });
   }
 
   void navigationPage(String destination) {
     Navigator.of(context).pushReplacementNamed(destination);
   }
-
 }

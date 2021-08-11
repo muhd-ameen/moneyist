@@ -7,6 +7,7 @@ INJECTED from /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/androi
 MERGED from /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:1:1-41:12
 MERGED from [:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-19:12
 MERGED from [:flutter_plugin_android_lifecycle] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_plugin_android_lifecycle/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
+MERGED from [:shared_preferences] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/shared_preferences/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:sqflite] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
 MERGED from [:url_launcher] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-14:12
 MERGED from [:path_provider] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/path_provider/intermediates/library_manifest/debug/AndroidManifest.xml:2:1-7:12
@@ -110,6 +111,8 @@ MERGED from [:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/m
 MERGED from [:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:flutter_plugin_android_lifecycle] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_plugin_android_lifecycle/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:flutter_plugin_android_lifecycle] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_plugin_android_lifecycle/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/shared_preferences/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
+MERGED from [:shared_preferences] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/shared_preferences/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:sqflite] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:sqflite] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/sqflite/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
 MERGED from [:url_launcher] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:5:5-44
