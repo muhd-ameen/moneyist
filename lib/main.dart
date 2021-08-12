@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:moneyist/screens/home_screen.dart';
+import 'package:moneyist/test/home.dart';
 import 'package:moneyist/view/add_category.dart';
 import 'package:moneyist/view/support.dart';
-import 'package:shared_preferences/shared_preferences.dart';
 
 import 'view/add_transaction.dart';
 import 'view/edit_transaction.dart';
@@ -25,9 +25,9 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      initialRoute: '/',
+      initialRoute: '/CrudHome',
       routes: <String, WidgetBuilder>{
-        '/': (BuildContext ctx) => SplashScreen(),
+        // '/': (BuildContext ctx) => SplashScreen(),
         '/welcome': (BuildContext ctx) => Welcome(),
         '/home': (BuildContext ctx) => HomeScreen(),
         '/setting': (BuildContext ctx) => Settings(),
@@ -37,6 +37,9 @@ class MyApp extends StatelessWidget {
         '/Support': (BuildContext ctx) => Support(),
         '/EditTransaction': (BuildContext ctx) => EditTransaction(),
         '/Rating': (BuildContext ctx) => Rating(),
+
+
+        '/CrudHome': (BuildContext ctx) => CrudHome(),
       },
     );
   }

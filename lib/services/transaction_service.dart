@@ -18,14 +18,20 @@ class TodoService {
     return await _repository.readData('transactions');
   }
 
+  // Update data from table
   updateTodos(Transaction transaction) async {
     return await _repository.updateData('transactions', transaction.transactionMap());
   }
 
+
+  readTransactionById(transactionId) async {
+    return await _repository.readDataById('transactions', transactionId);
+  }
   // Delete data from table
   deleteTodos(transactionId) async{
     return await _repository.deleteData('transactions', transactionId);
   }
+
 
 
   // read todos by category

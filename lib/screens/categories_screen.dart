@@ -204,7 +204,6 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       key: _globalKey,
       appBar: AppBar(
         iconTheme: IconThemeData(color: Colors.black),
-
         elevation: 0,
         backgroundColor: Colors.white,
         title: Text(

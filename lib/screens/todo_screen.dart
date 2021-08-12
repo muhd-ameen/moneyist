@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:moneyist/models/transaction.dart';
 import 'package:moneyist/services/category_service.dart';
 import 'package:moneyist/services/transaction_service.dart';
@@ -15,7 +16,7 @@ class _TodoScreenState extends State<TodoScreen> {
   var _todoTitleController = TextEditingController();
 
   var _todoDescriptionController = TextEditingController();
-
+  var _todoamtController = TextEditingController();
   var _todoDateController = TextEditingController();
 
   var _selectedValue;
@@ -68,8 +69,6 @@ class _TodoScreenState extends State<TodoScreen> {
     _globalKey.currentState.showSnackBar(_snackBar);
   }
 
-
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -77,115 +76,121 @@ class _TodoScreenState extends State<TodoScreen> {
       appBar: AppBar(
         title: Text('Create Todo'),
       ),
-      body: Padding(
-        padding: EdgeInsets.all(16.0),
-        child: Form(
-          key: _formKey,
-          child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              TextFormField(
-                maxLength: 15,
-                controller: _todoTitleController,
-                validator: (text) {
-                  if (text == null || text.isEmpty) {
-                    return 'Please Enter a Title';
-                  }
-                  return null;
-                },
-                decoration: InputDecoration(
-                    labelText: 'Title', hintText: 'Write a Title'),
-              ),
-              TextFormField(
-                keyboardType: TextInputType.number,
-                validator: (text) {
-                  if (text == null || text.isEmpty) {
-                    return 'Please Enter a Amount';
-                  }
-                  return null;
-                },
-                maxLength: 6,
-                controller: _todoDescriptionController,
-                decoration:
-                    InputDecoration(labelText: 'Amount', hintText: 'Amount'),
-              ),
-              TextFormField(
-                readOnly: true,
-                controller: _todoDateController,
-                onTap: () {
-                  _selectedTodoDate(context);
-                },
-                validator: (text) {
-                  if (text == null || text.isEmpty) {
-                    return 'Please Enter a Title';
-                  }
-                  return null;
-                },
-                decoration: InputDecoration(
-                  labelText: 'Date',
-                  hintText: 'Pick a Date',
-                  prefixIcon: InkWell(
-                    // onTap: () {
-                    //   _selectedTodoDate(context);
-                    // },
-                    child: Icon(Icons.calendar_today),
+      body: SingleChildScrollView(
+        child: Padding(
+          padding: EdgeInsets.all(16.0),
+          child: Form(
+            key: _formKey,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: <Widget>[
+                TextFormField(
+                  maxLength: 15,
+                  controller: _todoTitleController,
+                  validator: (text) {
+                    if (text == null || text.isEmpty) {
+                      return 'Please Enter a Title';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                      labelText: 'Title', hintText: 'Write a Title'),
+                ),
+                TextFormField(
+                  keyboardType: TextInputType.number,
+                  inputFormatters: <TextInputFormatter>[
+                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                  ],
+                  validator: (text) {
+                    if (text == null || text.isEmpty) {
+                      return 'Please Enter a Amount';
+                    }
+                    return null;
+                  },
+                  maxLength: 6,
+                  controller: _todoDescriptionController,
+                  decoration:
+                      InputDecoration(labelText: 'Amount', hintText: 'Amount'),
+                ),
+                TextFormField(
+                  readOnly: true,
+                  controller: _todoDateController,
+                  onTap: () {
+                    _selectedTodoDate(context);
+                  },
+                  validator: (text) {
+                    if (text == null || text.isEmpty) {
+                      return 'Please Enter a Title';
+                    }
+                    return null;
+                  },
+                  decoration: InputDecoration(
+                    labelText: 'Date',
+                    hintText: 'Pick a Date',
+                    prefixIcon: InkWell(
+                      // onTap: () {
+                      //   _selectedTodoDate(context);
+                      // },
+                      child: Icon(Icons.calendar_today),
+                    ),
                   ),
                 ),
-              ),
-              DropdownButtonFormField(
-                value: _selectedValue,
-                items: _categories,
-                hint: Text('Category'),
-                validator: (text) {
-                  if (text == null || text.isEmpty) {
-                    return 'Please Select a Category';
-                  }
-                  return null;
-                },
-                onChanged: (value) {
-                  setState(() {
-                    _selectedValue = value;
-                  });
-                },
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              RaisedButton(
-                onPressed: () async {
-                  if (_formKey.currentState.validate()) {
-                    var todoObject = Transaction();
-
-                    todoObject.title = _todoTitleController.text;
-                    todoObject.amount = _todoDescriptionController.text;
-                    todoObject.category = _selectedValue.toString();
-                    todoObject.transactionDate = _todoDateController.text;
-
-                    var _todoService = TodoService();
-                    var result = await _todoService.saveTodo(todoObject);
-
-                    if (result > 0) {
-                      _showSuccessSnackBar(Text('Created'));
+                DropdownButtonFormField(
+                  value: _selectedValue,
+                  items: _categories,
+                  hint: Text('Category'),
+                  validator: (text) {
+                    if (text == null || text.isEmpty) {
+                      return 'Please Select a Category';
                     }
-                    print(result);
+                    return null;
+                  },
+                  onChanged: (value) {
                     setState(() {
-                      totalIncome = totalIncome + 10000;
-                      totalExpense += 6000;
-                      balance = totalIncome - totalExpense;
-
-                      print(totalIncome);
+                      _selectedValue = value;
                     });
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
-                  }
-                },
-                color: Colors.blue,
-                child: Text(
-                  'Save',
-                  style: TextStyle(color: Colors.white),
+                  },
                 ),
-              )
-            ],
+                SizedBox(
+                  height: 20,
+                ),
+                RaisedButton(
+                  onPressed: () async {
+                    if (_formKey.currentState.validate()) {
+                      var todoObject = Transaction();
+
+                      todoObject.title = _todoTitleController.text;
+                      todoObject.amount = _todoDescriptionController.text;
+                      // todoObject.amt = _todoamtController.text;
+                      todoObject.category = _selectedValue.toString();
+                      todoObject.transactionDate = _todoDateController.text;
+
+                      var _todoService = TodoService();
+                      var result = await _todoService.saveTodo(todoObject);
+
+                      if (result > 0) {
+                        _showSuccessSnackBar(Text('Created'));
+                      }
+                      print(result);
+                      setState(() {
+                        totalIncome = totalIncome + 10000;
+                        totalExpense += 6000;
+                        balance = totalIncome - totalExpense;
+
+                        print(totalIncome);
+                      });
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => HomeScreen()));
+                    }
+                  },
+                  color: Colors.blue,
+                  child: Text(
+                    'Save',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                )
+              ],
+            ),
           ),
         ),
       ),

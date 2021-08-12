@@ -5,7 +5,6 @@ class Transaction {
   String category;
   String transactionDate;
 
-
   transactionMap() {
     var mapping = Map<String, dynamic>();
     mapping['id'] = id;
