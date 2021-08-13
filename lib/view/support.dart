@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:moneyist/Consanants/consanants.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class Support extends StatefulWidget {
-
   @override
   _SupportState createState() => _SupportState();
 }
@@ -21,7 +21,9 @@ class _SupportState extends State<Support> {
             Icons.arrow_back,
             color: Colors.black,
           ),
-          onPressed: () {},
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
       ),
       body: SingleChildScrollView(
@@ -74,7 +76,15 @@ class _SupportState extends State<Support> {
                     height: 15,
                   ),
                   RaisedButton.icon(
-                    onPressed: () {},
+                    onPressed: () async {
+                      const url =
+                          'https://muhd-ameen.github.io/';
+                      if (await canLaunch(url)) {
+                        await launch(url);
+                      } else {
+                        throw 'Could not launch $url';
+                      }
+                    },
                     color: Color(0xFF3C354C),
                     shape: RoundedRectangleBorder(
                         borderRadius: BorderRadius.circular(10)),

@@ -5,7 +5,7 @@ import 'package:moneyist/services/category_service.dart';
 import 'package:moneyist/services/transaction_service.dart';
 import 'package:intl/intl.dart';
 import 'home_screen.dart';
-import 'nav/Home.dart';
+import '../test/Home.dart';
 
 class TodoScreen extends StatefulWidget {
   @override
@@ -14,9 +14,7 @@ class TodoScreen extends StatefulWidget {
 
 class _TodoScreenState extends State<TodoScreen> {
   var _todoTitleController = TextEditingController();
-
   var _todoDescriptionController = TextEditingController();
-  var _todoamtController = TextEditingController();
   var _todoDateController = TextEditingController();
 
   var _selectedValue;
@@ -161,7 +159,6 @@ class _TodoScreenState extends State<TodoScreen> {
 
                       todoObject.title = _todoTitleController.text;
                       todoObject.amount = _todoDescriptionController.text;
-                      // todoObject.amt = _todoamtController.text;
                       todoObject.category = _selectedValue.toString();
                       todoObject.transactionDate = _todoDateController.text;
 
@@ -172,13 +169,6 @@ class _TodoScreenState extends State<TodoScreen> {
                         _showSuccessSnackBar(Text('Created'));
                       }
                       print(result);
-                      setState(() {
-                        totalIncome = totalIncome + 10000;
-                        totalExpense += 6000;
-                        balance = totalIncome - totalExpense;
-
-                        print(totalIncome);
-                      });
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => HomeScreen()));
                     }

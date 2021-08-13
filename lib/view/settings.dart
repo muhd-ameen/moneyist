@@ -3,6 +3,7 @@ import 'package:flutter/services.dart';
 import 'package:flutter_switch/flutter_switch.dart';
 import 'package:moneyist/repositories/repository.dart';
 import 'package:moneyist/screens/home_screen.dart';
+import 'package:moneyist/view/splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 class Settings extends StatefulWidget {
@@ -85,6 +86,8 @@ class _SettingsState extends State<Settings> {
                 IconButton(
                   onPressed: () {
                     removePreferenceValues();
+                    Navigator.of(context)
+                        .push(MaterialPageRoute(builder: (context) => SplashScreen()  ));
                     // await model.deleteDb('transactions');
                     // SystemNavigator.pop();
                   },

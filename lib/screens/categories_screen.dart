@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:moneyist/models/category.dart';
 import 'package:moneyist/screens/home_screen.dart';
-import 'package:moneyist/screens/nav/Home.dart';
+import 'package:moneyist/test/Home.dart';
 import 'package:moneyist/services/category_service.dart';
 
 class CategoriesScreen extends StatefulWidget {
@@ -79,8 +79,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                     print(result);
                     getAllCategories();
                     // Navigator.pop(context);
-                    Navigator.of(context).push(MaterialPageRoute(
-                        builder: (context) => CategoriesScreen()));
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => HomeScreen()));
                   }
                 },
                 child: Text('Save'),
@@ -193,7 +193,8 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
   }
 
   _showSuccessSnackBar(message) {
-    var _snackBar = SnackBar(content: message);
+    var _snackBar =
+        SnackBar(duration: Duration(milliseconds: 2000), content: message);
     _globalKey.currentState.showSnackBar(_snackBar);
   }
 
@@ -203,6 +204,13 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       backgroundColor: Colors.white,
       key: _globalKey,
       appBar: AppBar(
+        leading: IconButton(
+          icon: Icon(Icons.arrow_back_ios_new),
+          onPressed: (){
+            Navigator.of(context).push(
+                MaterialPageRoute(builder: (context) => HomeScreen()));
+          },
+        ),
         iconTheme: IconThemeData(color: Colors.black),
         elevation: 0,
         backgroundColor: Colors.white,

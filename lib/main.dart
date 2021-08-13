@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moneyist/screens/home_screen.dart';
-import 'package:moneyist/test/home.dart';
+import 'package:moneyist/screens/nav/home.dart';
 import 'package:moneyist/view/add_category.dart';
 import 'package:moneyist/view/support.dart';
 
@@ -25,20 +25,17 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.red,
       ),
-      initialRoute: '/CrudHome',
+      initialRoute: '/',
       routes: <String, WidgetBuilder>{
-        // '/': (BuildContext ctx) => SplashScreen(),
+        '/': (BuildContext ctx) => SplashScreen(),
         '/welcome': (BuildContext ctx) => Welcome(),
         '/home': (BuildContext ctx) => HomeScreen(),
         '/setting': (BuildContext ctx) => Settings(),
-        // '/AddTransaction': (BuildContext ctx) => AddTransaction(),
         '/AddCategory': (BuildContext ctx) => AddCategory(),
         '/ExportData': (BuildContext ctx) => ExportData(),
         '/Support': (BuildContext ctx) => Support(),
         '/EditTransaction': (BuildContext ctx) => EditTransaction(),
         '/Rating': (BuildContext ctx) => Rating(),
-
-
         '/CrudHome': (BuildContext ctx) => CrudHome(),
       },
     );

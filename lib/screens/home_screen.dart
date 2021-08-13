@@ -6,10 +6,11 @@ import 'package:moneyist/models/transaction.dart';
 import 'package:moneyist/repositories/repository.dart';
 import 'package:moneyist/screens/todo_screen.dart';
 import 'package:moneyist/services/transaction_service.dart';
+import 'package:moneyist/screens/nav/home.dart';
 import 'package:moneyist/widget/title_head.dart';
 
 import 'categories_screen.dart';
-import 'nav/Home.dart';
+import '../test/Home.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -25,7 +26,7 @@ class _HomeScreenState extends State<HomeScreen> {
   int _selectedIndex = 0;
 
   List<Widget> _widgetOptions = <Widget>[
-    HomeScreenNav(),
+    CrudHome(),
     CategoriesScreen(),
   ];
 
