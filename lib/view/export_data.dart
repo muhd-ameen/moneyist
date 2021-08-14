@@ -50,8 +50,7 @@ class _ExportDataState extends State<ExportData> {
             color: Colors.black,
           ),
           onPressed: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => HomeScreen()));
+            Navigator.pop(context);
           },
         ),
         centerTitle: true,

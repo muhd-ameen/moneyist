@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moneyist/models/transaction.dart';
+import 'package:moneyist/screens/home_screen.dart';
 import 'package:moneyist/services/transaction_service.dart';
 
 class TodosByCategory extends StatefulWidget {
@@ -38,69 +39,87 @@ class _TodosByCategoryState extends State<TodosByCategory> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text(this.widget.category)),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0,
+        title: Text(
+          this.widget.category,
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w300),
+        ),
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios_new,
+            color: Colors.black54,
+          ),
+          onPressed: () => Navigator.push(
+            context,
+            MaterialPageRoute(
+              builder: (context) => HomeScreen(),
+            ),
+          ),
+        ),
+      ),
       body: Column(
         children: <Widget>[
           Expanded(
-              child: ListView.builder(
-                  itemCount: _todoList.length,
-                  itemBuilder: (context, index) {
-                    return GestureDetector(
-                      onTap: () {},
-                      child: Container(
-                        margin: EdgeInsets.symmetric(vertical: 8),
-                        padding: EdgeInsets.symmetric(vertical: 16),
-                        decoration: BoxDecoration(
-                          borderRadius: BorderRadius.circular(16.0),
-                          color: Color(0xFFECECEC),
-                        ),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                          children: [
-                            ClipOval(
-                              child: _todoList[index].category == 'Income'
-                                  ? Image.asset(
+            child: ListView.builder(
+              itemCount: _todoList.length,
+              itemBuilder: (context, index) {
+                return Container(
+                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                  padding: EdgeInsets.symmetric(vertical: 13),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(16.0),
+                    color: Color(0xFFF5F5F5),
+                  ),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceAround,
+                    children: [
+                      ClipOval(
+                        child: _todoList[index].category == 'Income'
+                            ? Image.asset(
                                 'assets/icons/money.png',
                                 width: 50,
                                 height: 50,
                                 fit: BoxFit.cover,
                               )
-                                  : Image.asset(
+                            : Image.asset(
                                 'assets/icons/expense.png',
                                 width: 40,
                                 height: 40,
                                 fit: BoxFit.cover,
                               ),
-                            ),
-                            Column(
-                              children: [
-                                Text(
-                                  _todoList[index].title ?? 'No Title',
-                                  style: TextStyle(
-                                      fontSize: 15,
-                                      fontWeight: FontWeight.w800),
-                                ),
-                                Text(
-                                  _todoList[index].transactionDate ?? 'No Date',
-                                  style: TextStyle(
-                                      fontSize: 11,
-                                      color: Color(0xFF868686),
-                                      fontWeight: FontWeight.w800),
-                                ),
-                              ],
-                            ),
-                            Text(
-                              _todoList[index].amount ?? 'No Category',
-                              style: TextStyle(
-                                  color: Colors.redAccent,
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w800),
-                            ),
-                          ],
-                        ),
                       ),
-                    );
-                  }))
+                      Column(
+                        children: [
+                          Text(
+                            _todoList[index].title ?? 'No Title',
+                            style: TextStyle(
+                                fontSize: 15, fontWeight: FontWeight.w800),
+                          ),
+                          Text(
+                            _todoList[index].transactionDate ?? 'No Date',
+                            style: TextStyle(
+                                fontSize: 11,
+                                color: Color(0xFF868686),
+                                fontWeight: FontWeight.w800),
+                          ),
+                        ],
+                      ),
+                      Text(
+                        _todoList[index].amount ?? 'No Category',
+                        style: TextStyle(
+                            color: Colors.redAccent,
+                            fontSize: 16,
+                            fontWeight: FontWeight.w800),
+                      ),
+                    ],
+                  ),
+                );
+              },
+            ),
+          )
         ],
       ),
     );

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moneyist/screens/categories_screen.dart';
+import 'package:moneyist/screens/nav/categories_screen.dart';
 import 'package:moneyist/screens/home_screen.dart';
 import 'package:moneyist/screens/todos_by_category.dart';
 import 'package:moneyist/services/category_service.dart';

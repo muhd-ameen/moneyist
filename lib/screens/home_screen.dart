@@ -9,7 +9,7 @@ import 'package:moneyist/services/transaction_service.dart';
 import 'package:moneyist/screens/nav/home.dart';
 import 'package:moneyist/widget/title_head.dart';
 
-import 'categories_screen.dart';
+import 'nav/categories_screen.dart';
 import '../test/Home.dart';
 
 class HomeScreen extends StatefulWidget {

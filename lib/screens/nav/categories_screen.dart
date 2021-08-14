@@ -4,6 +4,7 @@ import 'package:moneyist/models/category.dart';
 import 'package:moneyist/screens/home_screen.dart';
 import 'package:moneyist/test/Home.dart';
 import 'package:moneyist/services/category_service.dart';
+import 'package:toast/toast.dart';
 
 class CategoriesScreen extends StatefulWidget {
   @override
@@ -62,14 +63,21 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         barrierDismissible: true,
         builder: (param) {
           return AlertDialog(
+            backgroundColor: Colors.white,
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(15))),
             actions: <Widget>[
               FlatButton(
-                color: Colors.red,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
                 onPressed: () => Navigator.pop(context),
                 child: Text('Cancel'),
               ),
               FlatButton(
-                color: Colors.blue,
+                color: Colors.indigoAccent,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
                 onPressed: () async {
                   _category.name = _categoryNameController.text;
                   _category.description = _categoryDescriptionController.text;
@@ -83,7 +91,10 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                         MaterialPageRoute(builder: (context) => HomeScreen()));
                   }
                 },
-                child: Text('Save'),
+                child: Text(
+                  'Save',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ],
             title: Text('categories Form'),
@@ -108,20 +119,31 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
         });
   }
 
+  void showToast(String msg) {
+    Toast.show(msg, context, duration: 2, gravity: Toast.BOTTOM);
+  }
+
   _editFormDialog(BuildContext context) {
     return showDialog(
         context: context,
         barrierDismissible: true,
         builder: (param) {
           return AlertDialog(
+            backgroundColor: Colors.white,
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(15))),
             actions: <Widget>[
               FlatButton(
-                color: Colors.red,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
                 onPressed: () => Navigator.pop(context),
                 child: Text('Cancel'),
               ),
               FlatButton(
-                color: Colors.blue,
+                color: Colors.indigoAccent,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
                 onPressed: () async {
                   _category.id = category[0]['id'];
                   _category.name = _editCategoryNameController.text;
@@ -131,12 +153,15 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
                   var result = await _categoryService.updateCategory(_category);
                   if (result > 0) {
                     getAllCategories();
-                    _showSuccessSnackBar(Text('Updated'));
+                    showToast('Updated');
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => HomeScreen()));
                   }
                 },
-                child: Text('Update'),
+                child: Text(
+                  'Update',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ],
             title: Text('Edit Categories Form'),
@@ -169,33 +194,34 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           return AlertDialog(
             actions: <Widget>[
               FlatButton(
-                color: Colors.green,
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
                 onPressed: () => Navigator.pop(context),
                 child: Text('Cancel'),
               ),
               FlatButton(
-                color: Colors.red,
+                color: Colors.redAccent,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
                 onPressed: () async {
                   var result =
                       await _categoryService.deleteCategory(categoryId);
                   if (result > 0) {
                     Navigator.pop(context);
                     getAllCategories();
-                    _showSuccessSnackBar(Text('Deleted'));
+                    showToast('Deleted');
                   }
                 },
-                child: Text('Delete'),
+                child: Text(
+                  'Delete',
+                  style: TextStyle(color: Colors.white),
+                ),
               ),
             ],
             title: Text('Are you sure you want to delete this?'),
           );
         });
-  }
-
-  _showSuccessSnackBar(message) {
-    var _snackBar =
-        SnackBar(duration: Duration(milliseconds: 2000), content: message);
-    _globalKey.currentState.showSnackBar(_snackBar);
   }
 
   @override
@@ -206,9 +232,9 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
       appBar: AppBar(
         leading: IconButton(
           icon: Icon(Icons.arrow_back_ios_new),
-          onPressed: (){
-            Navigator.of(context).push(
-                MaterialPageRoute(builder: (context) => HomeScreen()));
+          onPressed: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => HomeScreen()));
           },
         ),
         iconTheme: IconThemeData(color: Colors.black),

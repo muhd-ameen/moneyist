@@ -20,18 +20,54 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="7f8c4899-9484-4229-99a2-a60c5510f080" name="Default Changelist" comment="+ update test completed&#10;+ Delete crud completed (test).">
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/.filecache" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/.filecache" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/app.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/debug_android_application.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/debug_android_application.stamp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/flutter_assets.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/flutter_assets.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config_subset" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config_subset" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.flutter-plugins" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Dart_Packages.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/libraries/Flutter_Plugins.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/NOTICES.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/NOTICES.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/NOTICES" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/NOTICES" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_build.d" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_build.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/incremental/packageDebug/tmp/debug/dex-renamer-state.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/NOTICES" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/NOTICES" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/merged_assets/debug/out/flutter_assets/kernel_blob.bin" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/screens/categories_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/categories_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/kotlin/compileDebugKotlin/build-history.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/kotlin/compileDebugKotlin/build-history.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/kotlin/compileDebugKotlin/last-build.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/kotlin/compileDebugKotlin/last-build.bin" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/apk/debug/app-debug.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/image_picker/.transforms/bb01fa8c3316de9ebb142a20a33dbd0c/classes/classes.dex" beforeDir="false" afterPath="$PROJECT_DIR$/build/image_picker/.transforms/bb01fa8c3316de9ebb142a20a33dbd0c/classes/classes.dex" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/CameraDevice.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/CameraDevice.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$2.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$2.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$3$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$3.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$3.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$4.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$4.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$5.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate$IntentResolver.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate.class" beforeDir="false" afterPath="$PROJECT_DIR$/build/image_picker/intermediates/javac/debug/classes/io/flutter/plugins/imagepicker/ImagePickerDelegate.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/build/image_picker/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" beforeDir="false" afterPath="$PROJECT_DIR$/build/image_picker/tmp/compileDebugJavaWithJavac/source-classes-mapping.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/helpers/drawer_navigation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/helpers/drawer_navigation.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/categories_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/nav/categories_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/home_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/home_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/todo_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/todo_screen.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view/settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/settings.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/view/support.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/support.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/todos_by_category.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/todos_by_category.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view/export_data.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/export_data.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view/rating.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/rating.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.lock" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/pubspec.yaml" beforeDir="false" afterPath="$PROJECT_DIR$/pubspec.yaml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,8 +115,8 @@
       <recent name="$PROJECT_DIR$/lib/view" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/lib/test" />
       <recent name="$PROJECT_DIR$/lib/screens/nav" />
+      <recent name="$PROJECT_DIR$/lib/test" />
       <recent name="$PROJECT_DIR$/assets/images" />
     </key>
   </component>
@@ -141,7 +177,14 @@
       <option name="project" value="LOCAL" />
       <updated>1628775857329</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="+ alert box ui changed&#10;+ category screen arranged">
+      <created>1628865017510</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1628865017510</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -175,6 +218,18 @@
     <MESSAGE value="+ drawer completed&#10;+ rate us page &#10;+ app Share completed" />
     <MESSAGE value="+ Bottom Navigation Bar Completed&#10;+ AppIcon Added&#10;+ shared preference Completed&#10;+ income - Expense Icons changed&#10;+ Theme Changed" />
     <MESSAGE value="+ update test completed&#10;+ Delete crud completed (test)." />
-    <option name="LAST_COMMIT_MESSAGE" value="+ update test completed&#10;+ Delete crud completed (test)." />
+    <MESSAGE value="+ alert box ui changed&#10;+ category screen arranged" />
+    <option name="LAST_COMMIT_MESSAGE" value="+ alert box ui changed&#10;+ category screen arranged" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" suspend="THREAD" type="Dart">
+          <url>file://$PROJECT_DIR$/lib/screens/todos_by_category.dart</url>
+          <line>32</line>
+          <option name="timeStamp" value="2" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
   </component>
 </project>

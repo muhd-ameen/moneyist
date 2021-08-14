@@ -70,29 +70,48 @@ class _TodoScreenState extends State<TodoScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Colors.white,
       key: _globalKey,
       appBar: AppBar(
-        title: Text('Create Todo'),
+        elevation: 0,
+        backgroundColor: Colors.white,
+        title: Text(
+          'Add Transaction',
+          style: TextStyle(color: Colors.black, fontWeight: FontWeight.w300),
+        ),
+        leading: IconButton(
+          icon: Icon(
+            Icons.arrow_back_ios_new,
+            color: Colors.black54,
+          ),
+          onPressed: () => Navigator.pop(context),
+        ),
       ),
       body: SingleChildScrollView(
-        child: Padding(
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(15),
+            color: Color(0xFFF5F5F5),
+          ),
+          margin: EdgeInsets.all(15),
           padding: EdgeInsets.all(16.0),
           child: Form(
             key: _formKey,
             child: Column(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: <Widget>[
                 TextFormField(
                   maxLength: 15,
+                  autofocus: true,
                   controller: _todoTitleController,
                   validator: (text) {
                     if (text == null || text.isEmpty) {
-                      return 'Please Enter a Title';
+                      return 'Please Enter a Memo';
                     }
                     return null;
                   },
                   decoration: InputDecoration(
-                      labelText: 'Title', hintText: 'Write a Title'),
+                      labelText: 'Memo', hintText: 'Write a Memo'),
                 ),
                 TextFormField(
                   keyboardType: TextInputType.number,
@@ -107,8 +126,10 @@ class _TodoScreenState extends State<TodoScreen> {
                   },
                   maxLength: 6,
                   controller: _todoDescriptionController,
-                  decoration:
-                      InputDecoration(labelText: 'Amount', hintText: 'Amount'),
+                  decoration: InputDecoration(
+                    labelText: 'Amount',
+                    hintText: 'Amount',
+                  ),
                 ),
                 TextFormField(
                   readOnly: true,
@@ -118,7 +139,7 @@ class _TodoScreenState extends State<TodoScreen> {
                   },
                   validator: (text) {
                     if (text == null || text.isEmpty) {
-                      return 'Please Enter a Title';
+                      return 'Please Select a Date';
                     }
                     return null;
                   },
@@ -152,31 +173,43 @@ class _TodoScreenState extends State<TodoScreen> {
                 SizedBox(
                   height: 20,
                 ),
-                RaisedButton(
-                  onPressed: () async {
-                    if (_formKey.currentState.validate()) {
-                      var todoObject = Transaction();
+                Container(
+                  margin: EdgeInsets.only(top: 25),
+                  child: RaisedButton.icon(
+                    icon: Icon(
+                      Icons.done_all_outlined,
+                      color: Colors.white,
+                    ),
+                    label: Text(
+                      'Save Transaction',
+                      style: TextStyle(color: Colors.white),
+                    ),
+                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 35),
+                    shape: RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(8)),
+                    onPressed: () async {
+                      if (_formKey.currentState.validate()) {
+                        var todoObject = Transaction();
 
-                      todoObject.title = _todoTitleController.text;
-                      todoObject.amount = _todoDescriptionController.text;
-                      todoObject.category = _selectedValue.toString();
-                      todoObject.transactionDate = _todoDateController.text;
+                        todoObject.title = _todoTitleController.text;
+                        todoObject.amount = _todoDescriptionController.text;
+                        todoObject.category = _selectedValue.toString();
+                        todoObject.transactionDate = _todoDateController.text;
 
-                      var _todoService = TodoService();
-                      var result = await _todoService.saveTodo(todoObject);
+                        var _todoService = TodoService();
+                        var result = await _todoService.saveTodo(todoObject);
 
-                      if (result > 0) {
-                        _showSuccessSnackBar(Text('Created'));
+                        if (result > 0) {
+                          _showSuccessSnackBar(
+                            Text('Created'),
+                          );
+                        }
+                        print(result);
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (context) => HomeScreen()));
                       }
-                      print(result);
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => HomeScreen()));
-                    }
-                  },
-                  color: Colors.blue,
-                  child: Text(
-                    'Save',
-                    style: TextStyle(color: Colors.white),
+                    },
+                    color: Colors.blue,
                   ),
                 )
               ],
