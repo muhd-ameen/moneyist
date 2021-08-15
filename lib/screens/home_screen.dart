@@ -2,6 +2,8 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:intl/intl.dart';
+import 'package:moneyist/view/settings.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'package:moneyist/helpers/drawer_navigation.dart';
 import 'package:moneyist/models/transaction.dart';
 import 'package:moneyist/repositories/repository.dart';
@@ -20,11 +22,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-
-
   @override
   initState() {
     super.initState();
+    _loadData();
+  }
+
+  _loadData() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    setState(() {
+      notification = prefs.getBool('notification');
+    });
   }
 
   int _selectedIndex = 0;

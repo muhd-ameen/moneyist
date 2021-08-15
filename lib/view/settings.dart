@@ -14,6 +14,8 @@ class Settings extends StatefulWidget {
   _SettingsState createState() => _SettingsState();
 }
 
+bool notification = false;
+
 class _SettingsState extends State<Settings> {
   @override
   void initState() {
@@ -24,18 +26,11 @@ class _SettingsState extends State<Settings> {
 
   void listenNotification() =>
       NotificationApi.onNotifications.listen(onClickedNotification);
-
-  void onClickedNotification(String payload) => Navigator.of(context).push(
-        MaterialPageRoute(
-            builder: (context) => SecondPage(
-                  payload: payload,
-                )),
-      );
-
-  removePreferenceValues() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('boolValue', false);
-  }
+  void onClickedNotification(String payload) =>
+      Navigator.of(context).push(MaterialPageRoute(
+          builder: (context) => SecondPage(
+                payload: payload,
+              )));
 
   NotificationOn() {
     return NotificationApi.showNotification(
@@ -56,10 +51,21 @@ class _SettingsState extends State<Settings> {
 
   var model = Repository();
 
-  bool notification = false;
+  isLogginPrefernce() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('boolValue', false);
+  }
+
   @override
   Widget build(BuildContext context) {
+    @override
+    addPreferenceValues() async {
+      SharedPreferences prefs = await SharedPreferences.getInstance();
+      prefs.setBool('notification', notification);
+    }
+
     return Scaffold(
+      backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.white,
         elevation: 0,
@@ -104,11 +110,13 @@ class _SettingsState extends State<Settings> {
                       setState(() {
                         notification = val;
                         if (notification == true) {
+                          addPreferenceValues();
+                          print(notification.toString());
                           NotificationOn();
                         } else {
+                          print(notification.toString());
                           NotificationOff();
                         }
-                        ;
                       });
                     }),
               ],
@@ -159,7 +167,7 @@ class _SettingsState extends State<Settings> {
                         () async {
                       await model.deleteDb();
                       await model.deleteDbc();
-                      removePreferenceValues();
+                      isLogginPrefernce();
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => SplashScreen()));
                     });
