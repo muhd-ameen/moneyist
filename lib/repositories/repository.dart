@@ -56,9 +56,12 @@ class Repository {
         .query(table, where: '$columnName=?', whereArgs: [columnValue]);
   }
 
-  // deleteDb(tableName) async {
-  //   var connection = await database;
-  //   await connection.close();
-  //   return await connection.delete("DELETE FROM " + tableName);
-  // }
+  deleteDb() async {
+    final connection = await database;
+    return connection.delete("transactions");
+  }
+  deleteDbc() async {
+    final connection = await database;
+    return connection.delete("categories");
+  }
 }

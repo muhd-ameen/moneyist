@@ -45,6 +45,12 @@ dependencies:
   url_launcher: ^6.0.9
   shared_preferences: ^2.0.6
   toast: ^0.1.5
+  timezone: any
+  flutter_native_timezone: ^2.0.0
+  flutter_local_notifications: ^6.1.0
+  http:
+  rxdart: ^0.27.1
+
 
 dev_dependencies:
   flutter_test:

@@ -1,10 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:moneyist/helpers/notification/notificationApi.dart';
+import 'package:moneyist/helpers/notification/secondPage.dart';
 import 'package:moneyist/repositories/repository.dart';
 import 'package:moneyist/screens/home_screen.dart';
 import 'package:moneyist/view/splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:toast/toast.dart';
 
 class Settings extends StatefulWidget {
   @override
@@ -12,14 +15,48 @@ class Settings extends StatefulWidget {
 }
 
 class _SettingsState extends State<Settings> {
-  var model = Repository();
+  @override
+  void initState() {
+    super.initState();
+    NotificationApi.init();
+    // listenNotification();
+  }
+
+  void listenNotification() =>
+      NotificationApi.onNotifications.listen(onClickedNotification);
+
+  void onClickedNotification(String payload) => Navigator.of(context).push(
+        MaterialPageRoute(
+            builder: (context) => SecondPage(
+                  payload: payload,
+                )),
+      );
 
   removePreferenceValues() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setBool('boolValue', false);
   }
 
-  bool notification = true;
+  NotificationOn() {
+    return NotificationApi.showNotification(
+      title: 'Daily Notification Enabled!',
+      body:
+          "Hooray It's an Great Move! Start Adding Your Daily Transactions :)",
+      payload: 'Moneyist.abs',
+    );
+  }
+
+  NotificationOff() {
+    return NotificationApi.showNotification(
+      title: 'Daily Notification Disabled!',
+      body: "😢 Ho Hah, Take Some Rest & come back with more Power :(",
+      payload: 'Moneyist.abs',
+    );
+  }
+
+  var model = Repository();
+
+  bool notification = false;
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -66,10 +103,41 @@ class _SettingsState extends State<Settings> {
                     onToggle: (val) {
                       setState(() {
                         notification = val;
+                        if (notification == true) {
+                          NotificationOn();
+                        } else {
+                          NotificationOff();
+                        }
+                        ;
                       });
                     }),
               ],
             ),
+            SizedBox(
+              height: 20,
+            ),
+            notification == false
+                ? SizedBox()
+                : Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        'Turn off Reminder',
+                        style: TextStyle(
+                            color: Color(0xFF606060),
+                            fontWeight: FontWeight.w800,
+                            fontSize: 18),
+                      ),
+                      IconButton(
+                        onPressed: () => NotificationApi.cancelAll(),
+                        icon: Icon(
+                          Icons.delete,
+                          size: 30,
+                          color: Colors.black45,
+                        ),
+                      )
+                    ],
+                  ),
             SizedBox(
               height: 20,
             ),
@@ -84,11 +152,18 @@ class _SettingsState extends State<Settings> {
                       fontSize: 18),
                 ),
                 IconButton(
-                  onPressed: () {
-                    removePreferenceValues();
-                    Navigator.of(context)
-                        .push(MaterialPageRoute(builder: (context) => SplashScreen()  ));
-                    // await model.deleteDb('transactions');
+                  onPressed: () async {
+                    await showToast(
+                        'All Data in This Application As Been Deleted');
+                    Future.delayed(const Duration(milliseconds: 3000),
+                        () async {
+                      await model.deleteDb();
+                      await model.deleteDbc();
+                      removePreferenceValues();
+                      Navigator.of(context).push(MaterialPageRoute(
+                          builder: (context) => SplashScreen()));
+                    });
+
                     // SystemNavigator.pop();
                   },
                   icon: Icon(
@@ -106,5 +181,9 @@ class _SettingsState extends State<Settings> {
         ),
       ),
     );
+  }
+
+  void showToast(String msg) {
+    Toast.show(msg, context, duration: 3, gravity: Toast.BOTTOM);
   }
 }

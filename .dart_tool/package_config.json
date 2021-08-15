@@ -80,6 +80,24 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "flutter_local_notifications",
+      "rootUri": "file:///home/ameen/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_local_notifications-6.1.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_local_notifications_platform_interface",
+      "rootUri": "file:///home/ameen/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_local_notifications_platform_interface-4.0.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
+      "name": "flutter_native_timezone",
+      "rootUri": "file:///home/ameen/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_native_timezone-2.0.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "flutter_plugin_android_lifecycle",
       "rootUri": "file:///home/ameen/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/flutter_plugin_android_lifecycle-2.0.2",
       "packageUri": "lib/",
@@ -242,6 +260,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "rxdart",
+      "rootUri": "file:///home/ameen/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/rxdart-0.27.1",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "share",
       "rootUri": "file:///home/ameen/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/share-2.0.4",
       "packageUri": "lib/",
@@ -344,6 +368,12 @@
       "languageVersion": "2.12"
     },
     {
+      "name": "timezone",
+      "rootUri": "file:///home/ameen/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/timezone-0.7.0",
+      "packageUri": "lib/",
+      "languageVersion": "2.12"
+    },
+    {
       "name": "toast",
       "rootUri": "file:///home/ameen/snap/flutter/common/flutter/.pub-cache/hosted/pub.dartlang.org/toast-0.1.5",
       "packageUri": "lib/",
@@ -416,7 +446,7 @@
       "languageVersion": "2.11"
     }
   ],
-  "generated": "2021-08-14T04:46:38.892639Z",
+  "generated": "2021-08-15T12:40:20.672556Z",
   "generator": "pub",
   "generatorVersion": "2.13.4"
 }
