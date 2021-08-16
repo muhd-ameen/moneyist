@@ -55,16 +55,20 @@ class _SettingsState extends State<Settings> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setBool('boolValue', false);
   }
+
   @override
   addPreferenceValues() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setBool('notification', true);
+    prefs.setBool('notification', notification);
+  }
+  @override
+ remPreferenceValues() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('notification', false);
   }
 
   @override
   Widget build(BuildContext context) {
-
-
     return Scaffold(
       backgroundColor: Colors.white,
       appBar: AppBar(
@@ -171,6 +175,7 @@ class _SettingsState extends State<Settings> {
                       await model.deleteDb();
                       await model.deleteDbc();
                       removePreferenceValues();
+                      remPreferenceValues();
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => SplashScreen()));
                     });

@@ -61,12 +61,14 @@ class _SplashScreenState extends State<SplashScreen> {
   checkLoggedIn() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     isLoggedIn = prefs.getBool('boolValue');
-    isLoggedIn == false ? navigationPage('/welcome') : navigationPage('/home');
+    isLoggedIn == false || isLoggedIn == null
+        ? navigationPage('/welcome')
+        : navigationPage('/home');
   }
 
   startTime() async {
     var _duration = new Duration(seconds: 2);
-    return new Timer(_duration, () async{
+    return new Timer(_duration, () async {
       await checkLoggedIn();
     });
   }

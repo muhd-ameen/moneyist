@@ -19,6 +19,7 @@ class _HomeScreenState extends State<HomeScreen> {
   initState() {
     super.initState();
     _loadData();
+    checkloggin();
   }
 
   _loadData() async {
@@ -28,6 +29,10 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
+  checkloggin()async{
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    print('23456789${prefs.getBool('boolValue')}');
+  }
   int _selectedIndex = 0;
 
   List<Widget> _widgetOptions = <Widget>[
