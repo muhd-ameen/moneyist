@@ -51,18 +51,19 @@ class _SettingsState extends State<Settings> {
 
   var model = Repository();
 
-  isLogginPrefernce() async {
+  removePreferenceValues() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setBool('boolValue', false);
+  }
+  @override
+  addPreferenceValues() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool('notification', true);
   }
 
   @override
   Widget build(BuildContext context) {
-    @override
-    addPreferenceValues() async {
-      SharedPreferences prefs = await SharedPreferences.getInstance();
-      prefs.setBool('notification', notification);
-    }
+
 
     return Scaffold(
       backgroundColor: Colors.white,
@@ -137,7 +138,9 @@ class _SettingsState extends State<Settings> {
                             fontSize: 18),
                       ),
                       IconButton(
-                        onPressed: () => NotificationApi.cancelAll(),
+                        onPressed: () {
+                          NotificationApi.cancelAll();
+                        },
                         icon: Icon(
                           Icons.delete,
                           size: 30,
@@ -167,7 +170,7 @@ class _SettingsState extends State<Settings> {
                         () async {
                       await model.deleteDb();
                       await model.deleteDbc();
-                      isLogginPrefernce();
+                      removePreferenceValues();
                       Navigator.of(context).push(MaterialPageRoute(
                           builder: (context) => SplashScreen()));
                     });
