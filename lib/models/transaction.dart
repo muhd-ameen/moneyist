@@ -6,7 +6,10 @@ class Transaction {
   String amount;
   String category;
   String transactionDate;
+  String memoImage;
   DateTime _dateTime = DateTime.now();
+
+
 
   transactionMap() {
     var mapping = Map<String, dynamic>();
@@ -14,6 +17,7 @@ class Transaction {
     mapping['title'] = title;
     mapping['amount'] = amount;
     mapping['category'] = category;
+    mapping['memoImage'] = memoImage;
     mapping['transactionDate'] = transactionDate;
 
     return mapping;

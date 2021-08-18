@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:moneyist/helpers/image_helper.dart';
 import 'package:moneyist/models/transaction.dart';
 import 'package:moneyist/services/category_service.dart';
 import 'package:moneyist/services/transaction_service.dart';
@@ -18,6 +19,7 @@ class _TodoScreenState extends State<TodoScreen> {
   var _todoDateController = TextEditingController();
 
   var _selectedValue;
+  var _transaction = Transaction();
 
   var _categories = List<DropdownMenuItem>();
 
@@ -66,6 +68,7 @@ class _TodoScreenState extends State<TodoScreen> {
     var _snackBar = SnackBar(content: message);
     _globalKey.currentState.showSnackBar(_snackBar);
   }
+
   String _selectedCategory = 'income';
 
   @override
@@ -179,57 +182,51 @@ class _TodoScreenState extends State<TodoScreen> {
                   ),
                   title: Text('Expense'),
                 ),
-                _selectedCategory == 'income' ?
-                DropdownButtonFormField(
-                  value: _selectedValue,
-                  items: _categories,
-                  hint: Text('Income Categories'),
-                  validator: (text) {
-                    if (text == null || text.isEmpty) {
-                      return 'Please Select a Category';
-                    }
-                    return null;
-                  },
-                  onChanged: (value) {
-                    setState(() {
-                      _selectedValue = value;
-                    });
-                  },
-                ) :
-                DropdownButtonFormField(
-                  value: _selectedValue,
-                  items: _categories,
-                  hint: Text('Expense Categories'),
-                  validator: (text) {
-                    if (text == null || text.isEmpty) {
-                      return 'Please Select a Category';
-                    }
-                    return null;
-                  },
-                  onChanged: (value) {
-                    setState(() {
-                      _selectedValue = value;
-                    });
-                  },
-                ),
-                // DropdownButtonFormField(
-                //   value: _selectedValue,
-                //   items: _categories,
-                //   hint: Text('Category'),
-                //   validator: (text) {
-                //     if (text == null || text.isEmpty) {
-                //       return 'Please Select a Category';
-                //     }
-                //     return null;
-                //   },
-                //   onChanged: (value) {
-                //     setState(() {
-                //       _selectedValue = value;
-                //     });
-                //   },
-                // ),
+                _selectedCategory == 'income'
+                    ? DropdownButtonFormField(
+                        value: _selectedValue,
+                        items: _categories,
+                        hint: Text('Income Categories'),
+                        validator: (text) {
+                          if (text == null || text.isEmpty) {
+                            return 'Please Select a Category';
+                          }
+                          return null;
+                        },
+                        onChanged: (value) {
+                          setState(() {
+                            _selectedValue = value;
+                          });
+                        },
+                      )
+                    : DropdownButtonFormField(
+                        value: _selectedValue,
+                        items: _categories,
+                        hint: Text('Expense Categories'),
+                        validator: (text) {
+                          if (text == null || text.isEmpty) {
+                            return 'Please Select a Category';
+                          }
+                          return null;
+                        },
+                        onChanged: (value) {
+                          setState(() {
+                            _selectedValue = value;
+                          });
+                        },
+                      ),
                 SizedBox(
                   height: 20,
+                ),
+                FormHelper.picPicker(
+                  _transaction.memoImage,
+                  (file) => {
+                    setState(
+                      () {
+                        _transaction.memoImage = file.path;
+                      },
+                    )
+                  },
                 ),
                 Container(
                   margin: EdgeInsets.only(top: 25),

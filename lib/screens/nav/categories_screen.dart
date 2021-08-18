@@ -11,7 +11,8 @@ class CategoriesScreen extends StatefulWidget {
   _CategoriesScreenState createState() => _CategoriesScreenState();
 }
 
-class _CategoriesScreenState extends State<CategoriesScreen> {
+class _CategoriesScreenState extends State<CategoriesScreen>
+    with SingleTickerProviderStateMixin {
   var _categoryNameController = TextEditingController();
   var _categoryDescriptionController = TextEditingController();
 
@@ -24,11 +25,13 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
 
   var _editCategoryNameController = TextEditingController();
   var _editCategoryDescriptionController = TextEditingController();
+  TabController _controller;
 
   @override
   void initState() {
     super.initState();
     getAllCategories();
+    _controller = new TabController(length: 2, vsync: this);
   }
 
   final GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
@@ -247,37 +250,129 @@ class _CategoriesScreenState extends State<CategoriesScreen> {
           ),
         ),
       ),
-      body: ListView.builder(
-          itemCount: _categoryList.length,
-          itemBuilder: (context, index) {
-            return Padding(
-              padding: EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
-              child: Card(
-                elevation: 8.0,
-                child: ListTile(
-                  leading: IconButton(
-                      icon: Icon(Icons.edit),
-                      onPressed: () {
-                        _editCategory(context, _categoryList[index].id);
-                      }),
-                  title: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                    children: <Widget>[
-                      Text(_categoryList[index].name),
-                      IconButton(
-                          icon: Icon(
-                            Icons.delete,
-                            color: Colors.red,
-                          ),
-                          onPressed: () {
-                            _deleteFormDialog(context, _categoryList[index].id);
-                          })
-                    ],
-                  ),
+      body: new ListView(
+        children: <Widget>[
+          new Container(
+            decoration: new BoxDecoration(color: Theme.of(context).primaryColor),
+            child: new TabBar(
+              controller: _controller,
+              tabs: [
+                new Tab(
+                  icon: const Icon(Icons.money_off),
+                  text: 'Income',
                 ),
-              ),
-            );
-          }),
+                new Tab(
+                  icon: const Icon(Icons.transfer_within_a_station),
+                  text: 'Expense',
+                ),
+              ],
+            ),
+          ),
+          new Container(
+            height: 600.0,
+            child: new TabBarView(
+              controller: _controller,
+              children: <Widget>[
+                new ListView.builder(
+                    itemCount: _categoryList.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
+                        child: Card(
+                          elevation: 8.0,
+                          child: ListTile(
+                            leading: IconButton(
+                                icon: Icon(Icons.edit),
+                                onPressed: () {
+                                  _editCategory(context, _categoryList[index].id);
+                                }),
+                            title: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(_categoryList[index].name),
+                                IconButton(
+                                    icon: Icon(
+                                      Icons.delete,
+                                      color: Colors.red,
+                                    ),
+                                    onPressed: () {
+                                      _deleteFormDialog(context, _categoryList[index].id);
+                                    })
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+                new ListView.builder(
+                    itemCount: _categoryList.length,
+                    itemBuilder: (context, index) {
+                      return Padding(
+                        padding: EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
+                        child: Card(
+                          elevation: 8.0,
+                          child: ListTile(
+                            leading: IconButton(
+                                icon: Icon(Icons.edit),
+                                onPressed: () {
+                                  _editCategory(context, _categoryList[index].id);
+                                }),
+                            title: Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: <Widget>[
+                                Text(_categoryList[index].name),
+                                IconButton(
+                                    icon: Icon(
+                                      Icons.delete,
+                                      color: Colors.red,
+                                    ),
+                                    onPressed: () {
+                                      _deleteFormDialog(context, _categoryList[index].id);
+                                    })
+                              ],
+                            ),
+                          ),
+                        ),
+                      );
+                    }),
+              ],
+            ),
+          ),
+        ],
+      ),
+      //
+      // body:
+      // ListView.builder(
+      //     itemCount: _categoryList.length,
+      //     itemBuilder: (context, index) {
+      //       return Padding(
+      //         padding: EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
+      //         child: Card(
+      //           elevation: 8.0,
+      //           child: ListTile(
+      //             leading: IconButton(
+      //                 icon: Icon(Icons.edit),
+      //                 onPressed: () {
+      //                   _editCategory(context, _categoryList[index].id);
+      //                 }),
+      //             title: Row(
+      //               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+      //               children: <Widget>[
+      //                 Text(_categoryList[index].name),
+      //                 IconButton(
+      //                     icon: Icon(
+      //                       Icons.delete,
+      //                       color: Colors.red,
+      //                     ),
+      //                     onPressed: () {
+      //                       _deleteFormDialog(context, _categoryList[index].id);
+      //                     })
+      //               ],
+      //             ),
+      //           ),
+      //         ),
+      //       );
+      //     }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
           _showFormDialog(context);

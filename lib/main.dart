@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:moneyist/screens/home_screen.dart';
 import 'package:moneyist/screens/nav/home.dart';
+import 'package:moneyist/test/tabbed.dart';
 import 'package:moneyist/view/add_category.dart';
 import 'package:moneyist/view/support.dart';
 
@@ -37,6 +38,7 @@ class MyApp extends StatelessWidget {
         '/EditTransaction': (BuildContext ctx) => EditTransaction(),
         '/Rating': (BuildContext ctx) => Rating(),
         '/CrudHome': (BuildContext ctx) => CrudHome(),
+        '/Tabbed': (BuildContext ctx) => Tabbed(),
       },
     );
   }

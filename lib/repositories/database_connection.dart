@@ -16,10 +16,10 @@ class DatabaseConnection {
         "CREATE TABLE categories(id INTEGER PRIMARY KEY, name STRING, description STRING)");
     //
     await database.execute(
-        "INSERT Into categories (name) VALUES ('Income'), ('Expense'), ('Travel'), ('Rental');");
+        "INSERT Into categories (name) VALUES ('Income'), ('Expense');");
 
     // Create table todos
     await database.execute(
-        "CREATE TABLE transactions(id INTEGER PRIMARY KEY, title VARCHAR(22), amount TEXT, category TEXT, transactionDate TEXT)");
+        "CREATE TABLE transactions(id INTEGER PRIMARY KEY, title VARCHAR(22), amount TEXT, category TEXT, transactionDate TEXT, memoImage String)");
   }
 }

@@ -1,8 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:moneyist/helpers/drawer_navigation.dart';
+import 'package:moneyist/helpers/image_helper.dart';
 import 'package:moneyist/models/transaction.dart';
 import 'package:moneyist/repositories/repository.dart';
 import 'package:moneyist/screens/home_screen.dart';
@@ -100,6 +102,8 @@ class _CrudHomeState extends State<CrudHome> {
     });
   }
 
+  // ImagePicker _picker = new ImagePicker();
+
   _editTransaction(BuildContext context, transactionId) async {
     transaction = await _transactionService.readTransactionById(transactionId);
     setState(() {
@@ -109,6 +113,7 @@ class _CrudHomeState extends State<CrudHome> {
           transaction[0]['amount'] ?? 'No amount';
       _todoDateController.text = transaction[0]['transactionDate'] ?? 'No date';
       _selectedValue = transaction[0]['category'] ?? 'No categoty';
+      // _picker = transaction[0]['memoImage'] ?? 'No image';
     });
     _editFormDialog(context);
   }
@@ -229,6 +234,16 @@ class _CrudHomeState extends State<CrudHome> {
                         });
                       },
                     ),
+                    // FormHelper.picPicker(
+                    //   _transaction.memoImage,
+                    //   (file) => {
+                    //     setState(
+                    //       () {
+                    //         _picker = file.path;
+                    //       },
+                    //     )
+                    //   },
+                    // ),
                   ],
                 ),
               ),
