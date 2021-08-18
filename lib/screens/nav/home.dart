@@ -17,10 +17,6 @@ class CrudHome extends StatefulWidget {
   _CrudHomeState createState() => _CrudHomeState();
 }
 
-var totalIncome = 0;
-var totalExpense = 0;
-var balance = 0;
-
 class _CrudHomeState extends State<CrudHome> {
   final GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
 
@@ -52,6 +48,7 @@ class _CrudHomeState extends State<CrudHome> {
     super.initState();
     getAllTodos();
     _todoDateController.text = DateFormat('dd-MMM-yyyy').format(_dateTime);
+
     _loadCategories();
   }
 
@@ -279,8 +276,6 @@ class _CrudHomeState extends State<CrudHome> {
         });
   }
 
-
-
   void showToast(String msg) {
     Toast.show(msg, context, duration: 2, gravity: Toast.BOTTOM);
   }
@@ -318,6 +313,8 @@ class _CrudHomeState extends State<CrudHome> {
                   shrinkWrap: true,
                   itemCount: _todoList.length,
                   itemBuilder: (context, index) {
+                    _todoList.sort((taskA, taskB) =>
+                        taskB.transactionDate.compareTo(taskA.transactionDate));
                     return GestureDetector(
                       onTap: () {
                         _editTransaction(context, _todoList[index].id);

@@ -3,16 +3,28 @@ import 'package:intl/intl.dart';
 import 'package:moneyist/screens/nav/home.dart';
 import 'package:moneyist/widget/title_head.dart';
 
-class StatusContainer extends StatelessWidget {
+class StatusContainer extends StatefulWidget {
   const StatusContainer({
     Key key,
     @required DateFormat dateFormatter,
     @required DateTime date,
-  }) : _dateFormatter = dateFormatter, _date = date, super(key: key);
+  })  : _dateFormatter = dateFormatter,
+        _date = date,
+        super(key: key);
 
   final DateFormat _dateFormatter;
   final DateTime _date;
 
+  @override
+  _StatusContainerState createState() => _StatusContainerState();
+}
+
+var totalIncome = 500;
+var totalExpense = 100;
+var balance = totalIncome - totalExpense;
+
+
+class _StatusContainerState extends State<StatusContainer> {
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -34,8 +46,7 @@ class StatusContainer extends StatelessWidget {
               SizedBox(
                 child: Container(
                   color: Colors.white,
-                  padding:
-                  EdgeInsets.symmetric(vertical: 25, horizontal: 1),
+                  padding: EdgeInsets.symmetric(vertical: 25, horizontal: 1),
                 ),
               ),
               TitleHead(
@@ -45,8 +56,7 @@ class StatusContainer extends StatelessWidget {
               SizedBox(
                 child: Container(
                   color: Colors.white,
-                  padding:
-                  EdgeInsets.symmetric(vertical: 25, horizontal: 1),
+                  padding: EdgeInsets.symmetric(vertical: 25, horizontal: 1),
                 ),
               ),
               TitleHead(
@@ -59,11 +69,9 @@ class StatusContainer extends StatelessWidget {
             height: 25,
           ),
           Text(
-            '${_dateFormatter.format(_date)}',
+            '${widget._dateFormatter.format(widget._date)}',
             style: TextStyle(
-                fontSize: 14,
-                fontWeight: FontWeight.w700,
-                color: Colors.white),
+                fontSize: 14, fontWeight: FontWeight.w700, color: Colors.white),
           )
         ],
       ),

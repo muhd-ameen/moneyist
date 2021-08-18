@@ -66,6 +66,7 @@ class _TodoScreenState extends State<TodoScreen> {
     var _snackBar = SnackBar(content: message);
     _globalKey.currentState.showSnackBar(_snackBar);
   }
+  String _selectedCategory = 'income';
 
   @override
   Widget build(BuildContext context) {
@@ -154,10 +155,51 @@ class _TodoScreenState extends State<TodoScreen> {
                     ),
                   ),
                 ),
+                ListTile(
+                  leading: Radio(
+                    value: 'income',
+                    groupValue: _selectedCategory,
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedCategory = value;
+                      });
+                    },
+                  ),
+                  title: Text('Income'),
+                ),
+                ListTile(
+                  leading: Radio(
+                    value: 'expense',
+                    groupValue: _selectedCategory,
+                    onChanged: (value) {
+                      setState(() {
+                        _selectedCategory = value;
+                      });
+                    },
+                  ),
+                  title: Text('Expense'),
+                ),
+                _selectedCategory == 'income' ?
                 DropdownButtonFormField(
                   value: _selectedValue,
                   items: _categories,
-                  hint: Text('Category'),
+                  hint: Text('Income Categories'),
+                  validator: (text) {
+                    if (text == null || text.isEmpty) {
+                      return 'Please Select a Category';
+                    }
+                    return null;
+                  },
+                  onChanged: (value) {
+                    setState(() {
+                      _selectedValue = value;
+                    });
+                  },
+                ) :
+                DropdownButtonFormField(
+                  value: _selectedValue,
+                  items: _categories,
+                  hint: Text('Expense Categories'),
                   validator: (text) {
                     if (text == null || text.isEmpty) {
                       return 'Please Select a Category';
@@ -170,6 +212,22 @@ class _TodoScreenState extends State<TodoScreen> {
                     });
                   },
                 ),
+                // DropdownButtonFormField(
+                //   value: _selectedValue,
+                //   items: _categories,
+                //   hint: Text('Category'),
+                //   validator: (text) {
+                //     if (text == null || text.isEmpty) {
+                //       return 'Please Select a Category';
+                //     }
+                //     return null;
+                //   },
+                //   onChanged: (value) {
+                //     setState(() {
+                //       _selectedValue = value;
+                //     });
+                //   },
+                // ),
                 SizedBox(
                   height: 20,
                 ),

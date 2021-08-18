@@ -55,7 +55,7 @@ class _DrawerNavigatonState extends State<DrawerNavigaton> {
                   color: Colors.white,
                   image: DecorationImage(
                     fit: BoxFit.fill,
-                    image: AssetImage("assets/images/drawer.png"),
+                    image: AssetImage("assets/images/navimg.jpg"),
                   ),
                   // color: Colors.teal,
                 ),

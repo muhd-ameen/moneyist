@@ -13,7 +13,10 @@ class DatabaseConnection {
 
   _onCreatingDatabase(Database database, int version) async {
     await database.execute(
-        "CREATE TABLE categories(id INTEGER PRIMARY KEY, name TEXT, description TEXT)");
+        "CREATE TABLE categories(id INTEGER PRIMARY KEY, name STRING, description STRING)");
+    //
+    await database.execute(
+        "INSERT Into categories (name) VALUES ('Income'), ('Expense'), ('Travel'), ('Rental');");
 
     // Create table todos
     await database.execute(

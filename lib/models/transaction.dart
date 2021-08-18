@@ -1,9 +1,12 @@
+import 'package:intl/intl.dart';
+
 class Transaction {
   int id;
   String title;
   String amount;
   String category;
   String transactionDate;
+  DateTime _dateTime = DateTime.now();
 
   transactionMap() {
     var mapping = Map<String, dynamic>();
