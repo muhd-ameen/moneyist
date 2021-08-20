@@ -1,4 +1,4 @@
-#Wed Aug 18 20:12:25 IST 2021
+#Fri Aug 20 15:33:48 IST 2021
 base.0=/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/app/intermediates/dex/debug/mergeDexDebug/classes.dex
 renamed.0=classes.dex
 path.0=classes.dex

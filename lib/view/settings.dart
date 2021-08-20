@@ -23,7 +23,7 @@ class _SettingsState extends State<Settings> {
     NotificationApi.init();
     // listenNotification();
   }
-  // bool notification = false;
+  bool notification = false;
 
   void listenNotification() =>
       NotificationApi.onNotifications.listen(onClickedNotification);

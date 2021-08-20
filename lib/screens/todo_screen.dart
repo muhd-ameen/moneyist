@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:moneyist/helpers/image_helper.dart';
 import 'package:moneyist/models/transaction.dart';
-import 'package:moneyist/services/category_service.dart';
+import 'package:moneyist/services/Income_category_service.dart';
+import 'package:moneyist/services/expense_category_service.dart';
 import 'package:moneyist/services/transaction_service.dart';
 import 'package:intl/intl.dart';
 import 'home_screen.dart';
@@ -21,7 +22,8 @@ class _TodoScreenState extends State<TodoScreen> {
   var _selectedValue;
   var _transaction = Transaction();
 
-  var _categories = List<DropdownMenuItem>();
+  var _incategories = List<DropdownMenuItem>();
+  var _excategories = List<DropdownMenuItem>();
 
   final GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
   final _formKey = GlobalKey<FormState>();
@@ -34,13 +36,23 @@ class _TodoScreenState extends State<TodoScreen> {
   }
 
   _loadCategories() async {
-    var _categoryService = CategoryService();
-    var categories = await _categoryService.readCategories();
-    categories.forEach((category) {
+    var _incategoryService = IncomeCategoryService();
+    var _excategoryService = ExpenseCategoryService();
+    var incategories = await _incategoryService.readCategories();
+    var excategories = await _excategoryService.readCategories();
+    incategories.forEach((category) {
       setState(() {
-        _categories.add(DropdownMenuItem(
-          child: Text(category['name']),
-          value: category['name'],
+        _incategories.add(DropdownMenuItem(
+          child: Text(category['inname']),
+          value: category['inname'],
+        ));
+      });
+    });
+    excategories.forEach((category) {
+      setState(() {
+        _excategories.add(DropdownMenuItem(
+          child: Text(category['exname']),
+          value: category['exname'],
         ));
       });
     });
@@ -92,182 +104,185 @@ class _TodoScreenState extends State<TodoScreen> {
         ),
       ),
       body: SingleChildScrollView(
-        child: Container(
-          decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(15),
-            color: Color(0xFFF5F5F5),
-          ),
-          margin: EdgeInsets.all(15),
-          padding: EdgeInsets.all(16.0),
-          child: Form(
-            key: _formKey,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: <Widget>[
-                TextFormField(
-                  maxLength: 15,
-                  autofocus: true,
-                  controller: _todoTitleController,
-                  validator: (text) {
-                    if (text == null || text.isEmpty) {
-                      return 'Please Enter a Memo';
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                      labelText: 'Memo', hintText: 'Write a Memo'),
-                ),
-                TextFormField(
-                  keyboardType: TextInputType.number,
-                  inputFormatters: <TextInputFormatter>[
-                    FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
-                  ],
-                  validator: (text) {
-                    if (text == null || text.isEmpty) {
-                      return 'Please Enter a Amount';
-                    }
-                    return null;
-                  },
-                  maxLength: 6,
-                  controller: _todoDescriptionController,
-                  decoration: InputDecoration(
-                    labelText: 'Amount',
-                    hintText: 'Amount',
+        child: GestureDetector(
+          child: Container(
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(15),
+              color: Color(0xFFF5F5F5),
+            ),
+            margin: EdgeInsets.all(15),
+            padding: EdgeInsets.all(16.0),
+            child: Form(
+              key: _formKey,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: <Widget>[
+                  TextFormField(
+                    maxLength: 15,
+                    autofocus: true,
+                    controller: _todoTitleController,
+                    validator: (text) {
+                      if (text == null || text.isEmpty) {
+                        return 'Please Enter a Memo';
+                      }
+                      return null;
+                    },
+                    decoration: InputDecoration(
+                        labelText: 'Memo', hintText: 'Write a Memo'),
                   ),
-                ),
-                TextFormField(
-                  readOnly: true,
-                  controller: _todoDateController,
-                  onTap: () {
-                    _selectedTodoDate(context);
-                  },
-                  validator: (text) {
-                    if (text == null || text.isEmpty) {
-                      return 'Please Select a Date';
-                    }
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                    labelText: 'Date',
-                    hintText: 'Pick a Date',
-                    prefixIcon: InkWell(
-                      // onTap: () {
-                      //   _selectedTodoDate(context);
-                      // },
-                      child: Icon(Icons.calendar_today),
+                  TextFormField(
+                    keyboardType: TextInputType.number,
+                    inputFormatters: <TextInputFormatter>[
+                      FilteringTextInputFormatter.allow(RegExp(r'[0-9]')),
+                    ],
+                    validator: (text) {
+                      if (text == null || text.isEmpty) {
+                        return 'Please Enter a Amount';
+                      }
+                      return null;
+                    },
+                    maxLength: 6,
+                    controller: _todoDescriptionController,
+                    decoration: InputDecoration(
+                      labelText: 'Amount',
+                      hintText: 'Amount',
                     ),
                   ),
-                ),
-                ListTile(
-                  leading: Radio(
-                    value: 'income',
-                    groupValue: _selectedCategory,
-                    onChanged: (value) {
-                      setState(() {
-                        _selectedCategory = value;
-                      });
+                  TextFormField(
+                    readOnly: true,
+                    controller: _todoDateController,
+                    onTap: () {
+                      _selectedTodoDate(context);
                     },
-                  ),
-                  title: Text('Income'),
-                ),
-                ListTile(
-                  leading: Radio(
-                    value: 'expense',
-                    groupValue: _selectedCategory,
-                    onChanged: (value) {
-                      setState(() {
-                        _selectedCategory = value;
-                      });
+                    validator: (text) {
+                      if (text == null || text.isEmpty) {
+                        return 'Please Select a Date';
+                      }
+                      return null;
                     },
+                    decoration: InputDecoration(
+                      labelText: 'Date',
+                      hintText: 'Pick a Date',
+                      prefixIcon: InkWell(
+                        // onTap: () {
+                        //   _selectedTodoDate(context);
+                        // },
+                        child: Icon(Icons.calendar_today),
+                      ),
+                    ),
                   ),
-                  title: Text('Expense'),
-                ),
-                _selectedCategory == 'income'
-                    ? DropdownButtonFormField(
-                        value: _selectedValue,
-                        items: _categories,
-                        hint: Text('Income Categories'),
-                        validator: (text) {
-                          if (text == null || text.isEmpty) {
-                            return 'Please Select a Category';
-                          }
-                          return null;
-                        },
-                        onChanged: (value) {
-                          setState(() {
-                            _selectedValue = value;
-                          });
+                  ListTile(
+                    leading: Radio(
+                      value: 'income',
+                      groupValue: _selectedCategory,
+                      onChanged: (value) {
+                        setState(() {
+                          _selectedCategory = value;
+                        });
+                      },
+                    ),
+                    title: Text('Income'),
+                  ),
+                  ListTile(
+                    leading: Radio(
+                      value: 'expense',
+                      groupValue: _selectedCategory,
+                      onChanged: (value) {
+                        setState(() {
+                          _selectedCategory = value;
+                        });
+                      },
+                    ),
+                    title: Text('Expense'),
+                  ),
+                  _selectedCategory == 'income'
+                      ? DropdownButtonFormField(
+                          value: _selectedValue,
+                          items: _incategories,
+                          hint: Text('Income Categories'),
+                          validator: (text) {
+                            if (text == null || text.isEmpty) {
+                              return 'Please Select a Category';
+                            }
+                            return null;
+                          },
+                          onChanged: (value) {
+                            setState(() {
+                              _selectedValue = value;
+                            });
+                          },
+                        )
+                      : DropdownButtonFormField(
+                          value: _selectedValue,
+                          items: _excategories,
+                          hint: Text('Expense Categories'),
+                          validator: (text) {
+                            if (text == null || text.isEmpty) {
+                              return 'Please Select a Category';
+                            }
+                            return null;
+                          },
+                          onChanged: (value) {
+                            setState(() {
+                              _selectedValue = value;
+                            });
+                          },
+                        ),
+                  SizedBox(
+                    height: 20,
+                  ),
+                  FormHelper.picPicker(
+                    _transaction.memoImage,
+                    (file) => {
+                      setState(
+                        () {
+                          _transaction.memoImage = file.path;
                         },
                       )
-                    : DropdownButtonFormField(
-                        value: _selectedValue,
-                        items: _categories,
-                        hint: Text('Expense Categories'),
-                        validator: (text) {
-                          if (text == null || text.isEmpty) {
-                            return 'Please Select a Category';
-                          }
-                          return null;
-                        },
-                        onChanged: (value) {
-                          setState(() {
-                            _selectedValue = value;
-                          });
-                        },
-                      ),
-                SizedBox(
-                  height: 20,
-                ),
-                FormHelper.picPicker(
-                  _transaction.memoImage,
-                  (file) => {
-                    setState(
-                      () {
-                        _transaction.memoImage = file.path;
-                      },
-                    )
-                  },
-                ),
-                Container(
-                  margin: EdgeInsets.only(top: 25),
-                  child: RaisedButton.icon(
-                    icon: Icon(
-                      Icons.done_all_outlined,
-                      color: Colors.white,
-                    ),
-                    label: Text(
-                      'Save Transaction',
-                      style: TextStyle(color: Colors.white),
-                    ),
-                    padding: EdgeInsets.symmetric(vertical: 15, horizontal: 35),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8)),
-                    onPressed: () async {
-                      if (_formKey.currentState.validate()) {
-                        var todoObject = Transaction();
-
-                        todoObject.title = _todoTitleController.text;
-                        todoObject.amount = _todoDescriptionController.text;
-                        todoObject.category = _selectedValue.toString();
-                        todoObject.transactionDate = _todoDateController.text;
-
-                        var _todoService = TodoService();
-                        var result = await _todoService.saveTodo(todoObject);
-
-                        if (result > 0) {
-                          _showSuccessSnackBar(
-                            Text('Created'),
-                          );
-                        }
-                        print(result);
-                        Navigator.of(context).push(MaterialPageRoute(
-                            builder: (context) => HomeScreen()));
-                      }
                     },
-                    color: Colors.blue,
                   ),
-                )
-              ],
+                  Container(
+                    margin: EdgeInsets.only(top: 25),
+                    child: RaisedButton.icon(
+                      icon: Icon(
+                        Icons.done_all_outlined,
+                        color: Colors.white,
+                      ),
+                      label: Text(
+                        'Save Transaction',
+                        style: TextStyle(color: Colors.white),
+                      ),
+                      padding:
+                          EdgeInsets.symmetric(vertical: 15, horizontal: 35),
+                      shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(8)),
+                      onPressed: () async {
+                        if (_formKey.currentState.validate()) {
+                          var todoObject = Transaction();
+
+                          todoObject.title = _todoTitleController.text;
+                          todoObject.amount = _todoDescriptionController.text;
+                          todoObject.category = _selectedValue.toString();
+                          todoObject.transactionDate = _todoDateController.text;
+
+                          var _todoService = TodoService();
+                          var result = await _todoService.saveTodo(todoObject);
+
+                          if (result > 0) {
+                            _showSuccessSnackBar(
+                              Text('Created'),
+                            );
+                          }
+                          print(result);
+                          Navigator.of(context).push(MaterialPageRoute(
+                              builder: (context) => HomeScreen()));
+                        }
+                      },
+                      color: Colors.blue,
+                    ),
+                  )
+                ],
+              ),
             ),
           ),
         ),

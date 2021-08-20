@@ -1,9 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:moneyist/models/category.dart';
+import 'package:moneyist/models/Incomecategory.dart';
+import 'package:moneyist/models/expensecategory.dart';
 import 'package:moneyist/screens/home_screen.dart';
+import 'package:moneyist/services/Income_category_service.dart';
 import 'package:moneyist/test/Home.dart';
-import 'package:moneyist/services/category_service.dart';
+import 'package:moneyist/services/expense_category_service.dart';
 import 'package:toast/toast.dart';
 
 class CategoriesScreen extends StatefulWidget {
@@ -13,19 +15,27 @@ class CategoriesScreen extends StatefulWidget {
 
 class _CategoriesScreenState extends State<CategoriesScreen>
     with SingleTickerProviderStateMixin {
-  var _categoryNameController = TextEditingController();
-  var _categoryDescriptionController = TextEditingController();
+  var _incategoryNameController = TextEditingController();
+  var _excategoryNameController = TextEditingController();
+  var _incategoryDescriptionController = TextEditingController();
+  var _excategoryDescriptionController = TextEditingController();
 
-  var _category = Category();
-  var _categoryService = CategoryService();
+  var _incategory = IncomeCategory();
+  var _excategory = ExpenseCategory();
+  var _incategoryService = IncomeCategoryService();
+  var _excategoryService = ExpenseCategoryService();
 
-  List<Category> _categoryList = List<Category>();
+  List<IncomeCategory> _incategoryList = List<IncomeCategory>();
+  List<ExpenseCategory> _excategoryList = List<ExpenseCategory>();
 
-  var category;
+  var incategory;
+  var excategory;
+  String _selectedCategory = 'income';
 
   var _editCategoryNameController = TextEditingController();
   var _editCategoryDescriptionController = TextEditingController();
   TabController _controller;
+  var _selectedValue;
 
   @override
   void initState() {
@@ -37,25 +47,42 @@ class _CategoriesScreenState extends State<CategoriesScreen>
   final GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
 
   getAllCategories() async {
-    _categoryList = List<Category>();
-    var categories = await _categoryService.readCategories();
-    categories.forEach((category) {
+    _incategoryList = List<IncomeCategory>();
+    _excategoryList = List<ExpenseCategory>();
+    var incategories = await _incategoryService.readCategories();
+    var excategories = await _excategoryService.readCategories();
+    incategories.forEach((category) {
       setState(() {
-        var categoryModel = Category();
-        categoryModel.name = category['name'];
-        categoryModel.description = category['description'];
+        var categoryModel = IncomeCategory();
+        categoryModel.inname = category['inname'];
+        categoryModel.indescription = category['indescription'];
         categoryModel.id = category['id'];
-        _categoryList.add(categoryModel);
+        _incategoryList.add(categoryModel);
+      });
+    });
+    excategories.forEach((category) {
+      setState(() {
+        var categoryModel = ExpenseCategory();
+        categoryModel.exname = category['exname'];
+        categoryModel.exdescription = category['exdescription'];
+        categoryModel.id = category['id'];
+        _excategoryList.add(categoryModel);
       });
     });
   }
 
   _editCategory(BuildContext context, categoryId) async {
-    category = await _categoryService.readCategoryById(categoryId);
+    incategory = await _incategoryService.readCategoryById(categoryId);
+    excategory = await _excategoryService.readCategoryById(categoryId);
     setState(() {
-      _editCategoryNameController.text = category[0]['name'] ?? 'No Name';
+      _editCategoryNameController.text = incategory[0]['inname'] ?? 'No Name';
       _editCategoryDescriptionController.text =
-          category[0]['description'] ?? 'No Description';
+          incategory[0]['indescription'] ?? 'No Description';
+    });
+    setState(() {
+      _editCategoryNameController.text = excategory[0]['exname'] ?? 'No Name';
+      _editCategoryDescriptionController.text =
+          excategory[0]['exdescription'] ?? 'No Description';
     });
     _editFormDialog(context);
   }
@@ -82,12 +109,26 @@ class _CategoriesScreenState extends State<CategoriesScreen>
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(5))),
                 onPressed: () async {
-                  _category.name = _categoryNameController.text;
-                  _category.description = _categoryDescriptionController.text;
+                  _incategory.inname = _incategoryNameController.text;
+                  _excategory.exname = _incategoryNameController.text;
+                  _incategory.indescription =
+                      _incategoryDescriptionController.text;
+                  _excategory.exdescription =
+                      _excategoryDescriptionController.text;
 
-                  var result = await _categoryService.saveCategory(_category);
-                  if (result > 0) {
-                    print(result);
+                  var inresult =
+                      await _incategoryService.saveCategory(_incategory);
+                  var exresult =
+                      await _excategoryService.saveCategory(_excategory);
+                  if (inresult > 0) {
+                    print(inresult);
+                    getAllCategories();
+                    // Navigator.pop(context);
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                  }
+                  if (exresult > 0) {
+                    print(exresult);
                     getAllCategories();
                     // Navigator.pop(context);
                     Navigator.of(context).push(
@@ -104,17 +145,63 @@ class _CategoriesScreenState extends State<CategoriesScreen>
             content: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
-                  TextField(
-                    controller: _categoryNameController,
-                    decoration: InputDecoration(
-                        hintText: 'Write a category', labelText: 'Category'),
+                  ListTile(
+                    leading: Radio(
+                      value: 'income',
+                      groupValue: _selectedCategory,
+                      onChanged: (value) {
+                        setState(() {
+                          _selectedCategory = value;
+                        });
+                      },
+                    ),
+                    title: Text('Income'),
                   ),
-                  TextField(
-                    controller: _categoryDescriptionController,
-                    decoration: InputDecoration(
-                        hintText: 'Write a description',
-                        labelText: 'Description'),
-                  )
+                  ListTile(
+                    leading: Radio(
+                      value: 'expense',
+                      groupValue: _selectedCategory,
+                      onChanged: (value) {
+                        setState(() {
+                          _selectedCategory = value;
+                        });
+                      },
+                    ),
+                    title: Text('Expense'),
+                  ),
+                  _selectedCategory == 'income'
+                      ? Column(
+                          children: [
+                            TextField(
+                              controller: _incategoryNameController,
+                              decoration: InputDecoration(
+                                  hintText: 'Write a category',
+                                  labelText: 'Category'),
+                            ),
+                            TextField(
+                              controller: _incategoryDescriptionController,
+                              decoration: InputDecoration(
+                                  hintText: 'Write a description',
+                                  labelText: 'Description'),
+                            )
+                          ],
+                        )
+                      : Column(
+                          children: [
+                            TextField(
+                              controller: _excategoryNameController,
+                              decoration: InputDecoration(
+                                  hintText: 'Write a category',
+                                  labelText: 'Category'),
+                            ),
+                            TextField(
+                              controller: _excategoryDescriptionController,
+                              decoration: InputDecoration(
+                                  hintText: 'Write a description',
+                                  labelText: 'Description'),
+                            ),
+                          ],
+                        ),
                 ],
               ),
             ),
@@ -148,13 +235,26 @@ class _CategoriesScreenState extends State<CategoriesScreen>
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(5))),
                 onPressed: () async {
-                  _category.id = category[0]['id'];
-                  _category.name = _editCategoryNameController.text;
-                  _category.description =
+                  _incategory.id = incategory[0]['id'];
+                  _excategory.id = excategory[0]['id'];
+                  _incategory.inname = _editCategoryNameController.text;
+                  _excategory.exname = _editCategoryNameController.text;
+                  _incategory.indescription =
+                      _editCategoryDescriptionController.text;
+                  _excategory.exdescription =
                       _editCategoryDescriptionController.text;
 
-                  var result = await _categoryService.updateCategory(_category);
-                  if (result > 0) {
+                  var inresult =
+                      await _incategoryService.updateCategory(_incategory);
+                  var exresult =
+                      await _excategoryService.updateCategory(_excategory);
+                  if (inresult > 0) {
+                    getAllCategories();
+                    showToast('Updated');
+                    Navigator.of(context).push(
+                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                  }
+                  if (exresult > 0) {
                     getAllCategories();
                     showToast('Updated');
                     Navigator.of(context).push(
@@ -208,10 +308,18 @@ class _CategoriesScreenState extends State<CategoriesScreen>
                 shape: RoundedRectangleBorder(
                     borderRadius: BorderRadius.all(Radius.circular(5))),
                 onPressed: () async {
-                  var result =
-                      await _categoryService.deleteCategory(categoryId);
-                  if (result > 0) {
+                  var inresult =
+                      await _incategoryService.deleteCategory(categoryId);
+                  var exresult =
+                      await _excategoryService.deleteCategory(categoryId);
+                  if (inresult > 0) {
                     Navigator.pop(context);
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                    showToast('Deleted');
+                  } else if (exresult > 0) {
+                    Navigator.push(context,
+                        MaterialPageRoute(builder: (context) => HomeScreen()));
                     getAllCategories();
                     showToast('Deleted');
                   }
@@ -253,7 +361,8 @@ class _CategoriesScreenState extends State<CategoriesScreen>
       body: new ListView(
         children: <Widget>[
           new Container(
-            decoration: new BoxDecoration(color: Theme.of(context).primaryColor),
+            decoration:
+                new BoxDecoration(color: Theme.of(context).primaryColor),
             child: new TabBar(
               controller: _controller,
               tabs: [
@@ -274,29 +383,32 @@ class _CategoriesScreenState extends State<CategoriesScreen>
               controller: _controller,
               children: <Widget>[
                 new ListView.builder(
-                    itemCount: _categoryList.length,
+                    itemCount: _incategoryList.length,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
+                        padding:
+                            EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
                         child: Card(
                           elevation: 8.0,
                           child: ListTile(
                             leading: IconButton(
                                 icon: Icon(Icons.edit),
                                 onPressed: () {
-                                  _editCategory(context, _categoryList[index].id);
+                                  _editCategory(
+                                      context, _incategoryList[index].id);
                                 }),
                             title: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
-                                Text(_categoryList[index].name),
+                                Text(_incategoryList[index].inname),
                                 IconButton(
                                     icon: Icon(
                                       Icons.delete,
                                       color: Colors.red,
                                     ),
                                     onPressed: () {
-                                      _deleteFormDialog(context, _categoryList[index].id);
+                                      _deleteFormDialog(
+                                          context, _incategoryList[index].id);
                                     })
                               ],
                             ),
@@ -305,29 +417,32 @@ class _CategoriesScreenState extends State<CategoriesScreen>
                       );
                     }),
                 new ListView.builder(
-                    itemCount: _categoryList.length,
+                    itemCount: _excategoryList.length,
                     itemBuilder: (context, index) {
                       return Padding(
-                        padding: EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
+                        padding:
+                            EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
                         child: Card(
                           elevation: 8.0,
                           child: ListTile(
                             leading: IconButton(
                                 icon: Icon(Icons.edit),
                                 onPressed: () {
-                                  _editCategory(context, _categoryList[index].id);
+                                  _editCategory(
+                                      context, _excategoryList[index].id);
                                 }),
                             title: Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
                               children: <Widget>[
-                                Text(_categoryList[index].name),
+                                Text(_excategoryList[index].exname),
                                 IconButton(
                                     icon: Icon(
                                       Icons.delete,
                                       color: Colors.red,
                                     ),
                                     onPressed: () {
-                                      _deleteFormDialog(context, _categoryList[index].id);
+                                      _deleteFormDialog(
+                                          context, _excategoryList[index].id);
                                     })
                               ],
                             ),

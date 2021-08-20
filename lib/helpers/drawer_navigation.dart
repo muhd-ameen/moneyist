@@ -2,7 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:moneyist/screens/nav/categories_screen.dart';
 import 'package:moneyist/screens/home_screen.dart';
 import 'package:moneyist/screens/todos_by_category.dart';
-import 'package:moneyist/services/category_service.dart';
+import 'package:moneyist/services/Income_category_service.dart';
+import 'package:moneyist/services/expense_category_service.dart';
 import 'package:moneyist/view/settings.dart';
 import 'package:share/share.dart';
 
@@ -12,9 +13,11 @@ class DrawerNavigaton extends StatefulWidget {
 }
 
 class _DrawerNavigatonState extends State<DrawerNavigaton> {
-  List<Widget> _categoryList = List<Widget>();
+  List<Widget> _incategoryList = List<Widget>();
+  List<Widget> _excategoryList = List<Widget>();
 
-  CategoryService _categoryService = CategoryService();
+  IncomeCategoryService _incategoryService = IncomeCategoryService();
+  ExpenseCategoryService _excategoryService = ExpenseCategoryService();
 
   @override
   initState() {
@@ -23,19 +26,35 @@ class _DrawerNavigatonState extends State<DrawerNavigaton> {
   }
 
   getAllCategories() async {
-    var categories = await _categoryService.readCategories();
+    var incategories = await _incategoryService.readCategories();
+    var excategories = await _excategoryService.readCategories();
 
-    categories.forEach((category) {
+    incategories.forEach((category) {
       setState(() {
-        _categoryList.add(InkWell(
+        _incategoryList.add(InkWell(
           onTap: () => Navigator.push(
               context,
               new MaterialPageRoute(
                   builder: (context) => new TodosByCategory(
-                        category: category['name'],
+                        category: category['inname'],
                       ))),
           child: ListTile(
-            title: Text(category['name']),
+            title: Text(category['inname']),
+          ),
+        ));
+      });
+    });
+    excategories.forEach((category) {
+      setState(() {
+        _excategoryList.add(InkWell(
+          onTap: () => Navigator.push(
+              context,
+              new MaterialPageRoute(
+                  builder: (context) => new TodosByCategory(
+                        category: category['exname'],
+                      ))),
+          child: ListTile(
+            title: Text(category['exname']),
           ),
         ));
       });
@@ -115,12 +134,23 @@ class _DrawerNavigatonState extends State<DrawerNavigaton> {
             ),
             Divider(),
             Center(
-                child: Text(
-              'Category List',
-              style: TextStyle(fontWeight: FontWeight.w500),
-            )),
+              child: Text(
+                'Income Categories  ',
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+            ),
             Column(
-              children: _categoryList,
+              children: _incategoryList,
+            ),
+            Divider(),
+            Center(
+              child: Text(
+                'Expense Categories',
+                style: TextStyle(fontWeight: FontWeight.w500),
+              ),
+            ),
+            Column(
+              children: _excategoryList,
             ),
           ],
         ),

@@ -24,10 +24,10 @@
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/app.dill" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/app.dill" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/debug_android_application.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/debug_android_application.stamp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/flutter_assets.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/flutter_assets.d" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.dart_tool/package_config.json" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/package_config.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/kernel_snapshot.d" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/kernel_snapshot.d" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/kernel_snapshot.stamp" beforeDir="false" afterPath="$PROJECT_DIR$/.dart_tool/flutter_build/f77266ef1cf6ec39bab5b6dbcc067ba2/kernel_snapshot.stamp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.flutter-plugins-dependencies" beforeDir="false" afterPath="$PROJECT_DIR$/.flutter-plugins-dependencies" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.packages" beforeDir="false" afterPath="$PROJECT_DIR$/.packages" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" beforeDir="false" afterPath="$PROJECT_DIR$/build/4f2a58af27abc49ecf55570043bbf938.cache.dill.track.dill" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/compressed_assets/debug/out/assets/flutter_assets/kernel_blob.bin.jar" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/intermediates/flutter/debug/flutter_assets/kernel_blob.bin" afterDir="false" />
@@ -38,12 +38,16 @@
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app-debug.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" beforeDir="false" afterPath="$PROJECT_DIR$/build/app/outputs/flutter-apk/app.apk.sha1" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/main.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/main.dart" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/lib/models/transaction.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/transaction.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/helpers/drawer_navigation.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/helpers/drawer_navigation.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/models/category.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/models/expensecategory.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/repositories/database_connection.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/repositories/database_connection.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/repositories/repository.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/repositories/repository.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/nav/categories_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/nav/categories_screen.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/nav/home.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/nav/home.dart" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/lib/screens/todo_screen.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/todo_screen.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/screens/todos_by_category.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/screens/todos_by_category.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/services/category_service.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/services/expense_category_service.dart" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/lib/view/settings.dart" beforeDir="false" afterPath="$PROJECT_DIR$/lib/view/settings.dart" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,16 +84,17 @@
     <property name="android.sdk.path" value="$USER_HOME$/Android/Sdk" />
     <property name="dart.analysis.tool.window.visible" value="false" />
     <property name="io.flutter.reload.alreadyRun" value="true" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/assets/images" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/lib/services" />
     <property name="settings.editor.selected.configurable" value="preferences.lookFeel" />
     <property name="show.migrate.to.gradle.popup" value="false" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/lib/services" />
+      <recent name="$PROJECT_DIR$/lib/models" />
       <recent name="$PROJECT_DIR$/assets/images" />
       <recent name="$PROJECT_DIR$/assets/icons" />
       <recent name="$PROJECT_DIR$/lib" />
-      <recent name="$PROJECT_DIR$/lib/view" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/lib/screens/nav" />
@@ -196,7 +201,14 @@
       <option name="project" value="LOCAL" />
       <updated>1629298152487</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="+ tabbed Category added&#10;+ image db, ui added">
+      <created>1629299116190</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1629299116190</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.History.Properties">

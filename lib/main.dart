@@ -38,7 +38,6 @@ class MyApp extends StatelessWidget {
         '/EditTransaction': (BuildContext ctx) => EditTransaction(),
         '/Rating': (BuildContext ctx) => Rating(),
         '/CrudHome': (BuildContext ctx) => CrudHome(),
-        '/Tabbed': (BuildContext ctx) => Tabbed(),
       },
     );
   }

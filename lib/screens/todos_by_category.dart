@@ -64,61 +64,64 @@ class _TodosByCategoryState extends State<TodosByCategory> {
         children: <Widget>[
           Expanded(
             child: ListView.builder(
-              itemCount: _todoList.length,
-              itemBuilder: (context, index) {
-                return Container(
-                  margin: EdgeInsets.symmetric(vertical: 8, horizontal: 15),
-                  padding: EdgeInsets.symmetric(vertical: 13),
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(16.0),
-                    color: Color(0xFFF5F5F5),
-                  ),
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.spaceAround,
-                    children: [
-                      ClipOval(
-                        child: _todoList[index].category == 'Income'
-                            ? Image.asset(
-                                'assets/icons/money.png',
-                                width: 50,
-                                height: 50,
-                                fit: BoxFit.cover,
-                              )
-                            : Image.asset(
-                                'assets/icons/expense.png',
-                                width: 40,
-                                height: 40,
-                                fit: BoxFit.cover,
-                              ),
-                      ),
-                      Column(
-                        children: [
-                          Text(
-                            _todoList[index].title ?? 'No Title',
-                            style: TextStyle(
-                                fontSize: 15, fontWeight: FontWeight.w800),
-                          ),
-                          Text(
-                            _todoList[index].transactionDate ?? 'No Date',
-                            style: TextStyle(
-                                fontSize: 11,
-                                color: Color(0xFF868686),
-                                fontWeight: FontWeight.w800),
-                          ),
-                        ],
-                      ),
-                      Text(
-                        _todoList[index].amount ?? 'No Category',
-                        style: TextStyle(
-                            color: Colors.redAccent,
-                            fontSize: 16,
-                            fontWeight: FontWeight.w800),
-                      ),
-                    ],
-                  ),
-                );
-              },
-            ),
+                itemCount: _todoList.length,
+                itemBuilder: (context, index) {
+                  if (_todoList.length == null) {
+                    Center(
+                        child: Image.asset("assets/images/navimg.jpg"),);
+                  }
+                  return Container(
+                    margin: EdgeInsets.symmetric(vertical: 8, horizontal: 15),
+                    padding: EdgeInsets.symmetric(vertical: 13),
+                    decoration: BoxDecoration(
+                      borderRadius: BorderRadius.circular(16.0),
+                      color: Color(0xFFF5F5F5),
+                    ),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceAround,
+                      children: [
+                        ClipOval(
+                          child: _todoList[index].category == 'Income'
+                              ? Image.asset(
+                                  'assets/icons/money.png',
+                                  width: 50,
+                                  height: 50,
+                                  fit: BoxFit.cover,
+                                )
+                              : Image.asset(
+                                  'assets/icons/expense.png',
+                                  width: 40,
+                                  height: 40,
+                                  fit: BoxFit.cover,
+                                ),
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              _todoList[index].title ?? 'No Title',
+                              style: TextStyle(
+                                  fontSize: 15, fontWeight: FontWeight.w800),
+                            ),
+                            Text(
+                              _todoList[index].transactionDate ?? 'No Date',
+                              style: TextStyle(
+                                  fontSize: 11,
+                                  color: Color(0xFF868686),
+                                  fontWeight: FontWeight.w800),
+                            ),
+                          ],
+                        ),
+                        Text(
+                          _todoList[index].amount ?? 'No Category',
+                          style: TextStyle(
+                              color: Colors.redAccent,
+                              fontSize: 16,
+                              fontWeight: FontWeight.w800),
+                        ),
+                      ],
+                    ),
+                  );
+                }),
           )
         ],
       ),

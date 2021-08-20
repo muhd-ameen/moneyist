@@ -62,6 +62,10 @@ class Repository {
   }
   deleteDbc() async {
     final connection = await database;
-    return connection.delete("categories");
+    return connection.delete("Expensecategories");
+  }
+  deleteDbIc() async {
+    final connection = await database;
+    return connection.delete("IncomeCategories");
   }
 }

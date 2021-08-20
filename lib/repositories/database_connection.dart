@@ -12,11 +12,23 @@ class DatabaseConnection {
   }
 
   _onCreatingDatabase(Database database, int version) async {
+    // Expense Category
+
     await database.execute(
-        "CREATE TABLE categories(id INTEGER PRIMARY KEY, name STRING, description STRING)");
-    //
+        "CREATE TABLE ExpenseCategories(id INTEGER PRIMARY KEY, exname STRING, exdescription STRING)");
+
     await database.execute(
-        "INSERT Into categories (name) VALUES ('Income'), ('Expense');");
+        "INSERT Into ExpenseCategories (exname) VALUES ('Bills'), ('Food'), ('Travel'), ('Shopping'), ('Education');");
+
+
+    // INcome Category
+
+    await database.execute(
+        "CREATE TABLE IncomeCategories(id INTEGER PRIMARY KEY, inname STRING, indescription STRING)");
+    await database.execute(
+        "INSERT Into IncomeCategories (inname) VALUES ('Salary'), ('Reward'),('Rental'),('Refund'),('Coupons');");
+
+
 
     // Create table todos
     await database.execute(

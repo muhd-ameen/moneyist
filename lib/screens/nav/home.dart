@@ -8,7 +8,8 @@ import 'package:moneyist/helpers/image_helper.dart';
 import 'package:moneyist/models/transaction.dart';
 import 'package:moneyist/repositories/repository.dart';
 import 'package:moneyist/screens/home_screen.dart';
-import 'package:moneyist/services/category_service.dart';
+import 'package:moneyist/services/Income_category_service.dart';
+import 'package:moneyist/services/expense_category_service.dart';
 import 'package:moneyist/services/transaction_service.dart';
 import 'package:moneyist/widget/statusContainer.dart';
 import 'package:moneyist/widget/title_head.dart';
@@ -26,7 +27,8 @@ class _CrudHomeState extends State<CrudHome> {
   var _transactionAmountController = TextEditingController();
   var _todoDateController = TextEditingController();
   var _selectedValue;
-  var _categories = List<DropdownMenuItem>();
+  var _incategories = List<DropdownMenuItem>();
+  var _excategories = List<DropdownMenuItem>();
   final _formKey = GlobalKey<FormState>();
 
   var _transaction = Transaction();
@@ -50,7 +52,6 @@ class _CrudHomeState extends State<CrudHome> {
     super.initState();
     getAllTodos();
     _todoDateController.text = DateFormat('dd-MMM-yyyy').format(_dateTime);
-
     _loadCategories();
   }
 
@@ -71,13 +72,23 @@ class _CrudHomeState extends State<CrudHome> {
   }
 
   _loadCategories() async {
-    var _categoryService = CategoryService();
-    var categories = await _categoryService.readCategories();
-    categories.forEach((category) {
+    var _incategoryService = IncomeCategoryService();
+    var _excategoryService = ExpenseCategoryService();
+    var incategories = await _incategoryService.readCategories();
+    var excategories = await _excategoryService.readCategories();
+    incategories.forEach((category) {
       setState(() {
-        _categories.add(DropdownMenuItem(
-          child: Text(category['name']),
-          value: category['name'],
+        _incategories.add(DropdownMenuItem(
+          child: Text(category['inname']),
+          value: category['inname'],
+        ));
+      });
+    });
+    excategories.forEach((category) {
+      setState(() {
+        _incategories.add(DropdownMenuItem(
+          child: Text(category['exname']),
+          value: category['exname'],
         ));
       });
     });
@@ -220,7 +231,7 @@ class _CrudHomeState extends State<CrudHome> {
                     ),
                     DropdownButtonFormField(
                       value: _selectedValue,
-                      items: _categories,
+                      items: _incategories,
                       hint: Text('Category'),
                       validator: (text) {
                         if (text == null || text.isEmpty) {
