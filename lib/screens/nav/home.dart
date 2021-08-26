@@ -285,7 +285,7 @@ class _CrudHomeState extends State<CrudHome> {
                   var result =
                       await _transactionService.deleteTodos(transactionId);
                   if (result > 0) {
-                    Navigator.pop(context);
+                    Navigator.push(context, MaterialPageRoute(builder: (context)=>HomeScreen()));
                     getAllTodos();
                     showToast('Deleted');
                   }

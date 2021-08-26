@@ -29,10 +29,11 @@ class _HomeScreenState extends State<HomeScreen> {
     });
   }
 
-  checkloggin()async{
+  checkloggin() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     print('23456789${prefs.getBool('boolValue')}');
   }
+
   int _selectedIndex = 0;
 
   List<Widget> _widgetOptions = <Widget>[
@@ -73,8 +74,10 @@ class _HomeScreenState extends State<HomeScreen> {
         backgroundColor: Colors.white,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
         floatingActionButton: FloatingActionButton(
-          onPressed: () => Navigator.of(context)
-              .push(MaterialPageRoute(builder: (context) => TodoScreen())),
+          onPressed: () {
+            Navigator.of(context)
+                .push(MaterialPageRoute(builder: (context) => TodoScreen()));
+          },
           child: Icon(Icons.add),
         ),
         drawer: DrawerNavigaton(),

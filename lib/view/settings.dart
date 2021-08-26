@@ -175,10 +175,9 @@ class _SettingsState extends State<Settings> {
                         () async {
                       await model.deleteDb();
                       await model.deleteDbc();
-                      removePreferenceValues();
-                      remPreferenceValues();
-                      Navigator.of(context).push(MaterialPageRoute(
-                          builder: (context) => SplashScreen()));
+                      await removePreferenceValues();
+                      await remPreferenceValues();
+                      SystemNavigator.pop();
                     });
 
                     // SystemNavigator.pop();

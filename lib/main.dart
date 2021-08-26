@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:moneyist/screens/home_screen.dart';
+import 'package:moneyist/screens/nav/categories_screen.dart';
 import 'package:moneyist/screens/nav/home.dart';
 import 'package:moneyist/test/tabbed.dart';
 import 'package:moneyist/view/add_category.dart';
@@ -33,6 +34,7 @@ class MyApp extends StatelessWidget {
         '/home': (BuildContext ctx) => HomeScreen(),
         '/setting': (BuildContext ctx) => Settings(),
         '/AddCategory': (BuildContext ctx) => AddCategory(),
+        '/CategoriesScreen': (BuildContext ctx) => CategoriesScreen(),
         '/ExportData': (BuildContext ctx) => ExportData(),
         '/Support': (BuildContext ctx) => Support(),
         '/EditTransaction': (BuildContext ctx) => EditTransaction(),

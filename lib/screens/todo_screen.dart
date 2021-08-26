@@ -278,7 +278,7 @@ class _TodoScreenState extends State<TodoScreen> {
                               builder: (context) => HomeScreen()));
                         }
                       },
-                      color: Colors.blue,
+                      color: Colors.blueAccent,
                     ),
                   )
                 ],

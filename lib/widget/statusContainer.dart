@@ -20,9 +20,8 @@ class StatusContainer extends StatefulWidget {
 }
 
 var totalIncome = 500;
-var totalExpense = 100;
+var totalExpense = 120;
 var balance = totalIncome - totalExpense;
-
 
 class _StatusContainerState extends State<StatusContainer> {
   @override
@@ -31,6 +30,10 @@ class _StatusContainerState extends State<StatusContainer> {
       margin: EdgeInsets.symmetric(vertical: 5, horizontal: 10),
       padding: EdgeInsets.symmetric(vertical: 25, horizontal: 30),
       decoration: BoxDecoration(
+        image: DecorationImage(
+          image: AssetImage('assets/icons/containerbg.png'),
+          fit: BoxFit.cover,
+        ),
         borderRadius: BorderRadius.circular(14.0),
         color: Color(0xFF2E2E61),
       ),

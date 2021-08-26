@@ -40,17 +40,16 @@ class _CategoriesScreenState extends State<CategoriesScreen>
   @override
   void initState() {
     super.initState();
-    getAllCategories();
+    getAllInCategories();
+    getAllExCategories();
     _controller = new TabController(length: 2, vsync: this);
   }
 
   final GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
 
-  getAllCategories() async {
+  getAllInCategories() async {
     _incategoryList = List<IncomeCategory>();
-    _excategoryList = List<ExpenseCategory>();
     var incategories = await _incategoryService.readCategories();
-    var excategories = await _excategoryService.readCategories();
     incategories.forEach((category) {
       setState(() {
         var categoryModel = IncomeCategory();
@@ -60,6 +59,11 @@ class _CategoriesScreenState extends State<CategoriesScreen>
         _incategoryList.add(categoryModel);
       });
     });
+  }
+
+  getAllExCategories() async {
+    _excategoryList = List<ExpenseCategory>();
+    var excategories = await _excategoryService.readCategories();
     excategories.forEach((category) {
       setState(() {
         var categoryModel = ExpenseCategory();
@@ -71,7 +75,17 @@ class _CategoriesScreenState extends State<CategoriesScreen>
     });
   }
 
-  _editCategory(BuildContext context, categoryId) async {
+  _editInCategory(BuildContext context, categoryId) async {
+    incategory = await _incategoryService.readCategoryById(categoryId);
+    setState(() {
+      _editCategoryNameController.text = incategory[0]['inname'] ?? 'No Name';
+      _editCategoryDescriptionController.text =
+          incategory[0]['indescription'] ?? 'No Description';
+    });
+    _editInFormDialog(context);
+  }
+
+  _editExCategory(BuildContext context, categoryId) async {
     incategory = await _incategoryService.readCategoryById(categoryId);
     excategory = await _excategoryService.readCategoryById(categoryId);
     setState(() {
@@ -84,10 +98,10 @@ class _CategoriesScreenState extends State<CategoriesScreen>
       _editCategoryDescriptionController.text =
           excategory[0]['exdescription'] ?? 'No Description';
     });
-    _editFormDialog(context);
+    _editExFormDialog(context);
   }
 
-  _showFormDialog(BuildContext context) {
+  _showInFormDialog(BuildContext context) {
     return showDialog(
         context: context,
         barrierDismissible: true,
@@ -110,27 +124,13 @@ class _CategoriesScreenState extends State<CategoriesScreen>
                     borderRadius: BorderRadius.all(Radius.circular(5))),
                 onPressed: () async {
                   _incategory.inname = _incategoryNameController.text;
-                  _excategory.exname = _incategoryNameController.text;
                   _incategory.indescription =
                       _incategoryDescriptionController.text;
-                  _excategory.exdescription =
-                      _excategoryDescriptionController.text;
-
                   var inresult =
                       await _incategoryService.saveCategory(_incategory);
-                  var exresult =
-                      await _excategoryService.saveCategory(_excategory);
                   if (inresult > 0) {
                     print(inresult);
-                    getAllCategories();
-                    // Navigator.pop(context);
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
-                  }
-                  if (exresult > 0) {
-                    print(exresult);
-                    getAllCategories();
-                    // Navigator.pop(context);
+                    getAllInCategories();
                     Navigator.of(context).push(
                         MaterialPageRoute(builder: (context) => HomeScreen()));
                   }
@@ -145,63 +145,91 @@ class _CategoriesScreenState extends State<CategoriesScreen>
             content: SingleChildScrollView(
               child: Column(
                 children: <Widget>[
-                  ListTile(
-                    leading: Radio(
-                      value: 'income',
-                      groupValue: _selectedCategory,
-                      onChanged: (value) {
-                        setState(() {
-                          _selectedCategory = value;
-                        });
-                      },
-                    ),
-                    title: Text('Income'),
+                  Column(
+                    children: [
+                      TextField(
+                        controller: _incategoryNameController,
+                        decoration: InputDecoration(
+                            hintText: 'Write a category',
+                            labelText: 'Income Category'),
+                      ),
+                      TextField(
+                        controller: _incategoryDescriptionController,
+                        decoration: InputDecoration(
+                            hintText: 'Write a description',
+                            labelText: 'Income Description'),
+                      )
+                    ],
+                  )
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
+  _showExFormDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        barrierDismissible: true,
+        builder: (param) {
+          return AlertDialog(
+            backgroundColor: Colors.white,
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(15))),
+            actions: <Widget>[
+              FlatButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
+                onPressed: () => Navigator.pop(context),
+                child: Text('Cancel'),
+              ),
+              FlatButton(
+                color: Colors.indigoAccent,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
+                onPressed: () async {
+                  _excategory.exname = _excategoryNameController.text;
+                  _excategory.exdescription =
+                      _excategoryDescriptionController.text;
+                  var exresult =
+                      await _excategoryService.saveCategory(_excategory);
+                  if (exresult > 0) {
+                    print(exresult);
+                    getAllExCategories();
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => CategoriesScreen()));
+                  }
+                },
+                child: Text(
+                  'Save',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ],
+            title: Text('categories Form'),
+            content: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  Column(
+                    children: [
+                      TextField(
+                        controller: _excategoryNameController,
+                        decoration: InputDecoration(
+                            hintText: 'Write a category',
+                            labelText: 'Expense Category'),
+                      ),
+                      TextField(
+                        controller: _excategoryDescriptionController,
+                        decoration: InputDecoration(
+                            hintText: 'Write a description',
+                            labelText: 'Expense Description'),
+                      ),
+                    ],
                   ),
-                  ListTile(
-                    leading: Radio(
-                      value: 'expense',
-                      groupValue: _selectedCategory,
-                      onChanged: (value) {
-                        setState(() {
-                          _selectedCategory = value;
-                        });
-                      },
-                    ),
-                    title: Text('Expense'),
-                  ),
-                  _selectedCategory == 'income'
-                      ? Column(
-                          children: [
-                            TextField(
-                              controller: _incategoryNameController,
-                              decoration: InputDecoration(
-                                  hintText: 'Write a category',
-                                  labelText: 'Category'),
-                            ),
-                            TextField(
-                              controller: _incategoryDescriptionController,
-                              decoration: InputDecoration(
-                                  hintText: 'Write a description',
-                                  labelText: 'Description'),
-                            )
-                          ],
-                        )
-                      : Column(
-                          children: [
-                            TextField(
-                              controller: _excategoryNameController,
-                              decoration: InputDecoration(
-                                  hintText: 'Write a category',
-                                  labelText: 'Category'),
-                            ),
-                            TextField(
-                              controller: _excategoryDescriptionController,
-                              decoration: InputDecoration(
-                                  hintText: 'Write a description',
-                                  labelText: 'Description'),
-                            ),
-                          ],
-                        ),
                 ],
               ),
             ),
@@ -213,7 +241,7 @@ class _CategoriesScreenState extends State<CategoriesScreen>
     Toast.show(msg, context, duration: 2, gravity: Toast.BOTTOM);
   }
 
-  _editFormDialog(BuildContext context) {
+  _editInFormDialog(BuildContext context) {
     return showDialog(
         context: context,
         barrierDismissible: true,
@@ -236,29 +264,16 @@ class _CategoriesScreenState extends State<CategoriesScreen>
                     borderRadius: BorderRadius.all(Radius.circular(5))),
                 onPressed: () async {
                   _incategory.id = incategory[0]['id'];
-                  _excategory.id = excategory[0]['id'];
                   _incategory.inname = _editCategoryNameController.text;
-                  _excategory.exname = _editCategoryNameController.text;
                   _incategory.indescription =
                       _editCategoryDescriptionController.text;
-                  _excategory.exdescription =
-                      _editCategoryDescriptionController.text;
-
                   var inresult =
                       await _incategoryService.updateCategory(_incategory);
-                  var exresult =
-                      await _excategoryService.updateCategory(_excategory);
                   if (inresult > 0) {
-                    getAllCategories();
+                    getAllInCategories();
                     showToast('Updated');
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
-                  }
-                  if (exresult > 0) {
-                    getAllCategories();
-                    showToast('Updated');
-                    Navigator.of(context).push(
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => CategoriesScreen()));
                   }
                 },
                 child: Text(
@@ -289,7 +304,70 @@ class _CategoriesScreenState extends State<CategoriesScreen>
         });
   }
 
-  _deleteFormDialog(BuildContext context, categoryId) {
+  _editExFormDialog(BuildContext context) {
+    return showDialog(
+        context: context,
+        barrierDismissible: true,
+        builder: (param) {
+          return AlertDialog(
+            backgroundColor: Colors.white,
+            elevation: 0,
+            shape: RoundedRectangleBorder(
+                borderRadius: BorderRadius.all(Radius.circular(15))),
+            actions: <Widget>[
+              FlatButton(
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
+                onPressed: () => Navigator.pop(context),
+                child: Text('Cancel'),
+              ),
+              FlatButton(
+                color: Colors.indigoAccent,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
+                onPressed: () async {
+                  _excategory.id = excategory[0]['id'];
+                  _excategory.exname = _editCategoryNameController.text;
+                  _excategory.exdescription =
+                      _editCategoryDescriptionController.text;
+                  var exresult =
+                      await _excategoryService.updateCategory(_excategory);
+                  if (exresult > 0) {
+                    getAllExCategories();
+                    showToast('Updated');
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => CategoriesScreen()));
+                  }
+                },
+                child: Text(
+                  'Update',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ],
+            title: Text('Edit Categories Form'),
+            content: SingleChildScrollView(
+              child: Column(
+                children: <Widget>[
+                  TextField(
+                    controller: _editCategoryNameController,
+                    decoration: InputDecoration(
+                        hintText: 'Write a category', labelText: 'Category'),
+                  ),
+                  TextField(
+                    controller: _editCategoryDescriptionController,
+                    decoration: InputDecoration(
+                        hintText: 'Write a description',
+                        labelText: 'Description'),
+                  )
+                ],
+              ),
+            ),
+          );
+        });
+  }
+
+  _deleteInFormDialog(BuildContext context, categoryId) {
     return showDialog(
         context: context,
         barrierDismissible: true,
@@ -310,17 +388,51 @@ class _CategoriesScreenState extends State<CategoriesScreen>
                 onPressed: () async {
                   var inresult =
                       await _incategoryService.deleteCategory(categoryId);
+                  if (inresult > 0) {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => HomeScreen()));
+                    getAllInCategories();
+                    showToast('Deleted');
+                  }
+                },
+                child: Text(
+                  'Delete',
+                  style: TextStyle(color: Colors.white),
+                ),
+              ),
+            ],
+            title: Text('Are you sure you want to delete this?'),
+          );
+        });
+  }
+
+  _deleteExFormDialog(BuildContext context, categoryId) {
+    return showDialog(
+        context: context,
+        barrierDismissible: true,
+        builder: (param) {
+          return AlertDialog(
+            actions: <Widget>[
+              FlatButton(
+                color: Colors.white,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
+                onPressed: () => Navigator.pop(context),
+                child: Text('Cancel'),
+              ),
+              FlatButton(
+                color: Colors.redAccent,
+                shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.all(Radius.circular(5))),
+                onPressed: () async {
                   var exresult =
                       await _excategoryService.deleteCategory(categoryId);
-                  if (inresult > 0) {
-                    Navigator.pop(context);
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
-                    showToast('Deleted');
-                  } else if (exresult > 0) {
-                    Navigator.push(context,
-                        MaterialPageRoute(builder: (context) => HomeScreen()));
-                    getAllCategories();
+                  if (exresult > 0) {
+                    Navigator.of(context).push(MaterialPageRoute(
+                        builder: (context) => HomeScreen()));
+                    // Navigator.push(context,
+                    //     MaterialPageRoute(builder: (context) => HomeScreen()));
+                    getAllExCategories();
                     showToast('Deleted');
                   }
                 },
@@ -361,17 +473,16 @@ class _CategoriesScreenState extends State<CategoriesScreen>
       body: new ListView(
         children: <Widget>[
           new Container(
-            decoration:
-                new BoxDecoration(color: Theme.of(context).primaryColor),
+            decoration: new BoxDecoration(color: Colors.black),
             child: new TabBar(
               controller: _controller,
               tabs: [
                 new Tab(
-                  icon: const Icon(Icons.money_off),
+                  icon: const Icon(Icons.paid_rounded),
                   text: 'Income',
                 ),
                 new Tab(
-                  icon: const Icon(Icons.transfer_within_a_station),
+                  icon: const Icon(Icons.price_change_rounded),
                   text: 'Expense',
                 ),
               ],
@@ -389,12 +500,13 @@ class _CategoriesScreenState extends State<CategoriesScreen>
                         padding:
                             EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
                         child: Card(
-                          elevation: 8.0,
+                          elevation: 6.0,
+                          shadowColor: Colors.black26,
                           child: ListTile(
                             leading: IconButton(
                                 icon: Icon(Icons.edit),
                                 onPressed: () {
-                                  _editCategory(
+                                  _editInCategory(
                                       context, _incategoryList[index].id);
                                 }),
                             title: Row(
@@ -407,7 +519,7 @@ class _CategoriesScreenState extends State<CategoriesScreen>
                                       color: Colors.red,
                                     ),
                                     onPressed: () {
-                                      _deleteFormDialog(
+                                      _deleteInFormDialog(
                                           context, _incategoryList[index].id);
                                     })
                               ],
@@ -423,12 +535,13 @@ class _CategoriesScreenState extends State<CategoriesScreen>
                         padding:
                             EdgeInsets.only(top: 8.0, left: 16.0, right: 16.0),
                         child: Card(
-                          elevation: 8.0,
+                          elevation: 6.0,
+                          shadowColor: Colors.black26,
                           child: ListTile(
                             leading: IconButton(
                                 icon: Icon(Icons.edit),
                                 onPressed: () {
-                                  _editCategory(
+                                  _editExCategory(
                                       context, _excategoryList[index].id);
                                 }),
                             title: Row(
@@ -441,7 +554,7 @@ class _CategoriesScreenState extends State<CategoriesScreen>
                                       color: Colors.red,
                                     ),
                                     onPressed: () {
-                                      _deleteFormDialog(
+                                      _deleteExFormDialog(
                                           context, _excategoryList[index].id);
                                     })
                               ],
@@ -490,7 +603,13 @@ class _CategoriesScreenState extends State<CategoriesScreen>
       //     }),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          _showFormDialog(context);
+          if (_controller.index == 0) {
+            print('index 0');
+            _showInFormDialog(context);
+          } else {
+            print('index 1');
+            _showExFormDialog(context);
+          }
         },
         child: Icon(Icons.add),
       ),
