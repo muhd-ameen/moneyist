@@ -1,9 +1,8 @@
-import 'package:intl/intl.dart';
 
 class Transaction {
   int id;
   String title;
-  String amount;
+  int amount;
   String category;
   String transactionDate;
   String memoImage;

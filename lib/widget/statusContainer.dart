@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:moneyist/screens/nav/home.dart';
 import 'package:moneyist/widget/title_head.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class StatusContainer extends StatefulWidget {
   const StatusContainer({
@@ -19,11 +20,14 @@ class StatusContainer extends StatefulWidget {
   _StatusContainerState createState() => _StatusContainerState();
 }
 
-var totalIncome = 500;
-var totalExpense = 120;
+var totalIncome = 100;
+var totalExpense = 1;
 var balance = totalIncome - totalExpense;
 
 class _StatusContainerState extends State<StatusContainer> {
+
+
+
   @override
   Widget build(BuildContext context) {
     return Container(

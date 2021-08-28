@@ -6,7 +6,7 @@ class TitleHead extends StatelessWidget {
     this.money,
   });
   final Title;
-   final money;
+   final int money;
   @override
   Widget build(BuildContext context) {
     return Column(

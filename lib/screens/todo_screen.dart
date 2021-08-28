@@ -6,6 +6,8 @@ import 'package:moneyist/services/Income_category_service.dart';
 import 'package:moneyist/services/expense_category_service.dart';
 import 'package:moneyist/services/transaction_service.dart';
 import 'package:intl/intl.dart';
+import 'package:moneyist/widget/statusContainer.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 import 'home_screen.dart';
 import '../test/Home.dart';
 
@@ -259,14 +261,19 @@ class _TodoScreenState extends State<TodoScreen> {
                       onPressed: () async {
                         if (_formKey.currentState.validate()) {
                           var todoObject = Transaction();
-
                           todoObject.title = _todoTitleController.text;
-                          todoObject.amount = _todoDescriptionController.text;
+                          todoObject.amount =
+                              int.parse(_todoDescriptionController.text);
                           todoObject.category = _selectedValue.toString();
                           todoObject.transactionDate = _todoDateController.text;
 
                           var _todoService = TodoService();
                           var result = await _todoService.saveTodo(todoObject);
+
+                          SharedPreferences prefs =
+                              await SharedPreferences.getInstance();
+                          prefs.setInt(
+                              'totalIncome', totalIncome += todoObject.amount);
 
                           if (result > 0) {
                             _showSuccessSnackBar(

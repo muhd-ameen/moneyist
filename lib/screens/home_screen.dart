@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:moneyist/view/settings.dart';
+import 'package:moneyist/widget/statusContainer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:moneyist/helpers/drawer_navigation.dart';
 import 'package:moneyist/screens/todo_screen.dart';
@@ -20,6 +21,14 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     _loadData();
     checkloggin();
+    getIntValuesSF();
+  }
+
+  getIntValuesSF() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    totalIncome = await prefs.getInt('totalIncome');
+    print('%%%%%%%%%${prefs.getInt('totalIncome')}');
+    return totalIncome;
   }
 
   _loadData() async {
