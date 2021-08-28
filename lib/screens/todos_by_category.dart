@@ -24,11 +24,13 @@ class _TodosByCategoryState extends State<TodosByCategory> {
 
   getTodosByCategories() async {
     var todos = await _todoService.readTodosByCategory(this.widget.category);
-    todos.forEach((todo) {
+
+    todos.forEach((todo) async {
+      var parseData = await int.parse(todo['amount'].toString()) ?? 'No amount';
       setState(() {
         var model = Transaction();
         model.title = todo['title'];
-        model.amount = todo['amount'];
+        model.amount = parseData as int;
         model.category = todo['category'];
         model.transactionDate = todo['transactionDate'];
         _todoList.add(model);
@@ -68,7 +70,8 @@ class _TodosByCategoryState extends State<TodosByCategory> {
                 itemBuilder: (context, index) {
                   if (_todoList.length == null) {
                     Center(
-                        child: Image.asset("assets/images/navimg.jpg"),);
+                      child: Image.asset("assets/images/navimg.jpg"),
+                    );
                   }
                   return Container(
                     margin: EdgeInsets.symmetric(vertical: 8, horizontal: 15),
@@ -112,7 +115,7 @@ class _TodosByCategoryState extends State<TodosByCategory> {
                           ],
                         ),
                         Text(
-                          _todoList[index].amount ?? 'No Category',
+                          _todoList[index].amount.toString() ?? 'No Category',
                           style: TextStyle(
                               color: Colors.redAccent,
                               fontSize: 16,

@@ -29,7 +29,7 @@ class _CrudHomeState extends State<CrudHome> {
   var _todoDateController = TextEditingController();
   var _selectedValue;
   var _incategories = List<DropdownMenuItem>();
-  var _excategories = List<DropdownMenuItem>();
+  // var _excategories = List<DropdownMenuItem>();
   final _formKey = GlobalKey<FormState>();
 
   var _transaction = Transaction();
@@ -242,7 +242,7 @@ class _CrudHomeState extends State<CrudHome> {
                       items: _incategories,
                       hint: Text('Category'),
                       validator: (text) {
-                        if (text == null || text.isEmpty) {
+                        if (text == null ) {
                           return 'Please Select a Category';
                         }
                         return null;
@@ -253,17 +253,18 @@ class _CrudHomeState extends State<CrudHome> {
                         });
                       },
                     ),
+                    SizedBox(height: 10,),
 
-                    // FormHelper.picPicker(
-                    //   _transaction.memoImage,
-                    //       (file) => {
-                    //     setState(
-                    //           () {
-                    //         _transaction.memoImage = file.path;
-                    //       },
-                    //     )
-                    //   },
-                    // ),
+                    FormHelper.picPicker(
+                      _transaction.memoImage,
+                          (file) => {
+                        setState(
+                              () {
+                            _transaction.memoImage = file.path;
+                          },
+                        )
+                      },
+                    ),
                   ],
                 ),
               ),
