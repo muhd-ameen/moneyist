@@ -1,18 +1,17 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:image_picker/image_picker.dart';
 import 'package:intl/intl.dart';
 import 'package:moneyist/helpers/drawer_navigation.dart';
 import 'package:moneyist/helpers/image_helper.dart';
 import 'package:moneyist/models/transaction.dart';
 import 'package:moneyist/repositories/repository.dart';
 import 'package:moneyist/screens/home_screen.dart';
+import 'package:moneyist/screens/todo_screen.dart';
 import 'package:moneyist/services/Income_category_service.dart';
 import 'package:moneyist/services/expense_category_service.dart';
 import 'package:moneyist/services/transaction_service.dart';
 import 'package:moneyist/widget/statusContainer.dart';
-import 'package:moneyist/widget/title_head.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
 
@@ -23,31 +22,22 @@ class CrudHome extends StatefulWidget {
 
 class _CrudHomeState extends State<CrudHome> {
   final GlobalKey<ScaffoldState> _globalKey = GlobalKey<ScaffoldState>();
-
-  var _transactionTitleController = TextEditingController();
-  var _transactionAmountController = TextEditingController();
   var _todoDateController = TextEditingController();
   var _selectedValue;
   var _incategories = List<DropdownMenuItem>();
-  // var _excategories = List<DropdownMenuItem>();
+  var _excategories = List<DropdownMenuItem>();
   final _formKey = GlobalKey<FormState>();
-
   var _transaction = Transaction();
   var _transactionService = TodoService();
-
   List<Transaction> _todoList = List<Transaction>();
-
   var transaction;
-
   var _editTransactionTitleController = TextEditingController();
   var _editTransactionAmountController = TextEditingController();
   DateTime _dateTime = DateTime.now();
-
   TodoService _todoService;
   var model = Repository();
   final DateFormat _dateFormatter = DateFormat('MMM dd, yyyy');
   DateTime _date = DateTime.now();
-
   var _picker;
 
   @override
@@ -56,6 +46,36 @@ class _CrudHomeState extends State<CrudHome> {
     getAllTodos();
     _todoDateController.text = DateFormat('dd-MMM-yyyy').format(_dateTime);
     _loadCategories();
+    // // setBalance();
+    // getIncome();
+    // getExpense();
+    // getBalance();
+  }
+
+  // setIncome() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   prefs.setInt('totalIncome', totalIncome += 200);
+  // }
+  // setExpense() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   prefs.setInt('totalExpense', totalExpense += 100);
+  // }
+  //
+  // setBalance() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   prefs.setInt('balance', totalIncome - totalExpense);
+  // }
+
+  getIncome() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    totalIncome = prefs.getInt('totalIncome');
+    print('Total Income : $totalIncome');
+  }
+
+  getExpense() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    totalIncome = prefs.getInt('totalExpense');
+    print('Total Expense : $totalExpense');
   }
 
   _selectedTodoDate(BuildContext context) async {
@@ -89,7 +109,7 @@ class _CrudHomeState extends State<CrudHome> {
     });
     excategories.forEach((category) {
       setState(() {
-        _incategories.add(DropdownMenuItem(
+        _excategories.add(DropdownMenuItem(
           child: Text(category['exname']),
           value: category['exname'],
         ));
@@ -168,6 +188,17 @@ class _CrudHomeState extends State<CrudHome> {
 
                     var result =
                         await _transactionService.updateTodos(_transaction);
+
+                    //   SharedPreferences prefs =
+                    //   await SharedPreferences.getInstance();
+                    //   prefs.setInt('totalIncome',
+                    //       totalIncome += _transaction.amount);
+                    //
+                    //   balance = totalIncome - totalExpense;
+                    // var checkin = prefs.getInt('totalIncome');
+                    // myInt <= checkin ? checkin -
+
+
                     if (result > 0) {
                       getAllTodos();
                       showToast('Updated');
@@ -242,7 +273,7 @@ class _CrudHomeState extends State<CrudHome> {
                       items: _incategories,
                       hint: Text('Category'),
                       validator: (text) {
-                        if (text == null ) {
+                        if (text == null) {
                           return 'Please Select a Category';
                         }
                         return null;
@@ -253,13 +284,14 @@ class _CrudHomeState extends State<CrudHome> {
                         });
                       },
                     ),
-                    SizedBox(height: 10,),
-
+                    SizedBox(
+                      height: 10,
+                    ),
                     FormHelper.picPicker(
                       _transaction.memoImage,
-                          (file) => {
+                      (file) => {
                         setState(
-                              () {
+                          () {
                             _transaction.memoImage = file.path;
                           },
                         )
@@ -317,18 +349,6 @@ class _CrudHomeState extends State<CrudHome> {
     Toast.show(msg, context, duration: 2, gravity: Toast.BOTTOM);
   }
 
-  addIntToSF() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    prefs.setInt('totalIncome', totalIncome + 100);
-  }
-
-  getIntValuesSF() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    totalIncome = await prefs.getInt('totalIncome');
-    print('%%%%%%%%%${prefs.getInt('totalIncome')}');
-    return totalIncome;
-  }
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -353,9 +373,9 @@ class _CrudHomeState extends State<CrudHome> {
           children: [
             GestureDetector(
                 onTap: () {
-                  addIntToSF();
                   setState(() {
-                    getIntValuesSF();
+                    getIncome();
+                    getExpense();
                   });
                 },
                 child: StatusContainer(
@@ -440,7 +460,7 @@ class _CrudHomeState extends State<CrudHome> {
                             Text(
                               '${_todoList[index].amount}' ?? '--',
                               style: TextStyle(
-                                  color: _todoList[index].category == 'Income'
+                                  color: _todoList[index].category != 'Income'
                                       ? Colors.blue
                                       : Colors.redAccent,
                                   fontSize: 16,

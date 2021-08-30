@@ -1,11 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_switch/flutter_switch.dart';
+import 'package:lottie/lottie.dart';
 import 'package:moneyist/helpers/notification/notificationApi.dart';
 import 'package:moneyist/helpers/notification/secondPage.dart';
 import 'package:moneyist/repositories/repository.dart';
-import 'package:moneyist/screens/home_screen.dart';
-import 'package:moneyist/view/splash_screen.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
 
@@ -23,6 +22,7 @@ class _SettingsState extends State<Settings> {
     NotificationApi.init();
     // listenNotification();
   }
+
   bool notification = false;
 
   void listenNotification() =>
@@ -57,15 +57,21 @@ class _SettingsState extends State<Settings> {
     prefs.setBool('boolValue', false);
   }
 
-  @override
   addPreferenceValues() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setBool('notification', notification);
   }
-  @override
- remPreferenceValues() async {
+
+  remPreferenceValues() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     prefs.setBool('notification', false);
+  }
+
+  removeValues() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    //Remove int
+    prefs.remove("totalIncome");
+    prefs.remove("totalExpense");
   }
 
   @override
@@ -169,14 +175,14 @@ class _SettingsState extends State<Settings> {
                 ),
                 IconButton(
                   onPressed: () async {
-                    await showToast(
-                        'All Data in This Application As Been Deleted');
+                    await showToast('All Data Will be deleted in 3 Seconds');
                     Future.delayed(const Duration(milliseconds: 3000),
                         () async {
                       await model.deleteDb();
                       await model.deleteDbc();
                       await removePreferenceValues();
                       await remPreferenceValues();
+                      removeValues();
                       SystemNavigator.pop();
                     });
 
@@ -191,7 +197,7 @@ class _SettingsState extends State<Settings> {
             ),
             Container(
               padding: EdgeInsets.only(top: 150),
-              child: Image.asset('assets/images/settings.png'),
+              child: Lottie.asset('assets/animations/settings.json'),
             )
           ],
         ),

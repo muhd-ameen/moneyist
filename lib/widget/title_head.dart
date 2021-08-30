@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
+
 
 class TitleHead extends StatelessWidget {
   const TitleHead({
@@ -6,7 +8,8 @@ class TitleHead extends StatelessWidget {
     this.money,
   });
   final Title;
-   final int money;
+  final int money;
+
   @override
   Widget build(BuildContext context) {
     return Column(

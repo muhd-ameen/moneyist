@@ -1,11 +1,10 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:moneyist/screens/todo_screen.dart';
 import 'package:moneyist/view/settings.dart';
-import 'package:moneyist/widget/statusContainer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:moneyist/helpers/drawer_navigation.dart';
-import 'package:moneyist/screens/todo_screen.dart';
 import 'package:moneyist/screens/nav/home.dart';
 import 'package:toast/toast.dart';
 import 'nav/categories_screen.dart';
@@ -21,15 +20,8 @@ class _HomeScreenState extends State<HomeScreen> {
     super.initState();
     _loadData();
     checkloggin();
-    getIntValuesSF();
   }
 
-  getIntValuesSF() async {
-    SharedPreferences prefs = await SharedPreferences.getInstance();
-    totalIncome = await prefs.getInt('totalIncome');
-    print('%%%%%%%%%${prefs.getInt('totalIncome')}');
-    return totalIncome;
-  }
 
   _loadData() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -40,7 +32,7 @@ class _HomeScreenState extends State<HomeScreen> {
 
   checkloggin() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
-    print('23456789${prefs.getBool('boolValue')}');
+    print('loggin :  ${prefs.getBool('boolValue')}');
   }
 
   int _selectedIndex = 0;
@@ -94,13 +86,13 @@ class _HomeScreenState extends State<HomeScreen> {
           items: const <BottomNavigationBarItem>[
             BottomNavigationBarItem(
               icon: Icon(Icons.home),
-              title: Text('Home'),
+              label: 'Home',
             ),
             BottomNavigationBarItem(
               icon: Icon(
                 Icons.dashboard_customize_outlined,
               ),
-              title: Text('Category'),
+              label: 'Category',
             ),
           ],
           currentIndex: _selectedIndex,

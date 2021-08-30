@@ -13,8 +13,8 @@ class DrawerNavigaton extends StatefulWidget {
 }
 
 class _DrawerNavigatonState extends State<DrawerNavigaton> {
-  List<Widget> _incategoryList = List<Widget>();
-  List<Widget> _excategoryList = List<Widget>();
+  List<Widget> _incategoryList = <Widget>[];
+  List<Widget> _excategoryList = <Widget>[];
 
   IncomeCategoryService _incategoryService = IncomeCategoryService();
   ExpenseCategoryService _excategoryService = ExpenseCategoryService();

@@ -9,12 +9,12 @@ import 'package:intl/intl.dart';
 import 'package:moneyist/widget/statusContainer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'home_screen.dart';
-import '../test/Home.dart';
 
 class TodoScreen extends StatefulWidget {
   @override
   _TodoScreenState createState() => _TodoScreenState();
 }
+String selectedCategory = 'income';
 
 class _TodoScreenState extends State<TodoScreen> {
   var _todoTitleController = TextEditingController();
@@ -83,7 +83,6 @@ class _TodoScreenState extends State<TodoScreen> {
     _globalKey.currentState.showSnackBar(_snackBar);
   }
 
-  String _selectedCategory = 'income';
 
   @override
   Widget build(BuildContext context) {
@@ -176,10 +175,11 @@ class _TodoScreenState extends State<TodoScreen> {
                   ListTile(
                     leading: Radio(
                       value: 'income',
-                      groupValue: _selectedCategory,
+                      groupValue: selectedCategory,
                       onChanged: (value) {
                         setState(() {
-                          _selectedCategory = value;
+                          selectedCategory = 'income';
+                          selectedCategory = value;
                         });
                       },
                     ),
@@ -188,16 +188,17 @@ class _TodoScreenState extends State<TodoScreen> {
                   ListTile(
                     leading: Radio(
                       value: 'expense',
-                      groupValue: _selectedCategory,
+                      groupValue: selectedCategory,
                       onChanged: (value) {
                         setState(() {
-                          _selectedCategory = value;
+                          selectedCategory = 'expense';
+                          selectedCategory = value;
                         });
                       },
                     ),
                     title: Text('Expense'),
                   ),
-                  _selectedCategory == 'income'
+                  selectedCategory == 'income'
                       ? DropdownButtonFormField(
                           value: _selectedValue,
                           items: _incategories,
@@ -266,14 +267,31 @@ class _TodoScreenState extends State<TodoScreen> {
                               int.parse(_todoDescriptionController.text);
                           todoObject.category = _selectedValue.toString();
                           todoObject.transactionDate = _todoDateController.text;
-
                           var _todoService = TodoService();
                           var result = await _todoService.saveTodo(todoObject);
 
-                          SharedPreferences prefs =
-                              await SharedPreferences.getInstance();
-                          prefs.setInt(
-                              'totalIncome', totalIncome += todoObject.amount);
+                          print(selectedCategory);
+                          setIncome() async {
+                            SharedPreferences prefs =
+                                await SharedPreferences.getInstance();
+                            prefs.setInt('totalIncome',
+                                totalIncome += todoObject.amount);
+
+                            balance = totalIncome - totalExpense;
+                          }
+
+                          setExpense() async {
+                            SharedPreferences prefs =
+                                await SharedPreferences.getInstance();
+                            prefs.setInt('totalExpense',
+                                totalExpense += todoObject.amount);
+                            balance = totalIncome - totalExpense;
+
+                          }
+
+                          selectedCategory == 'income'
+                              ? setIncome()
+                              : setExpense();
 
                           if (result > 0) {
                             _showSuccessSnackBar(

@@ -50,6 +50,7 @@ dependencies:
   flutter_local_notifications: ^6.1.0
   http:
   rxdart: ^0.27.1
+  lottie: ^1.1.0
 
 
 dev_dependencies:
@@ -78,6 +79,7 @@ flutter:
   assets:
     - assets/images/
     - assets/icons/
+    - assets/animations/
 
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.

@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:moneyist/Consanants/consanants.dart';
-import 'package:flutter_rating_bar/flutter_rating_bar.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Support extends StatefulWidget {

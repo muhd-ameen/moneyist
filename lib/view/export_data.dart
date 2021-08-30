@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:moneyist/screens/home_screen.dart';
+import 'package:lottie/lottie.dart';
 
 class ExportData extends StatefulWidget {
   @override
@@ -61,94 +61,96 @@ class _ExportDataState extends State<ExportData> {
       ),
       body: SingleChildScrollView(
         child: Padding(
-          padding: EdgeInsets.symmetric(horizontal: 20, vertical: 30),
+          padding: EdgeInsets.symmetric(horizontal: 40, vertical: 30),
           child: Column(
             children: [
               Container(
-                margin: EdgeInsets.symmetric(vertical: 60),
-                child: Center(child: Image.asset('assets/images/export.png')),
-              ),
-              Text(
-                'Select A Duration to Export Data',
-                style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
-              ),
-              SizedBox(
-                height: 20,
-              ),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: [
-                  RaisedButton.icon(
-                    onPressed: () => _startDate(context),
-                    color: Color(0xFF3C354C),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 8),
-                    label: Text(
-                      'Start Date',
-                      style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    icon: Icon(
-                      Icons.date_range_outlined,
-                      color: Colors.white,
-                    ),
-                  ),
-                  RaisedButton.icon(
-                    onPressed: () => _endDate(context),
-                    color: Color(0xFF3C354C),
-                    shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(10)),
-                    padding: EdgeInsets.symmetric(horizontal: 30, vertical: 8),
-                    label: Text(
-                      'End Date',
-                      style: TextStyle(
-                          fontSize: 17,
-                          color: Colors.white,
-                          fontWeight: FontWeight.bold),
-                    ),
-                    icon: Icon(
-                      Icons.date_range_outlined,
-                      color: Colors.white,
-                    ),
-                  ),
-                ],
-              ),
-              SizedBox(
-                height: 30,
-              ),
-              Center(
-                child: RaisedButton.icon(
-                  onPressed: () {
-                    _scaffoldKey.currentState.showSnackBar(
-                      new SnackBar(
-                        duration: Duration(seconds: 2),
-                        content: new Text(
-                          'Downloaded Successfully',
-                          style: TextStyle(fontWeight: FontWeight.w800),
-                        ),
-                      ),
-                    );
-                  },
-                  color: Color(0xFFFF4F5A),
-                  shape: RoundedRectangleBorder(
-                      borderRadius: BorderRadius.circular(10)),
-                  padding: EdgeInsets.symmetric(horizontal: 60, vertical: 10),
-                  label: Text(
-                    'Export',
-                    style: TextStyle(
-                        fontSize: 17,
-                        color: Colors.white,
-                        fontWeight: FontWeight.bold),
-                  ),
-                  icon: Icon(
-                    Icons.import_export,
-                    color: Colors.white,
-                  ),
+                margin: EdgeInsets.symmetric(vertical: 120),
+                child: Center(
+                  child: Lottie.asset('assets/animations/coming.json'),
                 ),
               ),
+              // Text(
+              //   'Select A Duration to Export Data',
+              //   style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold),
+              // ),
+              // SizedBox(
+              //   height: 20,
+              // ),
+              // Row(
+              //   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              //   children: [
+              //     RaisedButton.icon(
+              //       onPressed: () => _startDate(context),
+              //       color: Color(0xFF3C354C),
+              //       shape: RoundedRectangleBorder(
+              //           borderRadius: BorderRadius.circular(10)),
+              //       padding: EdgeInsets.symmetric(horizontal: 30, vertical: 8),
+              //       label: Text(
+              //         'Start Date',
+              //         style: TextStyle(
+              //             fontSize: 17,
+              //             color: Colors.white,
+              //             fontWeight: FontWeight.bold),
+              //       ),
+              //       icon: Icon(
+              //         Icons.date_range_outlined,
+              //         color: Colors.white,
+              //       ),
+              //     ),
+              //     RaisedButton.icon(
+              //       onPressed: () => _endDate(context),
+              //       color: Color(0xFF3C354C),
+              //       shape: RoundedRectangleBorder(
+              //           borderRadius: BorderRadius.circular(10)),
+              //       padding: EdgeInsets.symmetric(horizontal: 30, vertical: 8),
+              //       label: Text(
+              //         'End Date',
+              //         style: TextStyle(
+              //             fontSize: 17,
+              //             color: Colors.white,
+              //             fontWeight: FontWeight.bold),
+              //       ),
+              //       icon: Icon(
+              //         Icons.date_range_outlined,
+              //         color: Colors.white,
+              //       ),
+              //     ),
+              //   ],
+              // ),
+              // SizedBox(
+              //   height: 30,
+              // ),
+              // Center(
+              //   child: RaisedButton.icon(
+              //     onPressed: () {
+              //       _scaffoldKey.currentState.showSnackBar(
+              //         new SnackBar(
+              //           duration: Duration(seconds: 2),
+              //           content: new Text(
+              //             'Downloaded Successfully',
+              //             style: TextStyle(fontWeight: FontWeight.w800),
+              //           ),
+              //         ),
+              //       );
+              //     },
+              //     color: Color(0xFFFF4F5A),
+              //     shape: RoundedRectangleBorder(
+              //         borderRadius: BorderRadius.circular(10)),
+              //     padding: EdgeInsets.symmetric(horizontal: 60, vertical: 10),
+              //     label: Text(
+              //       'Export',
+              //       style: TextStyle(
+              //           fontSize: 17,
+              //           color: Colors.white,
+              //           fontWeight: FontWeight.bold),
+              //     ),
+              //     icon: Icon(
+              //       Icons.import_export,
+              //       color: Colors.white,
+              //     ),
+              //   ),
+              // ),
             ],
           ),
         ),

@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_rating_bar/flutter_rating_bar.dart';
-import 'package:moneyist/screens/home_screen.dart';
 import 'package:url_launcher/url_launcher.dart';
 
 class Rating extends StatefulWidget {

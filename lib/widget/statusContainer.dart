@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:moneyist/screens/nav/home.dart';
 import 'package:moneyist/widget/title_head.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+
+var totalIncome = 0;
+var totalExpense = 0;
+var balance = 0;
 
 class StatusContainer extends StatefulWidget {
   const StatusContainer({
@@ -20,13 +22,12 @@ class StatusContainer extends StatefulWidget {
   _StatusContainerState createState() => _StatusContainerState();
 }
 
-var totalIncome = 100;
-var totalExpense = 1;
-var balance = totalIncome - totalExpense;
-
 class _StatusContainerState extends State<StatusContainer> {
-
-
+  @override
+  void initState() {
+    super.initState();
+    // balance = totalIncome - totalExpense;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,7 +49,7 @@ class _StatusContainerState extends State<StatusContainer> {
             children: [
               TitleHead(
                 Title: 'Income',
-                money: totalIncome,
+                money: totalIncome == null ? 1 : totalIncome,
               ),
               SizedBox(
                 child: Container(
@@ -58,7 +59,7 @@ class _StatusContainerState extends State<StatusContainer> {
               ),
               TitleHead(
                 Title: 'Expenses',
-                money: totalExpense,
+                money: totalExpense == null ? 1 : totalExpense,
               ),
               SizedBox(
                 child: Container(
@@ -68,7 +69,7 @@ class _StatusContainerState extends State<StatusContainer> {
               ),
               TitleHead(
                 Title: 'Balance',
-                money: balance,
+                money: balance == null ? 1 : balance,
               ),
             ],
           ),

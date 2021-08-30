@@ -2,14 +2,10 @@ import 'package:flutter/material.dart';
 import 'package:moneyist/screens/home_screen.dart';
 import 'package:moneyist/screens/nav/categories_screen.dart';
 import 'package:moneyist/screens/nav/home.dart';
-import 'package:moneyist/test/tabbed.dart';
 import 'package:moneyist/view/add_category.dart';
 import 'package:moneyist/view/support.dart';
-
-import 'view/add_transaction.dart';
 import 'view/edit_transaction.dart';
 import 'view/export_data.dart';
-import 'view/home.dart';
 import 'view/rating.dart';
 import 'view/settings.dart';
 import 'view/splash_screen.dart';

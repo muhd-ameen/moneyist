@@ -6,7 +6,6 @@ class Transaction {
   String category;
   String transactionDate;
   String memoImage;
-  DateTime _dateTime = DateTime.now();
 
 
 

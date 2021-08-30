@@ -25,7 +25,7 @@ class SecondPage extends StatelessWidget {
           Center(
             child: Text(payload ?? 'Ajmals'),
           ),
-          RaisedButton(
+          ElevatedButton(
             onPressed: _incrementCounter,
             child: Text('Increment Counter'),
           ),

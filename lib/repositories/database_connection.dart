@@ -32,6 +32,6 @@ class DatabaseConnection {
 
     // Create table todos
     await database.execute(
-        "CREATE TABLE transactions(id INTEGER PRIMARY KEY, title VARCHAR(22), amount STRING, category TEXT, transactionDate TEXT, memoImage String)");
+        "CREATE TABLE transactions(id INTEGER PRIMARY KEY, title VARCHAR(22), amount INTEGER, category TEXT, transactionDate TEXT, memoImage String)");
   }
 }

@@ -1,6 +1,7 @@
 import 'dart:async';
 import 'package:flutter/material.dart';
 import 'package:shared_preferences/shared_preferences.dart';
+import 'package:lottie/lottie.dart';
 
 class SplashScreen extends StatefulWidget {
   @override
@@ -13,11 +14,14 @@ class _SplashScreenState extends State<SplashScreen> {
   @override
   void initState() {
     super.initState();
-    print('@@@@@${isLoggedIn.toString()}');
-    startTime();
+    printstatus();
   }
 
   bool isLoggedIn;
+  printstatus() async {
+    await print('@@@@@${isLoggedIn.toString()}');
+    startTime();
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -34,10 +38,11 @@ class _SplashScreenState extends State<SplashScreen> {
                   flex: 5,
                   child: Container(),
                 ),
-                Image.asset(
-                  'assets/images/splash.png',
-                  height: 250,
-                ),
+                Lottie.asset('assets/animations/splash.json'),
+                // Image.asset(
+                //   'assets/images/splash.png',
+                //   height: 250,
+                // ),
                 Image.asset(
                   'assets/images/m-text.png',
                   height: 60,
@@ -67,7 +72,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   startTime() async {
-    var _duration = new Duration(seconds: 2);
+    var _duration = new Duration(seconds: 1);
     return new Timer(_duration, () async {
       await checkLoggedIn();
     });

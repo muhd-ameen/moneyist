@@ -12,41 +12,41 @@
 12         to allow setting breakpoints, to provide hot reload, etc.
 13    -->
 14    <uses-permission android:name="android.permission.INTERNET" />
-14-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/debug/AndroidManifest.xml:6:5-66
-14-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/debug/AndroidManifest.xml:6:22-64
+14-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/debug/AndroidManifest.xml:6:5-66
+14-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/debug/AndroidManifest.xml:6:22-64
 15    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
-15-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-81
-15-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:7:22-78
+15-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:7:5-81
+15-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:7:22-78
 16    <uses-permission android:name="android.permission.VIBRATE" />
-16-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:8:5-66
-16-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:8:22-63
+16-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:8:5-66
+16-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:8:22-63
 17    <uses-permission android:name="android.permission.USE_FULL_SCREEN_INTENT" />
-17-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-81
-17-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:9:22-78
+17-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:9:5-81
+17-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:9:22-78
 18
 19    <application
-19-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:3:4-40:19
+19-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:3:4-40:19
 20        android:appComponentFactory="androidx.core.app.CoreComponentFactory"
 20-->[androidx.core:core:1.3.1] /home/ameen/.gradle/caches/transforms-2/files-2.1/9d2ac2ae8a44d697ec01e22fb5b300b2/core-1.3.1/AndroidManifest.xml:24:18-86
 21        android:debuggable="true"
 22        android:icon="@mipmap/ic_launcher"
-22-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:5:9-43
+22-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:5:9-43
 23        android:label="moneyist" >
-23-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:4:9-33
+23-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:4:9-33
 24        <activity
-24-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:6:9-34:20
+24-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:6:9-34:20
 25            android:name="com.example.moneyist.MainActivity"
-25-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:7:13-41
+25-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:7:13-41
 26            android:configChanges="orientation|keyboardHidden|keyboard|screenSize|smallestScreenSize|locale|layoutDirection|fontScale|screenLayout|density|uiMode"
-26-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:10:13-163
+26-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:10:13-163
 27            android:hardwareAccelerated="true"
-27-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:11:13-47
+27-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:11:13-47
 28            android:launchMode="singleTop"
-28-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:8:13-43
+28-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:8:13-43
 29            android:theme="@style/LaunchTheme"
-29-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:9:13-47
+29-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:9:13-47
 30            android:windowSoftInputMode="adjustResize" >
-30-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:12:13-55
+30-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:12:13-55
 31
 32            <!--
 33                 Specifies an Android theme to apply to this Activity as soon as
@@ -55,11 +55,11 @@
 36                 to determine the Window background behind the Flutter UI.
 37            -->
 38            <meta-data
-38-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:17:13-20:17
+38-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:17:13-20:17
 39                android:name="io.flutter.embedding.android.NormalTheme"
-39-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:18:15-70
+39-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:18:15-70
 40                android:resource="@style/NormalTheme" />
-40-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:19:15-52
+40-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:19:15-52
 41            <!--
 42                 Displays an Android View that continues showing the launch screen
 43                 Drawable until Flutter paints its first frame, then this splash
@@ -68,21 +68,21 @@
 46                 Flutter's first frame.
 47            -->
 48            <meta-data
-48-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:26:13-29:17
+48-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:26:13-29:17
 49                android:name="io.flutter.embedding.android.SplashScreenDrawable"
-49-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:27:15-79
+49-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:27:15-79
 50                android:resource="@drawable/launch_background" />
-50-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:28:15-61
+50-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:28:15-61
 51
 52            <intent-filter>
-52-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:30:13-33:29
+52-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:30:13-33:29
 53                <action android:name="android.intent.action.MAIN" />
-53-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:31:17-68
-53-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:31:25-66
+53-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:31:17-68
+53-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:31:25-66
 54
 55                <category android:name="android.intent.category.LAUNCHER" />
-55-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:32:17-76
-55-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:32:27-74
+55-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:32:17-76
+55-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:32:27-74
 56            </intent-filter>
 57        </activity>
 58        <!--
@@ -90,78 +90,78 @@
 60             This is used by the Flutter tool to generate GeneratedPluginRegistrant.java
 61        -->
 62        <meta-data
-62-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:37:9-39:33
+62-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:37:9-39:33
 63            android:name="flutterEmbedding"
-63-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:38:13-44
+63-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:38:13-44
 64            android:value="2" />
-64-->/home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/android/app/src/main/AndroidManifest.xml:39:13-30
+64-->/home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/android/app/src/main/AndroidManifest.xml:39:13-30
 65
 66        <provider
-66-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-16:20
+66-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-16:20
 67            android:name="io.flutter.plugins.imagepicker.ImagePickerFileProvider"
-67-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-82
+67-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-82
 68            android:authorities="com.example.moneyist.flutter.image_provider"
-68-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:10:13-74
+68-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:10:13-74
 69            android:exported="false"
-69-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-37
+69-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-37
 70            android:grantUriPermissions="true" >
-70-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-47
+70-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-47
 71            <meta-data
-71-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-15:75
+71-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-15:75
 72                android:name="android.support.FILE_PROVIDER_PATHS"
-72-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:14:17-67
+72-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:14:17-67
 73                android:resource="@xml/flutter_image_picker_file_paths" />
-73-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:15:17-72
+73-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:15:17-72
 74        </provider>
 75
 76        <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationReceiver" />
-76-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:12:9-106
-76-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:12:19-103
+76-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:12:9-106
+76-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:12:19-103
 77        <receiver android:name="com.dexterous.flutterlocalnotifications.ScheduledNotificationBootReceiver" >
-77-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:13:9-20:20
-77-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:13:19-107
+77-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:13:9-20:20
+77-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:13:19-107
 78            <intent-filter>
-78-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-19:29
+78-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:14:13-19:29
 79                <action android:name="android.intent.action.BOOT_COMPLETED" />
-79-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:15:17-79
-79-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:15:25-76
+79-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:15:17-79
+79-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:15:25-76
 80                <action android:name="android.intent.action.MY_PACKAGE_REPLACED" />
-80-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:16:17-84
-80-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:16:25-81
+80-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:16:17-84
+80-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:16:25-81
 81                <action android:name="android.intent.action.QUICKBOOT_POWERON" />
-81-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:17:17-82
-81-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:17:25-79
+81-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:17:17-82
+81-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:17:25-79
 82                <action android:name="com.htc.intent.action.QUICKBOOT_POWERON" />
-82-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:18:17-82
-82-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:18:25-79
+82-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:18:17-82
+82-->[:flutter_local_notifications] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/flutter_local_notifications/intermediates/library_manifest/debug/AndroidManifest.xml:18:25-79
 83            </intent-filter>
 84        </receiver>
 85
 86        <activity
-86-->[:url_launcher] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-11:74
+86-->[:url_launcher] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-11:74
 87            android:name="io.flutter.plugins.urllauncher.WebViewActivity"
-87-->[:url_launcher] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-74
+87-->[:url_launcher] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-74
 88            android:exported="false"
-88-->[:url_launcher] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:10:13-37
+88-->[:url_launcher] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:10:13-37
 89            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" />
-89-->[:url_launcher] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-71
+89-->[:url_launcher] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/url_launcher/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-71
 90
 91        <provider
-91-->[:share] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-16:20
+91-->[:share] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:8:9-16:20
 92            android:name="io.flutter.plugins.share.ShareFileProvider"
-92-->[:share] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-70
+92-->[:share] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:9:13-70
 93            android:authorities="com.example.moneyist.flutter.share_provider"
-93-->[:share] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:10:13-74
+93-->[:share] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:10:13-74
 94            android:exported="false"
-94-->[:share] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-37
+94-->[:share] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:11:13-37
 95            android:grantUriPermissions="true" >
-95-->[:share] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-47
+95-->[:share] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/share/intermediates/library_manifest/debug/AndroidManifest.xml:12:13-47
 96            <meta-data
-96-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-15:75
+96-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:13:13-15:75
 97                android:name="android.support.FILE_PROVIDER_PATHS"
-97-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:14:17-67
+97-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:14:17-67
 98                android:resource="@xml/flutter_share_file_paths" />
-98-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:15:17-72
+98-->[:image_picker] /home/ameen/AndroidStudioProjects/project/Moneyist/backup/moneyist/build/image_picker/intermediates/library_manifest/debug/AndroidManifest.xml:15:17-72
 99        </provider>
 100    </application>
 101
