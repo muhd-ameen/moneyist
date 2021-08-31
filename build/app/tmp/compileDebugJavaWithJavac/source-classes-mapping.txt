@@ -1,4 +1,0 @@
-com/example/moneyist/BuildConfig.java
- com.example.moneyist.BuildConfig
-io/flutter/plugins/GeneratedPluginRegistrant.java
- io.flutter.plugins.GeneratedPluginRegistrant

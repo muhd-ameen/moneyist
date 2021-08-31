@@ -7,7 +7,6 @@ import 'package:moneyist/helpers/image_helper.dart';
 import 'package:moneyist/models/transaction.dart';
 import 'package:moneyist/repositories/repository.dart';
 import 'package:moneyist/screens/home_screen.dart';
-import 'package:moneyist/screens/todo_screen.dart';
 import 'package:moneyist/services/Income_category_service.dart';
 import 'package:moneyist/services/expense_category_service.dart';
 import 'package:moneyist/services/transaction_service.dart';
@@ -46,25 +45,9 @@ class _CrudHomeState extends State<CrudHome> {
     getAllTodos();
     _todoDateController.text = DateFormat('dd-MMM-yyyy').format(_dateTime);
     _loadCategories();
-    // // setBalance();
     // getIncome();
     // getExpense();
-    // getBalance();
   }
-
-  // setIncome() async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   prefs.setInt('totalIncome', totalIncome += 200);
-  // }
-  // setExpense() async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   prefs.setInt('totalExpense', totalExpense += 100);
-  // }
-  //
-  // setBalance() async {
-  //   SharedPreferences prefs = await SharedPreferences.getInstance();
-  //   prefs.setInt('balance', totalIncome - totalExpense);
-  // }
 
   getIncome() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -77,6 +60,11 @@ class _CrudHomeState extends State<CrudHome> {
     totalIncome = prefs.getInt('totalExpense');
     print('Total Expense : $totalExpense');
   }
+  // getBalance() async {
+  //   SharedPreferences prefs = await SharedPreferences.getInstance();
+  //   balance = prefs.getInt('balance');
+  //   print('Total balance : $balance');
+  // }
 
   _selectedTodoDate(BuildContext context) async {
     var _pickedDate = await showDatePicker(
@@ -189,15 +177,23 @@ class _CrudHomeState extends State<CrudHome> {
                     var result =
                         await _transactionService.updateTodos(_transaction);
 
-                    //   SharedPreferences prefs =
-                    //   await SharedPreferences.getInstance();
-                    //   prefs.setInt('totalIncome',
-                    //       totalIncome += _transaction.amount);
+                    // SharedPreferences prefs =
+                    //     await SharedPreferences.getInstance();
+                    // var newValue;
                     //
+                    // var previousValue = prefs.getInt('totalIncome');
+                    //
+                    // if (_transaction.amount < previousValue) {
+                    //   newValue = myInt - previousValue;
+                    //   prefs.setInt(
+                    //       'totalIncome', totalIncome - newValue);
                     //   balance = totalIncome - totalExpense;
-                    // var checkin = prefs.getInt('totalIncome');
-                    // myInt <= checkin ? checkin -
-
+                    // } else if (_transaction.amount > previousValue) {
+                    //   newValue = _transaction.amount - previousValue;
+                    //   prefs.setInt(
+                    //       'totalIncome', totalIncome + newValue);
+                    //   balance = totalIncome - totalExpense;
+                    // }
 
                     if (result > 0) {
                       getAllTodos();

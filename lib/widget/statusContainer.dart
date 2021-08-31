@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
 import 'package:moneyist/widget/title_head.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 var totalIncome = 0;
 var totalExpense = 0;
@@ -26,7 +27,13 @@ class _StatusContainerState extends State<StatusContainer> {
   @override
   void initState() {
     super.initState();
-    // balance = totalIncome - totalExpense;
+    getIncome();
+  }
+var totalIncomes;
+  getIncome() async {
+    SharedPreferences prefs = await SharedPreferences.getInstance();
+    totalIncomes = prefs.getInt('totalIncome');
+    print('Total Income : $totalIncome');
   }
 
   @override
