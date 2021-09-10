@@ -22,6 +22,7 @@ class _TodoScreenState extends State<TodoScreen> {
   var _todoDateController = TextEditingController();
 
   var _selectedValue;
+  var _categotyType;
   var _transaction = Transaction();
 
   var _incategories = List<DropdownMenuItem>();
@@ -179,7 +180,7 @@ class _TodoScreenState extends State<TodoScreen> {
                       onChanged: (value) {
                         setState(() {
                           selectedCategory = 'income';
-                          selectedCategory = value;
+                          _transaction.categotyType = value;
                         });
                       },
                     ),
@@ -192,7 +193,7 @@ class _TodoScreenState extends State<TodoScreen> {
                       onChanged: (value) {
                         setState(() {
                           selectedCategory = 'expense';
-                          selectedCategory = value;
+                          _transaction.categotyType = value;
                         });
                       },
                     ),
@@ -261,22 +262,24 @@ class _TodoScreenState extends State<TodoScreen> {
                           borderRadius: BorderRadius.circular(8)),
                       onPressed: () async {
                         if (_formKey.currentState.validate()) {
+
+
                           var todoObject = Transaction();
+
                           todoObject.title = _todoTitleController.text;
                           todoObject.amount =
                               int.parse(_todoDescriptionController.text);
                           todoObject.category = _selectedValue.toString();
                           todoObject.transactionDate = _todoDateController.text;
+                          todoObject.categotyType = _categotyType;
                           var _todoService = TodoService();
                           var result = await _todoService.saveTodo(todoObject);
 
                           print(selectedCategory);
-                          setIncome() async {
-                            SharedPreferences prefs =
-                                await SharedPreferences.getInstance();
-                            prefs.setInt('totalIncome',
-                                totalIncome += todoObject.amount);
 
+                          setIncome() async {
+                            SharedPreferences prefs = await SharedPreferences.getInstance();
+                            prefs.setInt('totalIncome', totalIncome += todoObject.amount);
                             balance = totalIncome - totalExpense;
                           }
 

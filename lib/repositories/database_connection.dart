@@ -20,7 +20,6 @@ class DatabaseConnection {
     await database.execute(
         "INSERT Into ExpenseCategories (exname) VALUES ('Bills'), ('Food'), ('Travel'), ('Shopping'), ('Education');");
 
-
     // INcome Category
 
     await database.execute(
@@ -28,9 +27,8 @@ class DatabaseConnection {
     await database.execute(
         "INSERT Into IncomeCategories (inname) VALUES ('Salary'), ('Reward'),('Rental'),('Refund'),('Coupons');");
 
-
     // Create table todos
     await database.execute(
-        "CREATE TABLE transactions(id INTEGER PRIMARY KEY, title VARCHAR(22), amount INTEGER, category TEXT, transactionDate TEXT, memoImage String)");
+        "CREATE TABLE transactions(id INTEGER PRIMARY KEY, title VARCHAR(22), amount INTEGER, category TEXT, categotyType Text, transactionDate TEXT, memoImage String)");
   }
 }

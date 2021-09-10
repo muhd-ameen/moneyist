@@ -14,6 +14,8 @@ import 'package:moneyist/widget/statusContainer.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:toast/toast.dart';
 
+import '../todo_screen.dart';
+
 class CrudHome extends StatefulWidget {
   @override
   _CrudHomeState createState() => _CrudHomeState();
@@ -39,13 +41,15 @@ class _CrudHomeState extends State<CrudHome> {
   DateTime _date = DateTime.now();
   var _picker;
 
+  var _categotyType;
+
   @override
   void initState() {
     super.initState();
     getAllTodos();
     _todoDateController.text = DateFormat('dd-MMM-yyyy').format(_dateTime);
     _loadCategories();
-    // getIncome();
+    getIncome();
     // getExpense();
   }
 
@@ -53,12 +57,15 @@ class _CrudHomeState extends State<CrudHome> {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     totalIncome = prefs.getInt('totalIncome');
     print('Total Income : $totalIncome');
+    // balance = totalIncome - totalExpense;
+    print('balance : $balance');
   }
 
   getExpense() async {
     SharedPreferences prefs = await SharedPreferences.getInstance();
     totalIncome = prefs.getInt('totalExpense');
     print('Total Expense : $totalExpense');
+    // balance = totalIncome - totalExpense;
   }
   // getBalance() async {
   //   SharedPreferences prefs = await SharedPreferences.getInstance();
@@ -118,6 +125,7 @@ class _CrudHomeState extends State<CrudHome> {
         model.title = todo['title'];
         model.amount = todo['amount'];
         model.category = todo['category'];
+        model.categotyType = todo['categotyType'];
         model.transactionDate = todo['transactionDate'];
         _todoList.add(model);
       });
@@ -136,6 +144,7 @@ class _CrudHomeState extends State<CrudHome> {
 
       _todoDateController.text = transaction[0]['transactionDate'] ?? 'No date';
       _selectedValue = transaction[0]['category'] ?? 'No categoty';
+      _categotyType = transaction[0]['categotyType'] ?? 'No categotyType';
       _picker = transaction[0]['memoImage'] ?? 'No image';
     });
     _editFormDialog(context);
@@ -173,27 +182,28 @@ class _CrudHomeState extends State<CrudHome> {
                     _transaction.amount = myInt;
                     _transaction.transactionDate = _todoDateController.text;
                     _transaction.category = _selectedValue;
+                    _transaction.categotyType = _categotyType;
 
                     var result =
                         await _transactionService.updateTodos(_transaction);
 
-                    // SharedPreferences prefs =
-                    //     await SharedPreferences.getInstance();
-                    // var newValue;
-                    //
-                    // var previousValue = prefs.getInt('totalIncome');
-                    //
-                    // if (_transaction.amount < previousValue) {
-                    //   newValue = myInt - previousValue;
-                    //   prefs.setInt(
-                    //       'totalIncome', totalIncome - newValue);
-                    //   balance = totalIncome - totalExpense;
-                    // } else if (_transaction.amount > previousValue) {
-                    //   newValue = _transaction.amount - previousValue;
-                    //   prefs.setInt(
-                    //       'totalIncome', totalIncome + newValue);
-                    //   balance = totalIncome - totalExpense;
-                    // }
+                    SharedPreferences prefs =
+                        await SharedPreferences.getInstance();
+                    var newValue;
+
+                    var previousValue = prefs.getInt('totalIncome');
+
+                    if (_transaction.amount >= previousValue) {
+                      newValue = _transaction.amount - previousValue;
+                      prefs.setInt('totalIncome', totalIncome + newValue);
+                      balance = totalIncome - totalExpense;
+                      getIncome();
+                    } else if (_transaction.amount <= previousValue) {
+                      newValue = _transaction.amount - previousValue;
+                      prefs.setInt('totalIncome', totalIncome + newValue);
+                      balance = totalIncome - totalExpense;
+                      getIncome();
+                    }
 
                     if (result > 0) {
                       getAllTodos();
@@ -265,21 +275,22 @@ class _CrudHomeState extends State<CrudHome> {
                       ),
                     ),
                     DropdownButtonFormField(
-                      value: _selectedValue,
-                      items: _incategories,
-                      hint: Text('Category'),
-                      validator: (text) {
-                        if (text == null) {
-                          return 'Please Select a Category';
-                        }
-                        return null;
-                      },
-                      onChanged: (value) {
-                        setState(() {
-                          _selectedValue = value;
-                        });
-                      },
-                    ),
+                          value: _selectedValue,
+                          items: _incategories,
+                          hint: Text('Category'),
+                          validator: (text) {
+                            if (text == null) {
+                              return 'Please Select a Category';
+                            }
+                            return null;
+                          },
+                          onChanged: (value) {
+                            setState(() {
+                              _selectedValue = value;
+                            });
+                          },
+                        ) ??
+                        'a',
                     SizedBox(
                       height: 10,
                     ),
@@ -322,6 +333,16 @@ class _CrudHomeState extends State<CrudHome> {
                 onPressed: () async {
                   var result =
                       await _transactionService.deleteTodos(transactionId);
+                  // SharedPreferences prefs =
+                  //     await SharedPreferences.getInstance();
+                  // var previousValue = prefs.getInt('totalIncome');
+                  // int currentValue = _transaction.amount;
+                  // //
+                  // // prefs.setInt('totalIncome',
+                  // //     previousValue - currentValue);
+                  // balance = totalIncome - totalExpense;
+                  // getIncome();
+
                   if (result > 0) {
                     Navigator.push(context,
                         MaterialPageRoute(builder: (context) => HomeScreen()));
@@ -369,10 +390,8 @@ class _CrudHomeState extends State<CrudHome> {
           children: [
             GestureDetector(
                 onTap: () {
-                  setState(() {
-                    getIncome();
-                    getExpense();
-                  });
+                  getIncome();
+                  getExpense();
                 },
                 child: StatusContainer(
                     dateFormatter: _dateFormatter, date: _date)),
@@ -387,7 +406,7 @@ class _CrudHomeState extends State<CrudHome> {
                   itemCount: _todoList.length,
                   itemBuilder: (context, index) {
                     _todoList.sort((taskA, taskB) =>
-                        taskB.transactionDate.compareTo(taskA.transactionDate));
+                        taskA.transactionDate.compareTo(taskB.transactionDate));
                     return GestureDetector(
                       onTap: () {
                         _editTransaction(context, _todoList[index].id);
@@ -406,7 +425,11 @@ class _CrudHomeState extends State<CrudHome> {
                           mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                           children: [
                             ClipOval(
-                              child: _todoList[index].category == 'Income'
+                              child: _todoList[index].category == 'Reward' ||
+                                      _todoList[index].category == 'Rental' ||
+                                      _todoList[index].category == 'Salary' ||
+                                      _todoList[index].category == 'Coupons' ||
+                                      _todoList[index].category == 'Refund'
                                   ? Image.asset(
                                       'assets/icons/money.png',
                                       width: 50,
@@ -456,7 +479,11 @@ class _CrudHomeState extends State<CrudHome> {
                             Text(
                               '${_todoList[index].amount}' ?? '--',
                               style: TextStyle(
-                                  color: _todoList[index].category != 'Income'
+                                  color:_todoList[index].category == 'Reward' ||
+                                      _todoList[index].category == 'Rental' ||
+                                      _todoList[index].category == 'Salary' ||
+                                      _todoList[index].category == 'Coupons' ||
+                                      _todoList[index].category == 'Refund'
                                       ? Colors.blue
                                       : Colors.redAccent,
                                   fontSize: 16,
@@ -472,6 +499,13 @@ class _CrudHomeState extends State<CrudHome> {
             ),
           ],
         ),
+      ),
+      floatingActionButton: FloatingActionButton(
+        onPressed: () {
+          Navigator.of(context)
+              .push(MaterialPageRoute(builder: (context) => TodoScreen()));
+        },
+        child: Icon(Icons.add),
       ),
     );
   }

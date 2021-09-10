@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.example.moneyist">
+    package="com.aminocode.moneyist">
    <application
         android:label="moneyist"
         android:icon="@mipmap/ic_launcher">

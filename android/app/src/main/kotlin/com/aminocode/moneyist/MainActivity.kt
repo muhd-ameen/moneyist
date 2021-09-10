@@ -1,4 +1,4 @@
-package com.example.moneyist
+package com.aminocode.moneyist
 
 import io.flutter.embedding.android.FlutterActivity
 

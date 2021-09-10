@@ -66,7 +66,7 @@ class _RatingState extends State<Rating> {
                     RaisedButton.icon(
                       onPressed: () async {
                         const url =
-                            'https://play.google.com/store/apps/developer?id=Codeslayers+team';
+                            'https://muhd-ameen.github.io/';
                         if (await canLaunch(url)) {
                           await launch(url);
                         } else {

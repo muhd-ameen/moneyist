@@ -5,8 +5,8 @@ class Transaction {
   int amount;
   String category;
   String transactionDate;
+  String categotyType;
   String memoImage;
-
 
 
   transactionMap() {
@@ -16,6 +16,7 @@ class Transaction {
     mapping['amount'] = amount;
     mapping['category'] = category;
     mapping['memoImage'] = memoImage;
+    mapping['categotyType'] = categotyType;
     mapping['transactionDate'] = transactionDate;
 
     return mapping;

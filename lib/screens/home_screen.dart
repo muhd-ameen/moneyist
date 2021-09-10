@@ -1,7 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:moneyist/screens/todo_screen.dart';
 import 'package:moneyist/view/settings.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:moneyist/helpers/drawer_navigation.dart';
@@ -74,13 +73,13 @@ class _HomeScreenState extends State<HomeScreen> {
       child: Scaffold(
         backgroundColor: Colors.white,
         floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {
-            Navigator.of(context)
-                .push(MaterialPageRoute(builder: (context) => TodoScreen()));
-          },
-          child: Icon(Icons.add),
-        ),
+        // floatingActionButton: FloatingActionButton(
+        //   onPressed: () {
+        //     Navigator.of(context)
+        //         .push(MaterialPageRoute(builder: (context) => TodoScreen()));
+        //   },
+        //   child: Icon(Icons.add),
+        // ),
         drawer: DrawerNavigaton(),
         bottomNavigationBar: BottomNavigationBar(
           items: const <BottomNavigationBarItem>[
