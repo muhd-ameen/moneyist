@@ -72,7 +72,7 @@ class _SplashScreenState extends State<SplashScreen> {
   }
 
   startTime() async {
-    var _duration = new Duration(seconds: 1);
+    var _duration = new Duration(seconds: 6);
     return new Timer(_duration, () async {
       await checkLoggedIn();
     });

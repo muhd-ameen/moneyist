@@ -49,7 +49,7 @@ class _CrudHomeState extends State<CrudHome> {
     getAllTodos();
     _todoDateController.text = DateFormat('dd-MMM-yyyy').format(_dateTime);
     _loadCategories();
-    getIncome();
+    // getIncome();
     // getExpense();
   }
 

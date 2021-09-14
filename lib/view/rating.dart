@@ -66,7 +66,7 @@ class _RatingState extends State<Rating> {
                     RaisedButton.icon(
                       onPressed: () async {
                         const url =
-                            'https://muhd-ameen.github.io/';
+                            'https://play.google.com/store/apps/details?id=com.aminocode.moneyist';
                         if (await canLaunch(url)) {
                           await launch(url);
                         } else {
